@@ -6,5 +6,6 @@ namespace DoAnCuoiKy.Service.IService.Authentication
     public interface IAuthenticationService
     {
         Task<BaseResponse<LoginResponse>> Login(LoginRequest loginRequest);
+        Task<BaseResponse<RegisterResponse>> Register(RegisterRequest registerRequest);
     }
 }
