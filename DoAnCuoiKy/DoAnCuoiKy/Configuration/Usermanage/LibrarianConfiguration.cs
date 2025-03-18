@@ -23,10 +23,9 @@ namespace DoAnCuoiKy.Configuration.Usermanage
                 .HasMaxLength(255);
 
             //với bảng Role quan hệ nhiều nhiều
-            builder.HasMany(lban => lban.roles)
+            builder.HasOne(lan => lan.Role)
                 .WithMany(rl => rl.librarians)
-                .UsingEntity(j => j.ToTable("LibrarianRoles")); //bảng trung gian lưu quan hệ giữa librarian và role
-            
+                .HasForeignKey(lan => lan.RoleId);
         }
     }
 }

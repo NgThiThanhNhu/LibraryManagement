@@ -26,10 +26,10 @@ namespace DoAnCuoiKy.Configuration.Usermanage
 
             builder.Property(u => u.IsActive);
 
-            builder.HasMany(u => u.roles)
-                .WithMany(rl => rl.users)
-                .UsingEntity(j => j.ToTable("UserRoles"));
-           
+            builder.HasOne(u => u.Role)
+               .WithMany(rl => rl.users)
+               .HasForeignKey(u => u.RoleId);
+
         }
     }
 }
