@@ -10,10 +10,11 @@ namespace DoAnCuoiKy.Model.Entities.Usermanage
         public string Email { get; set; }
         public string? Phone { get; set; }
         public string? Password { get; set; }
-      /*  public int? RoleId { get; set; }*/ //phân quyền
-        //public Role? Role { get; set; }
-        public List<Role>? roles { get; set; }
-        
+        public string? Salt { get; set; }
+        public Guid? RoleId { get; set; } //phân quyền
+        public Role? Role { get; set; }
+
+
 
     }
 }
