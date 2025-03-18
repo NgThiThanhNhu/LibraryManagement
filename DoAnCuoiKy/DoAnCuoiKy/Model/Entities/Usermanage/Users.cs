@@ -10,10 +10,9 @@ namespace DoAnCuoiKy.Model.Entities.Usermanage
         public string? Email { get; set; }
         public string? Password { get; set; }
         public DateTime? RegistrationDate { get; set; } = DateTime.Now;
-        public bool? IsActive { get; set; } //trạng thái tài khoản
-        //public int RoleId { get; set; }
-        //public Role Role { get; set; }
-        public List<Role>? roles { get; set; }
+        public bool? IsActive { get; set; } 
+        public Guid RoleId { get; set; }
+        public Role Role { get; set; }
         public List<BookReservation>? Reservations { get; set; }
         public List<Borrowing>? borrowings { get; set; }
         public List<Fine>? fines { get; set; }
