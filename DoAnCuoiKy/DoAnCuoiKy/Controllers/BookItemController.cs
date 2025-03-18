@@ -2,6 +2,7 @@
 using DoAnCuoiKy.Model.Request;
 using DoAnCuoiKy.Model.Response;
 using DoAnCuoiKy.Service.IService.InformationLibrary;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoAnCuoiKy.Controllers
@@ -16,6 +17,7 @@ namespace DoAnCuoiKy.Controllers
             _bookItemService = bookItemService;
         }
         [HttpPost("AddBookItem")]
+        [Authorize(Roles = "Admin")]
         public async Task<BaseResponse<List<BookItemResponse>>> addBookItem(BookItemRequest bookItemRequest)
         {
             BaseResponse<List<BookItemResponse>> response = await _bookItemService.AddBookItem(bookItemRequest);
@@ -23,24 +25,28 @@ namespace DoAnCuoiKy.Controllers
         }
 
         [HttpPost("UpdateBookItem/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<BaseResponse<BookItemResponse>> updateBookItem(Guid id, BookItemRequest bookItemRequest)
         {
             BaseResponse<BookItemResponse> response = await _bookItemService.UpdateBookItem(id, bookItemRequest);
             return response;
         }
         [HttpGet("GetAllBookItem")]
+        [Authorize(Roles = "Admin, User")]
         public async Task<BaseResponse<List<BookItemResponse>>> getAllBookItem()
         {
             BaseResponse<List<BookItemResponse>> response = await _bookItemService.GetAllBookItem();
             return response;
         }
         [HttpGet("GetBookItemById/{id}")]
-        public async Task<BaseResponse<BookItemResponse>> getBookItemById(Guid id) 
-        { 
+        [Authorize(Roles = "Admin, User")]
+        public async Task<BaseResponse<BookItemResponse>> getBookItemById(Guid id)
+        {
             BaseResponse<BookItemResponse> response = await _bookItemService.GetBookItemById(id);
             return response;
         }
         [HttpPost("DeleteBookItem/{id}")]
+        [Authorize(Roles = "Admin, User")]
         public async Task<BaseResponse<BookItemResponse>> deleteBookItem(Guid id)
         {
             BaseResponse<BookItemResponse> response = await _bookItemService.DeleteBookItem(id);
