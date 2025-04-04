@@ -10,7 +10,10 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public Guid? Id { get; set; }
         public string? Title { get; set; }
         public string? Author { get; set; }
-        public string? Publisher { get; set; }
+
+        public Guid PublisherId { get; set; }
+        public Publisher Publisher { get; set; }
+       
         public int? YearPublished { get; set; }
         public int? Quantity { get; set; } //số lượng sách nhập
         //public BookStatus? Status { get; set; }
