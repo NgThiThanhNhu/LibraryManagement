@@ -1,9 +1,11 @@
-﻿using DoAnCuoiKy.Common;
+﻿using Azure;
+using DoAnCuoiKy.Common;
 using DoAnCuoiKy.Data;
 using DoAnCuoiKy.Model.Entities.Usermanage;
 using DoAnCuoiKy.Model.Request;
 using DoAnCuoiKy.Model.Response;
 using DoAnCuoiKy.Service.IService.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,16 +16,19 @@ namespace DoAnCuoiKy.Service.Authentication
     {
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
+        
 
         public AuthenticationService(ApplicationDbContext context, IConfiguration Configuration)
         {
             _configuration = Configuration;
             _context = context;
+           
         }
         public string GetJwtSecretKey()
         {
             return _configuration["Jwt:Key"];
         }
+       
 
         public async Task<BaseResponse<LoginResponse>> Login(LoginRequest loginRequest)
         {
@@ -61,6 +66,9 @@ namespace DoAnCuoiKy.Service.Authentication
 
             //bước 3: nếu mật khẩu khớp với mật khẩu được lưu, thì trả về token cho người dùng, sử dụng để thực hiện request theo role và các hành động cần xác thực khác
             string jwtToken = Encrypt_decrypt.GenerateJwtToken(tokenRequest, _configuration);
+            //sau khi generate token thì lưu token vào cookie vì bảo mật và tránh lộ token từ phía JavaScript
+            //// Lưu token vào cookie
+            
             response.IsSuccess = true;
             response.message = "Đăng nhập thành công!";
             response.data = new LoginResponse
