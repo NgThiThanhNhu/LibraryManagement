@@ -14,12 +14,8 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.Property(b => b.Title)
                 //.IsRequired()
                 .HasMaxLength(200);
-            builder.Property(b => b.Author)
-                //.IsRequired()
-                .HasMaxLength(200);
-            builder.Property(b => b.Publisher)
-                //.IsRequired()
-                .HasMaxLength(200);
+           
+           
             builder.Property(b => b.YearPublished);
 
             builder.Property(b => b.Quantity);
