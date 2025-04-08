@@ -12,18 +12,18 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
         {
             builder.HasKey(i => i.Id);
 
-            builder.Property(i=>i.Title)
-                .HasMaxLength(256);
+            //builder.Property(i=>i.Title)
+            //    .HasMaxLength(256);
 
-            builder.Property(i=>i.Author)
-                .HasMaxLength(256);
+            //builder.Property(i=>i.Author)
+            //    .HasMaxLength(256);
 
-            builder.Property(i=>i.Publisher)
-                .HasMaxLength(256);
+            //builder.Property(i=>i.Publisher)
+            //    .HasMaxLength(256);
 
-            builder.Property(i => i.YearPublished);
+            //builder.Property(i => i.YearPublished);
 
-            builder.Property(i => i.Quantity);
+            //builder.Property(i => i.Quantity);
 
             builder.Property(i => i.BookStatus)
                 .HasConversion<byte>();
