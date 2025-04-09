@@ -1,4 +1,5 @@
 ﻿using DoAnCuoiKy.Model.Entities.InformationLibrary;
+using DoAnCuoiKy.Model.Entities.InformationLibrary.Kho;
 using DoAnCuoiKy.Model.Entities.Usermanage;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -22,6 +23,14 @@ namespace DoAnCuoiKy.Data
         public DbSet<Users> users { get; set; }
         public DbSet<BookChapter> bookChapters { get; set; }
         public DbSet<BookItem> bookItems { get; set; }
+        public DbSet<BookAuthor> bookAuthors { get; set; }
+        public DbSet<Publisher> publishers { get; set; }
+        public DbSet<BookShelf> bookShelves { get; set; }
+        public DbSet<Shelf> shelves { get; set; }
+        public DbSet<ShelfSection> shelfSections { get; set; }
+        public DbSet<Location> locations { get; set; }
+        public DbSet<BookImportTransaction> bookImportTransactions { get; set; }
+        public DbSet<BookExportTransaction> bookExportTransactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
