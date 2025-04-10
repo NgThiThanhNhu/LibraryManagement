@@ -6,11 +6,12 @@ namespace DoAnCuoiKy.Model.Response
     {
         public Guid? Id { get; set; }
         public string? Title { get; set; }
-        public string? Author { get; set; }
-        public string? Publisher { get; set; }
+        public string? AuthorName { get; set; }
+        public string? PublisherName { get; set; }
         public int? YearPublished { get; set; }
         public int? Quantity { get; set; } //số lượng sách nhập vào
-        
+        public float? TotalPrice { get; set; }
+        public float? UnitPrice { get; set; }
         public string? CategoryName { get; set; }
         public string? TitleBookChapter { get; set; }
 
