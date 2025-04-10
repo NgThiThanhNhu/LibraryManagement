@@ -12,6 +12,7 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
 
             builder.Property(ba=>ba.Name)
                 .HasMaxLength(256);
+
             //mối quan hệ với bảng book
             builder.HasMany(ba => ba.books)
                 .WithOne(b => b.BookAuthor)
