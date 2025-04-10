@@ -12,24 +12,24 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.HasKey(b => b.Id);
 
             builder.Property(b => b.Title)
-                //.IsRequired()
                 .HasMaxLength(200);
-           
-           
+
             builder.Property(b => b.YearPublished);
 
             builder.Property(b => b.Quantity);
 
-            //builder.Property(b => b.Status)
-            //    .HasConversion<byte>();
+            builder.Property(b => b.UnitPrice);
 
-            //thiết lập mối quan hệ
+            builder.Property(b => b.TotalPrice);
+            
+            //thiết lập mối quan hệ với bảng category
             builder.HasOne(b => b.Category)
                 .WithMany(cg => cg.books)
                 .HasForeignKey(b => b.CategoryId);
-            //builder.HasMany(b => b.Reservations)
-            //    .WithOne(r => r.book)
-            //    .HasForeignKey()
+            //thiết lập mối quan hệ với bảng bookimporttransaction
+            builder.HasMany(b => b.ImportTransactions)
+                .WithOne(ip => ip.book)
+                .HasForeignKey(ip => ip.BookId);
           
         }
     }
