@@ -34,31 +34,30 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             {
                 BookItem bookItem = new BookItem();
                 bookItem.BookId = book.Id;
-                bookItem.Title = book.Title;
-                bookItem.Author = book.Author;
-                bookItem.Publisher = book.Publisher;
-                bookItem.YearPublished = book.YearPublished;
-                bookItem.BookCategoryId = book.Category.Id;
-                bookItem.BookChapterId = book.BookChapter.Id;
-                bookItem.Quantity = 1; 
                 bookItem.BookStatus = BookStatus.Available;
                 bookItems1.Add(bookItem);
             }
                 _context.bookItems.AddRange(bookItems1);
                 await _context.SaveChangesAsync();
-
-            List<BookItem> bookItems2 = await _context.bookItems.Include(x=>x.Category).Include(x=>x.BookChapter).ToListAsync();
+            
+            List<BookItem> bookItems2 = await _context.bookItems.ToListAsync();
             foreach (var bookItem in bookItems2)
             {
+                BookItem item = await _context.bookItems.Include(x => x.Book).FirstOrDefaultAsync(x => x.Id == bookItem.Id);
                 BookItemResponse bookItemResponse = new BookItemResponse();
                 bookItemResponse.BookId = bookItem.BookId;
-                bookItemResponse.Title = bookItem.Title;
-                bookItemResponse.Author = bookItem.Author;
-                bookItemResponse.Publisher = bookItem.Publisher;
-                bookItemResponse.YearPublished = bookItem.YearPublished;
-                bookItemResponse.CategoryName = bookItem.Category.Name;
-                bookItemResponse.TitleBookChapter = bookItem.BookChapter.TitleChapter;
-                bookItemResponse.bookStatus = bookItem.BookStatus;
+                bookItemResponse.Title = item.Book.Title;
+                bookItemResponse.AuthorName = item.Book.BookAuthor.Name;
+                bookItemResponse.PublisherName = item.Book.Publisher.PublisherName;
+
+
+                //bookItemResponse.Title = bookItem.Title;
+                //bookItemResponse.Author = bookItem.Author;
+                //bookItemResponse.Publisher = bookItem.Publisher;
+                //bookItemResponse.YearPublished = bookItem.YearPublished;
+                //bookItemResponse.CategoryName = bookItem.Category.Name;
+                //bookItemResponse.TitleBookChapter = bookItem.BookChapter.TitleChapter;
+                bookItemResponse.BookStatus = bookItem.BookStatus;
                 bookItemResponses.Add(bookItemResponse);
             }
             response.IsSuccess = true;
@@ -88,7 +87,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 response.message = "Không tồn tại bookId";
                 return response;
             }
-            book.Quantity -= bookItem.Quantity;
+            //book.Quantity -= bookItem.Quantity;
             _context.bookItems.Update(bookItem);
             await _context.SaveChangesAsync();
             response.IsSuccess = true;
@@ -100,19 +99,19 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         {
             BaseResponse<List<BookItemResponse>> response = new BaseResponse<List<BookItemResponse>>();
             List<BookItemResponse> bookItemResponses = new List<BookItemResponse>();
-            List<BookItem> bookItems = await _context.bookItems.Include(x=>x.Category).Include(x=>x.BookChapter).Where(x => x.IsDeleted == false).ToListAsync();
+            List<BookItem> bookItems = await _context.bookItems.Where(x => x.IsDeleted == false).ToListAsync();
             foreach (var bookItem in bookItems) 
             {
                 BookItemResponse bookItemResponse = new BookItemResponse();
                 bookItemResponse.Id = bookItem.Id.Value;
-                bookItemResponse.Title = bookItem.Title;
-                bookItemResponse.Author = bookItem.Author;
-                bookItemResponse.Publisher = bookItem.Publisher;
-                bookItemResponse.YearPublished = bookItem.YearPublished;
-                bookItemResponse.bookStatus = bookItem.BookStatus;
-                bookItemResponse.Quantity = bookItem.Quantity;
-                bookItemResponse.CategoryName = bookItem.Category.Name;
-                bookItemResponse.TitleBookChapter = bookItem.BookChapter.TitleChapter;
+                //bookItemResponse.Title = bookItem.Title;
+                //bookItemResponse.Author = bookItem.Author;
+                //bookItemResponse.Publisher = bookItem.Publisher;
+                //bookItemResponse.YearPublished = bookItem.YearPublished;
+                //bookItemResponse.bookStatus = bookItem.BookStatus;
+                //bookItemResponse.Quantity = bookItem.Quantity;
+                //bookItemResponse.CategoryName = bookItem.Category.Name;
+                //bookItemResponse.TitleBookChapter = bookItem.BookChapter.TitleChapter;
                 bookItemResponse.BookId = bookItem.BookId;
                 bookItemResponses.Add(bookItemResponse);
             }
@@ -140,28 +139,28 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 return response;
             }
             bookItemResponse.Id = bookItem.Id.Value;
-            bookItemResponse.Title = bookItem.Title;
-            bookItemResponse.BookId = bookItem.BookId;
-            bookItemResponse.Author = bookItem.Author;
-            bookItemResponse.Publisher = bookItem.Publisher;
-            bookItemResponse.YearPublished = bookItem.YearPublished;
-            bookItemResponse.bookStatus = bookItem.BookStatus;
-            bookItemResponse.Quantity = bookItem.Quantity;
-            BookCategory category = await _context.bookCategories.FirstOrDefaultAsync(x => x.Id == bookItem.BookCategoryId);
-            if(category == null)
-            {
-                response.IsSuccess = false;
-                response.message = "Loại sách không tồn tại";
-                return response;
-            }
-            bookItemResponse.CategoryName = category.Name;
-            BookChapter chapter = await _context.bookChapters.FirstOrDefaultAsync(x => x.Id == bookItem.BookChapterId);
-            if (chapter == null) { 
-                response.IsSuccess = false;
-                response.message = "Chapter không tồn tại";
-                return response;
-            }
-            bookItemResponse.TitleBookChapter = chapter.TitleChapter;
+            //bookItemResponse.Title = bookItem.Title;
+            //bookItemResponse.BookId = bookItem.BookId;
+            //bookItemResponse.Author = bookItem.Author;
+            //bookItemResponse.Publisher = bookItem.Publisher;
+            //bookItemResponse.YearPublished = bookItem.YearPublished;
+            //bookItemResponse.bookStatus = bookItem.BookStatus;
+            //bookItemResponse.Quantity = bookItem.Quantity;
+            //BookCategory category = await _context.bookCategories.FirstOrDefaultAsync(x => x.Id == bookItem.BookCategoryId);
+            //if(category == null)
+            //{
+            //    response.IsSuccess = false;
+            //    response.message = "Loại sách không tồn tại";
+            //    return response;
+            //}
+            //bookItemResponse.CategoryName = category.Name;
+            //BookChapter chapter = await _context.bookChapters.FirstOrDefaultAsync(x => x.Id == bookItem.BookChapterId);
+            //if (chapter == null) { 
+            //    response.IsSuccess = false;
+            //    response.message = "Chapter không tồn tại";
+            //    return response;
+            //}
+            //bookItemResponse.TitleBookChapter = chapter.TitleChapter;
             response.IsSuccess = true;
             response.message = "getBookItemById thành công";
             response.data = bookItemResponse;
@@ -185,17 +184,17 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             await _context.SaveChangesAsync();
             
             BookItemResponse bookItemResponse = new BookItemResponse();
-            BookCategory category = await _context.bookCategories.FirstOrDefaultAsync(x=>x.Id == item.BookCategoryId);
-            BookChapter bookChapter = await _context.bookChapters.FirstOrDefaultAsync(x => x.Id == item.BookChapterId);
+            //BookCategory category = await _context.bookCategories.FirstOrDefaultAsync(x=>x.Id == item.BookCategoryId);
+            //BookChapter bookChapter = await _context.bookChapters.FirstOrDefaultAsync(x => x.Id == item.BookChapterId);
             bookItemResponse.Id = id;
-            bookItemResponse.Title = item.Title;
-            bookItemResponse.Author = item.Author;
-            bookItemResponse.Publisher = item.Publisher;
-            bookItemResponse.YearPublished = item.YearPublished;
-            bookItemResponse.CategoryName = category.Name;
-            bookItemResponse.TitleBookChapter = bookChapter.TitleChapter;
-            bookItemResponse.Quantity = item.Quantity;
-            bookItemResponse.bookStatus = item.BookStatus;
+            //bookItemResponse.Title = item.Title;
+            //bookItemResponse.Author = item.Author;
+            //bookItemResponse.Publisher = item.Publisher;
+            //bookItemResponse.YearPublished = item.YearPublished;
+            //bookItemResponse.CategoryName = category.Name;
+            //bookItemResponse.TitleBookChapter = bookChapter.TitleChapter;
+            //bookItemResponse.Quantity = item.Quantity;
+            //bookItemResponse.bookStatus = item.BookStatus;
             response.IsSuccess = true;
             response.message = "Cập nhật thành công";
             response.data = bookItemResponse;
