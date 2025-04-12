@@ -4,6 +4,7 @@ using DoAnCuoiKy.Model.Request;
 using DoAnCuoiKy.Model.Response;
 using DoAnCuoiKy.Service.IService.InformationLibrary;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design.Internal;
 
 namespace DoAnCuoiKy.Service.InformationLibrary
 {
@@ -14,13 +15,27 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         {
             _context = context;
         }
-        public async Task<BaseResponse<BookResponse>> AddBook(Guid categoryId, Guid bookChapterId, BookRequest bookRequest)
+        public async Task<BaseResponse<BookResponse>> AddBook(BookRequest bookRequest)
         {
             BaseResponse<BookResponse> response = new BaseResponse<BookResponse>();
             Book newbook = new Book();
             newbook.Title = bookRequest.Title;
-            newbook.Author = bookRequest.Author;
-            newbook.Publisher = bookRequest.Publisher;
+            BookAuthor bookAuthor = await _context.bookAuthors.FirstOrDefaultAsync(x => x.Id == bookRequest.AuthorId);
+            if (bookAuthor == null)
+            {
+                response.IsSuccess = false;
+                response.message = "Không tồn tại AuthorId";
+                return response;
+            }
+            newbook.BookAuthorId = bookRequest.AuthorId.Value;
+            Publisher publisher = await _context.publishers.FirstOrDefaultAsync(x => x.Id == bookRequest.PublisherId);
+            if(publisher == null)
+            {
+                response.IsSuccess = false;
+                response.message = "PublisherId không tồn tại";
+                return response;
+            }
+            newbook.PublisherId = bookRequest.PublisherId.Value;
             newbook.YearPublished = bookRequest.YearPublished;
             if(bookRequest.Quantity > 0)
             {
@@ -33,7 +48,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 return response;
             }
 
-            BookCategory bookCategory = await _context.bookCategories.FindAsync(categoryId);
+            BookCategory bookCategory = await _context.bookCategories.FindAsync(bookRequest.CategoryId);
             if (bookCategory == null)
             {
                 response.message = "Không tồn tại CategoryId trong cơ sở dữ liệu";
@@ -41,13 +56,16 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             }
             newbook.CategoryId = bookRequest.CategoryId;
 
-            BookChapter bookChapter = await _context.bookChapters.FindAsync(bookChapterId);
+            BookChapter bookChapter = await _context.bookChapters.FindAsync(bookRequest.BookChapterId);
             if (bookChapter == null)
             {
                 response.message = "Không tồn tại BookChapterId trong bảng";
                 return response;
             }
             newbook.BookChapterId = bookRequest.BookChapterId.Value;
+
+            newbook.UnitPrice = bookRequest.UnitPrice;
+            newbook.TotalPrice = CalculateTotalPrice(newbook.Quantity, newbook.UnitPrice);
 
             _context.books.AddAsync(newbook);
             await _context.SaveChangesAsync();
@@ -62,12 +80,14 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             BookResponse bookResponse = new BookResponse();
             bookResponse.Id = newbook.Id;
             bookResponse.Title = newbook.Title;
-            bookResponse.Author = newbook.Author;
-            bookResponse.Publisher = newbook.Publisher;
-            bookResponse.YearPublished = newbook.YearPublished;
             bookResponse.Quantity = newbook.Quantity;
+            bookResponse.YearPublished = newbook.YearPublished;
+            bookResponse.AuthorName = newbook.BookAuthor.Name;
+            bookResponse.PublisherName = newbook.Publisher.PublisherName;
             bookResponse.CategoryName = newbook.Category.Name;
             bookResponse.TitleBookChapter = newbook.BookChapter.TitleChapter;
+            bookResponse.UnitPrice = newbook.UnitPrice;
+            bookResponse.TotalPrice = newbook.TotalPrice;
 
             response.IsSuccess = true;
             response.message = "Thêm thành công";
@@ -102,45 +122,41 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         public async Task<BaseResponse<List<BookResponse>>> GetAllBook()
         {
             BaseResponse<List<BookResponse>> response = new BaseResponse<List<BookResponse>>();
-            List<BookResponse> bookResponses = new List<BookResponse>();
-            List<Book> books = await _context.books.Include(x=>x.Category).Include(x=>x.BookChapter).Where(b => b.IsDeleted == false).ToListAsync();
-            //BookCategory category = new BookCategory();
-            //foreach (Book item1 in books)
-            //{
-            //    category = await _context.bookCategories.FindAsync(item1.CategoryId);
-            //    break;
-            //}
-            //BookChapter chapter = new BookChapter();
-            //foreach(Book item2 in books)
-            //{
-            //    chapter = await _context.bookChapters.FindAsync(item2.BookChapterId);
-            //    break;
-            //}
-
-            
-            //FirstOrDefaultAsync dùng để tìm và trả về một phần tử đầu tiên thôi
-            //.Select(b => new BookResponse
-            //{
-            //    Id = b.Id.Value,
-            //    Title = b.Title,
-            //    Author = b.Author,
-            //    CategoryName = b.Category.Name
-            /*}).ToListAsync();*/
-            foreach (var book in books)
+            List<BookResponse> books = await _context.books.Include(b => b.BookAuthor).Include(b=>b.Publisher).Include(b=>b.Category).Include(b=>b.BookChapter).Where(b => b.IsDeleted == false).Select(b => new BookResponse
             {
-                if(book.Category.IsDeleted == true || book.BookChapter.IsDeleted == true)
-                {
-                    continue;
-                }
-                BookResponse bookResponse = new BookResponse();
-                
-                bookResponse = setBookResponse(book);
-                bookResponse.CategoryName = book.Category.Name;
-                bookResponse.TitleBookChapter = book.BookChapter.TitleChapter;
-                //lấy 1 giá trị ra xong để tiếp tục lặp, add nó vào list
-                bookResponses.Add(bookResponse);
-            }
-            if (bookResponses == null)
+                Id = b.Id,
+                Title = b.Title,
+                YearPublished = b.YearPublished,
+                Quantity = b.Quantity,
+                UnitPrice = b.UnitPrice,
+                TotalPrice = b.TotalPrice,
+                PublisherName = b.Publisher.PublisherName,
+                AuthorName = b.BookAuthor.Name,
+                CategoryName = b.Category.Name,
+                TitleBookChapter = b.BookChapter.TitleChapter
+            }).ToListAsync();
+            //foreach (var book in books)
+            //{
+            //    if(book.Category.IsDeleted == true || book.BookChapter.IsDeleted == true)
+            //    {
+            //        continue;
+            //    }
+            //    BookResponse bookResponse = new BookResponse();
+
+            //    bookResponse.Id = book.Id;
+            //    bookResponse.Title = book.Title;
+            //    bookResponse.YearPublished = book.YearPublished;
+            //    bookResponse.Quantity = book.Quantity;
+            //    bookResponse.UnitPrice = book.UnitPrice;
+            //    bookResponse.TotalPrice = book.TotalPrice;
+            //    bookResponse.PublisherName = book.Publisher.PublisherName;
+            //    bookResponse.AuthorName = book.BookAuthor.Name;
+            //    bookResponse.CategoryName = book.Category.Name;
+            //    bookResponse.TitleBookChapter = book.BookChapter.TitleChapter;
+            //    //lấy 1 giá trị ra xong để tiếp tục lặp, add nó vào list
+            //    bookResponses.Add(bookResponse);
+            //}
+            if (books == null)
             {
                 response.IsSuccess = false;
                 response.message = "Lấy dữ liệu thất bại";
@@ -148,15 +164,14 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             }
             response.IsSuccess = true;
             response.message = "Lấy dữ liệu thành công";
-            response.data = bookResponses;
+            response.data = books;
             return response;
         }
 
         public async Task<BaseResponse<BookResponse>> GetBookById(Guid id)
         {
             BaseResponse<BookResponse> response = new BaseResponse<BookResponse>();
-            //cách không cần dùng tới khóa ngoại
-            Book book = await _context.books.FirstOrDefaultAsync(x=> x.Id == id && x.IsDeleted == false);//FirstOrDefaultAsync chỉ lấy một phần tử đầu tiên
+            Book book = await _context.books.Include(x=>x.BookAuthor).Include(x=>x.Publisher).FirstOrDefaultAsync(x=> x.Id == id && x.IsDeleted == false);//FirstOrDefaultAsync chỉ lấy một phần tử đầu tiên
             BookCategory bookCategory = await _context.bookCategories.FirstOrDefaultAsync(x => x.Id == book.CategoryId && x.IsDeleted == false);
             if(bookCategory == null)
             {
@@ -179,8 +194,15 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 response.message = "Không tìm thấy dữ liệu";
                 return response;
             }
-           
-            bookResponse = setBookResponse(book);
+
+            bookResponse.Id = id;
+            bookResponse.Title = book.Title;
+            bookResponse.YearPublished = book.YearPublished;
+            bookResponse.Quantity = book.Quantity;
+            bookResponse.UnitPrice = book.UnitPrice;
+            bookResponse.TotalPrice = book.TotalPrice;
+            bookResponse.AuthorName = book.BookAuthor.Name;
+            bookResponse.PublisherName = book.Publisher.PublisherName;
             bookResponse.CategoryName = bookCategory.Name;
             bookResponse.TitleBookChapter = bookChapter.TitleChapter;
             response.IsSuccess = true;
@@ -192,7 +214,8 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         public async Task<BaseResponse<BookResponse>> UpdateBook(Guid id, BookRequest bookRequest)
         {
             BaseResponse<BookResponse> response = new BaseResponse<BookResponse>();
-            Book book = await _context.books.FindAsync(id);
+            Book book = await _context.books.Include(x=>x.BookAuthor).Include(x=>x.Publisher).FirstOrDefaultAsync(x=>x.Id == id);
+            
             if(book == null)
             {
                 response.IsSuccess = false;
@@ -201,37 +224,54 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             }
 
             book.Title = bookRequest.Title;
-            book.Author = bookRequest.Author;
-            book.Publisher = bookRequest.Publisher;
+            book.CategoryId = bookRequest.CategoryId;
+            book.PublisherId = bookRequest.PublisherId;
+            book.BookAuthorId = bookRequest.AuthorId;
+            book.PublisherId = bookRequest.PublisherId;
             book.YearPublished= bookRequest.YearPublished;
             book.Quantity = bookRequest.Quantity;
-            
+            book.UnitPrice = bookRequest.UnitPrice;
+            book.TotalPrice = CalculateTotalPrice(book.Quantity, book.UnitPrice);
+
 
             _context.books.UpdateRange(book);
             await _context.SaveChangesAsync();
 
             BookResponse bookResponse = new BookResponse();
+            
             BookCategory bookCategory = await _context.bookCategories.FirstOrDefaultAsync(c => c.Id == bookRequest.CategoryId);
             BookChapter bookChapter = await _context.bookChapters.FirstOrDefaultAsync(c => c.Id == bookRequest.BookChapterId);
             bookResponse.Id = id;
-            bookResponse = setBookResponse(book);
+            bookResponse.Title = book.Title;
+            bookResponse.AuthorName = book.BookAuthor.Name;
+            bookResponse.PublisherName = book.Publisher.PublisherName;
             bookResponse.CategoryName = bookCategory.Name;
             bookResponse.TitleBookChapter = bookChapter.TitleChapter;
+            bookResponse.YearPublished = book.YearPublished;
+            bookResponse.Quantity = book.Quantity;
+            bookResponse.UnitPrice = book.UnitPrice;
+            bookResponse.TotalPrice = book.TotalPrice;
             response.IsSuccess = true;
             response.message = "Cập nhật thành công";
             response.data = bookResponse;
             return response;
         }
-        private BookResponse setBookResponse(Book book)
+        //private BookResponse setBookResponse(Book book)
+        //{
+        //    BookResponse response = new BookResponse();
+        //    response.Id = book.Id;
+        //    response.Title = book.Title;
+        //    response.YearPublished = book.YearPublished;
+        //    response.Quantity = book.Quantity;
+        //    return response;
+        //}
+        private float? CalculateTotalPrice(int? quantity, float? unitPrice)
         {
-            BookResponse response = new BookResponse();
-            response.Id = book.Id;
-            response.Title = book.Title;
-            response.Author = book.Author;
-            response.Publisher = book.Publisher;
-            response.YearPublished = book.YearPublished;
-            response.Quantity = book.Quantity;
-            return response;
+            if (quantity.HasValue && unitPrice.HasValue)
+                return quantity.Value * unitPrice.Value; // => float
+
+            return null;
         }
+
     }
 }
