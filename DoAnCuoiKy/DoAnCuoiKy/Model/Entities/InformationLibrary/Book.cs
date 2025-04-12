@@ -7,12 +7,11 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
 {
     public class Book : BaseEntity
     {
-       
         public Guid? Id { get; set; }
         public string? Title { get; set; }
-        public Guid PublisherId { get; set; }
-        public Publisher Publisher { get; set; }
-        public Guid BookAuthorId { get; set; }
+        public Guid? PublisherId { get; set; }
+        public Publisher? Publisher { get; set; }
+        public Guid? BookAuthorId { get; set; }
         public BookAuthor? BookAuthor { get; set; }
         public int? YearPublished { get; set; }
         public int? Quantity { get; set; } //số lượng sách nhập
@@ -23,5 +22,6 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public Guid? BookChapterId { get; set; }
         public BookChapter? BookChapter { get; set; }
         public List<BookItem>? bookItems { get; set; }
+        public List<BookImportTransaction> ImportTransactions { get; set; }
     }
 }
