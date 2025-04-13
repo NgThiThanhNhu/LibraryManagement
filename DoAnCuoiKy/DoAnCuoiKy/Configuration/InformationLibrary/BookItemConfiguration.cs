@@ -12,18 +12,8 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
         {
             builder.HasKey(i => i.Id);
 
-            //builder.Property(i=>i.Title)
-            //    .HasMaxLength(256);
-
-            //builder.Property(i=>i.Author)
-            //    .HasMaxLength(256);
-
-            //builder.Property(i=>i.Publisher)
-            //    .HasMaxLength(256);
-
-            //builder.Property(i => i.YearPublished);
-
-            //builder.Property(i => i.Quantity);
+            builder.Property(i => i.BarCode)
+                .HasMaxLength(20);
 
             builder.Property(i => i.BookStatus)
                 .HasConversion<byte>();
@@ -32,6 +22,11 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.HasOne(i => i.Book)
                 .WithMany(b => b.bookItems)
                 .HasForeignKey(i => i.BookId);
+
+            //mối quan hệ với bảng exporttransaction
+            builder.HasOne(i => i.BookExportTransaction)
+                .WithMany(ep => ep.bookItems)
+                .HasForeignKey(i => i.ExportTransactionId);
           
         }
     }

@@ -18,10 +18,10 @@ namespace DoAnCuoiKy.Controllers
             _bookService = bookService;
         }
         [HttpPost("AddBook")]
-        //[Authorize(Roles = "Admin")]
-        public async Task<BaseResponse<BookResponse>> addBook(Guid CategoryId, Guid BookChapterId, BookRequest bookRequest)
+        [Authorize(Roles = "Admin")]
+        public async Task<BaseResponse<BookResponse>> addBook(BookRequest bookRequest)
         {
-            BaseResponse<BookResponse> response = await _bookService.AddBook(CategoryId, BookChapterId, bookRequest);
+            BaseResponse<BookResponse> response = await _bookService.AddBook(bookRequest);
             return response;
         }
         [Authorize(Roles = "Admin")]
@@ -34,7 +34,7 @@ namespace DoAnCuoiKy.Controllers
             return response;
         }
         [HttpGet("GetBookById/{id}")]
-        //[Authorize(Roles = "Admin, User")]
+        [Authorize(Roles = "Admin")]
         public async Task<BaseResponse<BookResponse>> getBookById(Guid id)
         {
             BaseResponse<BookResponse> response = await _bookService.GetBookById(id);
@@ -42,14 +42,14 @@ namespace DoAnCuoiKy.Controllers
         }
 
         [HttpPost("UpdateBook/{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<BaseResponse<BookResponse>> updateBook(Guid id, BookRequest bookRequest)
         {
             BaseResponse<BookResponse> response = await _bookService.UpdateBook(id, bookRequest);
             return response;
         }
         [HttpPost("DeleteBook/{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<BaseResponse<BookResponse>> deleteBook(Guid id)
         {
             BaseResponse<BookResponse> response = await _bookService.DeleteBook(id);

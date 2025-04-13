@@ -1,4 +1,5 @@
 ﻿using DoAnCuoiKy.Model.Entities.InformationLibrary;
+using DoAnCuoiKy.Model.Entities.InformationLibrary.Kho;
 using System.Runtime.CompilerServices;
 
 namespace DoAnCuoiKy.Model.Entities.Usermanage
@@ -13,7 +14,8 @@ namespace DoAnCuoiKy.Model.Entities.Usermanage
         public string? Salt { get; set; }
         public Guid? RoleId { get; set; } //phân quyền
         public Role? Role { get; set; }
-
+        //1librarian-nhiều transaction
+       
 
 
     }

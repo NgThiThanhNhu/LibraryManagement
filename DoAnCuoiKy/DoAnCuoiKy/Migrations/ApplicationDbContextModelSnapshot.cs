@@ -28,9 +28,8 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Author")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                    b.Property<Guid?>("BookAuthorId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("BookChapterId")
                         .HasColumnType("uniqueidentifier");
@@ -50,9 +49,8 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Publisher")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                    b.Property<Guid?>("PublisherId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("Quantity")
                         .HasColumnType("int");
@@ -60,6 +58,12 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<string>("Title")
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<float?>("TotalPrice")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("UnitPrice")
+                        .HasColumnType("real");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
@@ -75,11 +79,30 @@ namespace DoAnCuoiKy.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BookAuthorId");
+
                     b.HasIndex("BookChapterId");
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("PublisherId");
+
                     b.ToTable("books");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookAuthor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("bookAuthors");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCategory", b =>
@@ -159,12 +182,9 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Author")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<Guid?>("BookCategoryId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("BarCode")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<Guid?>("BookChapterId")
                         .HasColumnType("uniqueidentifier");
@@ -184,19 +204,14 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("ExportTransactionId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Publisher")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                    b.Property<Guid?>("LocationId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
@@ -204,19 +219,18 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<string>("UpdateUser")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("YearPublished")
-                        .HasColumnType("int");
-
                     b.Property<string>("deleteUser")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookCategoryId");
-
                     b.HasIndex("BookChapterId");
 
                     b.HasIndex("BookId");
+
+                    b.HasIndex("ExportTransactionId");
+
+                    b.HasIndex("LocationId");
 
                     b.ToTable("bookItems");
                 });
@@ -417,15 +431,250 @@ namespace DoAnCuoiKy.Migrations
                     b.ToTable("fines");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookExportTransaction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("ExportReason")
+                        .HasColumnType("tinyint");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("bookExportTransactions");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookImportTransaction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<float>("TotalPrice")
+                        .HasColumnType("real");
+
+                    b.Property<float>("UnitPrice")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("bookImportTransactions");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookShelf", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BookShelfName")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("bookShelves");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("Floor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Room")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ShelfSectionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShelfSectionId");
+
+                    b.ToTable("locations");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Shelf", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookshelfId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("NumberOfSections")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShelfName")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookshelfId");
+
+                    b.ToTable("shelves");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.ShelfSection", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SectionName")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<Guid>("ShelfId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShelfId");
+
+                    b.ToTable("shelfSections");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Publisher", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Address")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("PublisherName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("publishers");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasMaxLength(200)
@@ -439,7 +688,24 @@ namespace DoAnCuoiKy.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
+                    b.Property<Guid?>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Salt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
 
                     b.ToTable("librarians");
                 });
@@ -508,43 +774,22 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<DateTime?>("RegistrationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
 
                     b.ToTable("users");
                 });
 
-            modelBuilder.Entity("LibrarianRole", b =>
-                {
-                    b.Property<Guid>("librariansId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("rolesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("librariansId", "rolesId");
-
-                    b.HasIndex("rolesId");
-
-                    b.ToTable("LibrarianRoles", (string)null);
-                });
-
-            modelBuilder.Entity("RoleUsers", b =>
-                {
-                    b.Property<Guid>("rolesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("usersId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("rolesId", "usersId");
-
-                    b.HasIndex("usersId");
-
-                    b.ToTable("UserRoles", (string)null);
-                });
-
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", b =>
                 {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BookAuthor", "BookAuthor")
+                        .WithMany("books")
+                        .HasForeignKey("BookAuthorId");
+
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BookChapter", "BookChapter")
                         .WithMany("books")
                         .HasForeignKey("BookChapterId");
@@ -553,18 +798,22 @@ namespace DoAnCuoiKy.Migrations
                         .WithMany("books")
                         .HasForeignKey("CategoryId");
 
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Publisher", "Publisher")
+                        .WithMany("Books")
+                        .HasForeignKey("PublisherId");
+
+                    b.Navigation("BookAuthor");
+
                     b.Navigation("BookChapter");
 
                     b.Navigation("Category");
+
+                    b.Navigation("Publisher");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookItem", b =>
                 {
-                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCategory", "Category")
-                        .WithMany()
-                        .HasForeignKey("BookCategoryId");
-
-                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BookChapter", "BookChapter")
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BookChapter", null)
                         .WithMany("bookItems")
                         .HasForeignKey("BookChapterId");
 
@@ -572,11 +821,19 @@ namespace DoAnCuoiKy.Migrations
                         .WithMany("bookItems")
                         .HasForeignKey("BookId");
 
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookExportTransaction", "BookExportTransaction")
+                        .WithMany("bookItems")
+                        .HasForeignKey("ExportTransactionId");
+
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", "Location")
+                        .WithMany("BookItems")
+                        .HasForeignKey("LocationId");
+
                     b.Navigation("Book");
 
-                    b.Navigation("BookChapter");
+                    b.Navigation("BookExportTransaction");
 
-                    b.Navigation("Category");
+                    b.Navigation("Location");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookReservation", b =>
@@ -633,39 +890,80 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("users");
                 });
 
-            modelBuilder.Entity("LibrarianRole", b =>
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookImportTransaction", b =>
                 {
-                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", null)
-                        .WithMany()
-                        .HasForeignKey("librariansId")
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", "book")
+                        .WithMany("ImportTransactions")
+                        .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Role", null)
-                        .WithMany()
-                        .HasForeignKey("rolesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("book");
                 });
 
-            modelBuilder.Entity("RoleUsers", b =>
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", b =>
                 {
-                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Role", null)
-                        .WithMany()
-                        .HasForeignKey("rolesId")
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.ShelfSection", "ShelfSection")
+                        .WithMany("Locations")
+                        .HasForeignKey("ShelfSectionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Users", null)
-                        .WithMany()
-                        .HasForeignKey("usersId")
+                    b.Navigation("ShelfSection");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Shelf", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookShelf", "Bookshelf")
+                        .WithMany("Shelves")
+                        .HasForeignKey("BookshelfId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Bookshelf");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.ShelfSection", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Shelf", "Shelf")
+                        .WithMany("Sections")
+                        .HasForeignKey("ShelfId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Shelf");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Role", "Role")
+                        .WithMany("librarians")
+                        .HasForeignKey("RoleId");
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Users", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Role", "Role")
+                        .WithMany("users")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", b =>
                 {
+                    b.Navigation("ImportTransactions");
+
                     b.Navigation("bookItems");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookAuthor", b =>
+                {
+                    b.Navigation("books");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCategory", b =>
@@ -695,6 +993,43 @@ namespace DoAnCuoiKy.Migrations
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BorrowingDetail", b =>
                 {
                     b.Navigation("fines");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookExportTransaction", b =>
+                {
+                    b.Navigation("bookItems");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookShelf", b =>
+                {
+                    b.Navigation("Shelves");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", b =>
+                {
+                    b.Navigation("BookItems");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Shelf", b =>
+                {
+                    b.Navigation("Sections");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.ShelfSection", b =>
+                {
+                    b.Navigation("Locations");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Publisher", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Role", b =>
+                {
+                    b.Navigation("librarians");
+
+                    b.Navigation("users");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Users", b =>
