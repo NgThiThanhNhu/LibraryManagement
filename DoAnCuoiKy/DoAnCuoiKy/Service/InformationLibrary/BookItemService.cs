@@ -52,27 +52,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 CategoryName = i.Book.Category.Name,
                 TitleBookChapter = i.Book.BookChapter.TitleChapter
             }).ToListAsync();
-
-            //List<BookItem> bookItems2 = await _context.bookItems.ToListAsync();
-            //foreach (var bookItem in bookItems2)
-            //{
-            //    BookItem item = await _context.bookItems.Include(x => x.Book).FirstOrDefaultAsync(x => x.Id == bookItem.Id);
-            //    BookItemResponse bookItemResponse = new BookItemResponse();
-            //    bookItemResponse.BookId = bookItem.BookId;
-            //    bookItemResponse.Title = item.Book.Title;
-            //    bookItemResponse.AuthorName = item.Book.BookAuthor.Name;
-            //    bookItemResponse.PublisherName = item.Book.Publisher.PublisherName;
-
-
-            //    //bookItemResponse.Title = bookItem.Title;
-            //    //bookItemResponse.Author = bookItem.Author;
-            //    //bookItemResponse.Publisher = bookItem.Publisher;
-            //    //bookItemResponse.YearPublished = bookItem.YearPublished;
-            //    //bookItemResponse.CategoryName = bookItem.Category.Name;
-            //    //bookItemResponse.TitleBookChapter = bookItem.BookChapter.TitleChapter;
-            //    bookItemResponse.BookStatus = bookItem.BookStatus;
-            //    bookItemResponses.Add(bookItemResponse);
-            //}
             response.IsSuccess = true;
             response.message = "Thêm dữ liệu thành công";
             response.data = bookItemResponse;
