@@ -100,35 +100,48 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 response.message = "Không tồn tại bookId";
                 return response;
             }
-            //book.Quantity -= bookItem.Quantity;
+            book.Quantity -= 1;
             _context.bookItems.Update(bookItem);
             await _context.SaveChangesAsync();
             response.IsSuccess = true;
             response.message = "Xóa thành công";
             return response;
         }
-
+        //sửa xong delete
         public async Task<BaseResponse<List<BookItemResponse>>> GetAllBookItem()
         {
             BaseResponse<List<BookItemResponse>> response = new BaseResponse<List<BookItemResponse>>();
-            List<BookItemResponse> bookItemResponses = new List<BookItemResponse>();
-            List<BookItem> bookItems = await _context.bookItems.Where(x => x.IsDeleted == false).ToListAsync();
-            foreach (var bookItem in bookItems) 
+            //List<BookItemResponse> bookItemResponses = new List<BookItemResponse>();
+            //List<BookItem> bookItems = await _context.bookItems.Where(x => x.IsDeleted == false).ToListAsync();
+            //foreach (var bookItem in bookItems) 
+            //{
+            //    BookItemResponse bookItemResponse = new BookItemResponse();
+            //    bookItemResponse.Id = bookItem.Id.Value;
+            //    //bookItemResponse.Title = bookItem.Title;
+            //    //bookItemResponse.Author = bookItem.Author;
+            //    //bookItemResponse.Publisher = bookItem.Publisher;
+            //    //bookItemResponse.YearPublished = bookItem.YearPublished;
+            //    //bookItemResponse.bookStatus = bookItem.BookStatus;
+            //    //bookItemResponse.Quantity = bookItem.Quantity;
+            //    //bookItemResponse.CategoryName = bookItem.Category.Name;
+            //    //bookItemResponse.TitleBookChapter = bookItem.BookChapter.TitleChapter;
+            //    bookItemResponse.BookId = bookItem.BookId;
+            //    bookItemResponses.Add(bookItemResponse);
+            //}
+            List<BookItemResponse> bookItems = await _context.bookItems.Include(i=>i.Book).Where(i=>i.IsDeleted == false).Select(i=> new BookItemResponse
             {
-                BookItemResponse bookItemResponse = new BookItemResponse();
-                bookItemResponse.Id = bookItem.Id.Value;
-                //bookItemResponse.Title = bookItem.Title;
-                //bookItemResponse.Author = bookItem.Author;
-                //bookItemResponse.Publisher = bookItem.Publisher;
-                //bookItemResponse.YearPublished = bookItem.YearPublished;
-                //bookItemResponse.bookStatus = bookItem.BookStatus;
-                //bookItemResponse.Quantity = bookItem.Quantity;
-                //bookItemResponse.CategoryName = bookItem.Category.Name;
-                //bookItemResponse.TitleBookChapter = bookItem.BookChapter.TitleChapter;
-                bookItemResponse.BookId = bookItem.BookId;
-                bookItemResponses.Add(bookItemResponse);
-            }
-            if(bookItemResponses == null)
+                Id = i.Id,
+                BookId = i.BookId,
+                Title = i.Book.Title,
+                AuthorName = i.Book.BookAuthor.Name,
+                PublisherName = i.Book.Publisher.PublisherName,
+                YearPublished = i.Book.YearPublished,
+                UnitPrice = i.Book.UnitPrice,
+                BookStatus = i.BookStatus,
+                CategoryName = i.Book.Category.Name,
+                TitleBookChapter = i.Book.BookChapter.TitleChapter
+            }).ToListAsync();
+            if(bookItems == null)
             {
                 response.IsSuccess = false;
                 response.message = "getList thất bại";
@@ -136,7 +149,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             }
             response.IsSuccess = true;
             response.message = "getList thành công";
-            response.data = bookItemResponses;
+            response.data = bookItems;
             return response;
         }
 
