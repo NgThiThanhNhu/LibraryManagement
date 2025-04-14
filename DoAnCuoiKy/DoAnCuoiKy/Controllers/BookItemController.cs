@@ -28,7 +28,7 @@ namespace DoAnCuoiKy.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<BaseResponse<BookItemResponse>> updateBookItem(Guid id, BookItemRequest bookItemRequest)
         {
-            BaseResponse<BookItemResponse> response = await _bookItemService.UpdateBookItem(id, bookItemRequest);
+            BaseResponse<BookItemResponse> response = await _bookItemService.UpdateBookItemStatus(id, bookItemRequest);
             return response;
         }
         [HttpGet("GetAllBookItem")]
