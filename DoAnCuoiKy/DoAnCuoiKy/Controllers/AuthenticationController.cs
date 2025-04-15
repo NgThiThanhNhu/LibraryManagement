@@ -34,7 +34,7 @@ namespace DoAnCuoiKy.Controllers
                 Secure = true,
                 Expires = DateTime.Now.AddDays(1)
             });
-            // Giả lập kiểm tra đăng nhập
+            // kiểm tra đăng nhập
             if (loginRequest.Username == "admin" && loginRequest.Password == "password")
             {
                 var tokenRequest = new TokenRequest

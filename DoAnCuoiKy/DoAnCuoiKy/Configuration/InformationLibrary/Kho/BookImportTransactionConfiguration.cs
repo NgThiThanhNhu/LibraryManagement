@@ -10,11 +10,11 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary.Kho
         {
             builder.HasKey(ip => ip.Id);
 
-            builder.Property(ip => ip.Quantity);
+            //builder.Property(ip => ip.Quantity);
 
-            builder.Property(ip => ip.UnitPrice);
+            //builder.Property(ip => ip.UnitPrice);
 
-            builder.Property(ip => ip.TotalPrice);
+            //builder.Property(ip => ip.TotalPrice);
         }
     }
 }

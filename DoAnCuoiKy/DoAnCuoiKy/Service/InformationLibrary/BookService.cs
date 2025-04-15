@@ -1,19 +1,24 @@
-﻿using DoAnCuoiKy.Data;
+﻿using Azure.Core;
+using DoAnCuoiKy.Data;
 using DoAnCuoiKy.Model.Entities.InformationLibrary;
 using DoAnCuoiKy.Model.Request;
 using DoAnCuoiKy.Model.Response;
 using DoAnCuoiKy.Service.IService.InformationLibrary;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design.Internal;
+using Microsoft.VisualBasic;
 
 namespace DoAnCuoiKy.Service.InformationLibrary
 {
     public class BookService : IBookService
     {
         private readonly ApplicationDbContext _context;
+       
+
         public BookService(ApplicationDbContext context)
         {
             _context = context;
+           
         }
         public async Task<BaseResponse<BookResponse>> AddBook(BookRequest bookRequest)
         {
@@ -69,6 +74,8 @@ namespace DoAnCuoiKy.Service.InformationLibrary
 
             _context.books.AddAsync(newbook);
             await _context.SaveChangesAsync();
+
+            
 
             if (newbook == null)
             {

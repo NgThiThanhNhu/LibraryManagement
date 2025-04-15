@@ -67,6 +67,7 @@ namespace DoAnCuoiKy.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ExportReason = table.Column<byte>(type: "tinyint", nullable: false),
+                    TransactionType = table.Column<byte>(type: "tinyint", nullable: false),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -282,6 +283,7 @@ namespace DoAnCuoiKy.Migrations
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     UnitPrice = table.Column<float>(type: "real", nullable: false),
                     TotalPrice = table.Column<float>(type: "real", nullable: false),
+                    TransactionType = table.Column<byte>(type: "tinyint", nullable: false),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),

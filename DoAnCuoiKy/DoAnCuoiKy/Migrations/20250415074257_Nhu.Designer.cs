@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnCuoiKy.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250411092640_Nhu")]
+    [Migration("20250415074257_Nhu")]
     partial class Nhu
     {
         /// <inheritdoc />
@@ -455,6 +455,9 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<byte>("TransactionType")
+                        .HasColumnType("tinyint");
+
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
@@ -495,6 +498,9 @@ namespace DoAnCuoiKy.Migrations
 
                     b.Property<float>("TotalPrice")
                         .HasColumnType("real");
+
+                    b.Property<byte>("TransactionType")
+                        .HasColumnType("tinyint");
 
                     b.Property<float>("UnitPrice")
                         .HasColumnType("real");

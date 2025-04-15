@@ -75,6 +75,7 @@ builder.Services.AddTransient<IBookService, BookService>();
 builder.Services.AddTransient<IBookChapterService, BookChapterService>();
 builder.Services.AddTransient<IBookItemService, BookItemService>();
 builder.Services.AddTransient<IRoleService, RoleService>();
+builder.Services.AddTransient<IBookImportTransactionService, BookImportTransactionService>();
 builder.Services.AddHttpContextAccessor();
 
 
@@ -93,14 +94,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 //hỗ trợ đọc token từ cookie trước khi xác thực
-app.Use(async (context, next) =>
-{
-    if (context.Request.Cookies.TryGetValue("token", out var token))
-    {
-        context.Request.Headers.Append("Authorization", $"Bearer {token}");
-    }
-    await next();
-});
+//app.Use(async (context, next) =>
+//{
+//    if (context.Request.Cookies.TryGetValue("token", out var token))
+//    {
+//        context.Request.Headers.Append("Authorization", $"Bearer {token}");
+//    }
+//    await next();
+//});
 //xác thực và đăng nhập
 app.UseAuthentication();
 app.UseAuthorization();
