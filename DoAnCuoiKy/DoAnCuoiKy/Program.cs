@@ -94,14 +94,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 //hỗ trợ đọc token từ cookie trước khi xác thực
-//app.Use(async (context, next) =>
-//{
-//    if (context.Request.Cookies.TryGetValue("token", out var token))
-//    {
-//        context.Request.Headers.Append("Authorization", $"Bearer {token}");
-//    }
-//    await next();
-//});
+app.Use(async (context, next) =>
+{
+    if (context.Request.Cookies.TryGetValue("token", out var token))
+    {
+        context.Request.Headers.Append("Authorization", $"Bearer {token}");
+    }
+    await next();
+});
 //xác thực và đăng nhập
 app.UseAuthentication();
 app.UseAuthorization();
