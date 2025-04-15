@@ -1,6 +1,6 @@
 ﻿namespace DoAnCuoiKy.Model.Entities.InformationLibrary
 {
-    public class BookAuthor
+    public class BookAuthor : BaseEntity
     {
         public Guid? Id { get; set; }
         public string? Name { get; set; }
