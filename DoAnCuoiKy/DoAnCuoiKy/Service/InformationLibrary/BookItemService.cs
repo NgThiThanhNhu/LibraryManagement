@@ -19,7 +19,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         public async Task<BaseResponse<List<BookItemResponse>>> AddBookItem(BookItemRequest bookItemRequest)
         {
             //đang thêm bookitem theo bookId dựa vào số lượng
-            //thêm vào bảng rồi mới trả kết quả ra, mà kết quả này được lấy từ bảng
             BaseResponse<List<BookItemResponse>> response = new BaseResponse<List<BookItemResponse>>();
             List<BookItemResponse> bookItemResponses = new List<BookItemResponse>();
             Book book = await _context.books.Include(x=>x.Category).Include(x=>x.BookChapter).Where(b => b.IsDeleted == false).SingleOrDefaultAsync(x=>x.Id == bookItemRequest.BookId);//muốn có được bookitem thì phải biết được bookitem đó thuộc bookId nào

@@ -77,6 +77,7 @@ builder.Services.AddTransient<IBookItemService, BookItemService>();
 builder.Services.AddTransient<IRoleService, RoleService>();
 builder.Services.AddTransient<IBookImportTransactionService, BookImportTransactionService>();
 builder.Services.AddTransient<IBookAuthorService, BookAuthorService>();
+builder.Services.AddTransient<IPublisherService, PublisherService>();
 builder.Services.AddHttpContextAccessor();
 
 

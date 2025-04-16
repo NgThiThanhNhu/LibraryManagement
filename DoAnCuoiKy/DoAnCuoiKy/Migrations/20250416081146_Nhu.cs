@@ -16,7 +16,14 @@ namespace DoAnCuoiKy.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -86,7 +93,14 @@ namespace DoAnCuoiKy.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BookShelfName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false)
+                    BookShelfName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -141,7 +155,14 @@ namespace DoAnCuoiKy.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ShelfName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     NumberOfSections = table.Column<int>(type: "int", nullable: false),
-                    BookshelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    BookshelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -261,7 +282,14 @@ namespace DoAnCuoiKy.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SectionName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Capacity = table.Column<int>(type: "int", nullable: false),
-                    ShelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ShelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -279,11 +307,8 @@ namespace DoAnCuoiKy.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BookId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    UnitPrice = table.Column<float>(type: "real", nullable: false),
-                    TotalPrice = table.Column<float>(type: "real", nullable: false),
-                    TransactionType = table.Column<byte>(type: "tinyint", nullable: false),
+                    BookId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    TransactionType = table.Column<byte>(type: "tinyint", nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -299,8 +324,7 @@ namespace DoAnCuoiKy.Migrations
                         name: "FK_bookImportTransactions_books_BookId",
                         column: x => x.BookId,
                         principalTable: "books",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -334,6 +358,13 @@ namespace DoAnCuoiKy.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ShelfSectionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true),
                     Room = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Floor = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
