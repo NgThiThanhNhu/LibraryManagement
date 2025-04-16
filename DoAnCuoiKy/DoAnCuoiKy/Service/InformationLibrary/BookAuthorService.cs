@@ -37,9 +37,22 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             return response;
         }
 
-        public Task<BaseResponse<BookAuthorResponse>> DeleteBookAuthor(Guid Id)
+        public async Task<BaseResponse<BookAuthorResponse>> DeleteBookAuthor(Guid id)
         {
-            throw new NotImplementedException();
+            BaseResponse<BookAuthorResponse> response = new BaseResponse<BookAuthorResponse>();
+            BookAuthor author = await _context.bookAuthors.FirstOrDefaultAsync(author => author.Id == id);
+            if(author == null)
+            {
+                response.IsSuccess = false;
+                response.message = "Không tồn tại dữ liệu";
+                return response;
+            }
+            author.IsDeleted = true;
+            _context.bookAuthors.Update(author);
+            await _context.SaveChangesAsync();
+            response.IsSuccess = true;
+            response.message = "Xóa thành công";
+            return response;
         }
 
         public async Task<BaseResponse<List<BookAuthorResponse>>> GetAllBookAuthor()
@@ -56,14 +69,45 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             return response;
         }
 
-        public Task<BaseResponse<BookAuthorResponse>> GetBookAuthorById(Guid id)
+        public async Task<BaseResponse<BookAuthorResponse>> GetBookAuthorById(Guid id)
         {
-            throw new NotImplementedException();
+            BaseResponse<BookAuthorResponse> response = new BaseResponse<BookAuthorResponse>();
+            BookAuthor bookAuthor = await _context.bookAuthors.FirstOrDefaultAsync(x => x.Id == id);
+            if(bookAuthor == null)
+            {
+                response.IsSuccess = false;
+                response.message = "Không tìm thấy dữ liệu";
+                return response;
+            }
+            BookAuthorResponse bookAuthorResponse = new BookAuthorResponse();
+            bookAuthorResponse.Id = id;
+            bookAuthorResponse.Name = bookAuthor.Name;
+            response.IsSuccess = true;
+            response.message = "Lấy dữ liệu thành công";
+            response.data = bookAuthorResponse;
+            return response;
         }
 
-        public Task<BaseResponse<BookAuthorResponse>> UpdateBookAuthor(Guid Id, BookAuthorRequest authorRequest)
+        public async Task<BaseResponse<BookAuthorResponse>> UpdateBookAuthor(Guid id, BookAuthorRequest authorRequest)
         {
-            throw new NotImplementedException();
+            BaseResponse<BookAuthorResponse> response = new BaseResponse<BookAuthorResponse>();
+            BookAuthor bookAuthor = await _context.bookAuthors.FirstOrDefaultAsync(x => x.Id == id);
+            if (bookAuthor == null)
+            {
+                response.IsSuccess = false;
+                response.message = "Không tồn tại dữ liệu";
+                return response;
+            }
+            bookAuthor.Name = authorRequest.Name;
+            _context.bookAuthors.Update(bookAuthor);
+            await _context.SaveChangesAsync();
+            BookAuthorResponse bookAuthorResponse = new BookAuthorResponse();
+            bookAuthorResponse.Id = bookAuthor.Id;
+            bookAuthorResponse.Name=bookAuthor.Name;
+            response.IsSuccess = true;
+            response.message = "Cập nhật dữ liệu thành công";
+            response.data= bookAuthorResponse;
+            return response;
         }
     }
 }
