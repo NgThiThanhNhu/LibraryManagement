@@ -1,6 +1,6 @@
 ﻿namespace DoAnCuoiKy.Model.Entities.InformationLibrary.Kho
 {
-    public class ShelfSection
+    public class ShelfSection : BaseEntity
     {
         public Guid Id { get; set; }
         public string SectionName { get; set; }
