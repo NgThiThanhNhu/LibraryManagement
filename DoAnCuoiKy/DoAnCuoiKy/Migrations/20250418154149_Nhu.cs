@@ -89,11 +89,11 @@ namespace DoAnCuoiKy.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "bookShelves",
+                name: "floors",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BookShelfName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    FloorName = table.Column<string>(type: "nvarchar(125)", maxLength: 125, nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -104,7 +104,7 @@ namespace DoAnCuoiKy.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_bookShelves", x => x.Id);
+                    table.PrimaryKey("PK_floors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -149,13 +149,12 @@ namespace DoAnCuoiKy.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "shelves",
+                name: "rooms",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ShelfName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    NumberOfSections = table.Column<int>(type: "int", nullable: false),
-                    BookshelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RoomName = table.Column<string>(type: "nvarchar(125)", maxLength: 125, nullable: true),
+                    FloorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -166,13 +165,12 @@ namespace DoAnCuoiKy.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_shelves", x => x.Id);
+                    table.PrimaryKey("PK_rooms", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_shelves_bookShelves_BookshelfId",
-                        column: x => x.BookshelfId,
-                        principalTable: "bookShelves",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_rooms_floors_FloorId",
+                        column: x => x.FloorId,
+                        principalTable: "floors",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -276,13 +274,13 @@ namespace DoAnCuoiKy.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "shelfSections",
+                name: "bookShelves",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SectionName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Capacity = table.Column<int>(type: "int", nullable: false),
-                    ShelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BookShelfName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NumberOfShelves = table.Column<int>(type: "int", nullable: true),
+                    RoomId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -293,13 +291,12 @@ namespace DoAnCuoiKy.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_shelfSections", x => x.Id);
+                    table.PrimaryKey("PK_bookShelves", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_shelfSections_shelves_ShelfId",
-                        column: x => x.ShelfId,
-                        principalTable: "shelves",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_bookShelves_rooms_RoomId",
+                        column: x => x.RoomId,
+                        principalTable: "rooms",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -352,12 +349,64 @@ namespace DoAnCuoiKy.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "shelves",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ShelfName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
+                    NumberOfSections = table.Column<int>(type: "int", nullable: true),
+                    BookshelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_shelves", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_shelves_bookShelves_BookshelfId",
+                        column: x => x.BookshelfId,
+                        principalTable: "bookShelves",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "shelfSections",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SectionName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
+                    Capacity = table.Column<int>(type: "int", nullable: true),
+                    ShelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_shelfSections", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_shelfSections_shelves_ShelfId",
+                        column: x => x.ShelfId,
+                        principalTable: "shelves",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "locations",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ShelfSectionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
+                    ShelfSectionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -365,8 +414,8 @@ namespace DoAnCuoiKy.Migrations
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true),
-                    Room = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Floor = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Room = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Floor = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -375,8 +424,7 @@ namespace DoAnCuoiKy.Migrations
                         name: "FK_locations_shelfSections_ShelfSectionId",
                         column: x => x.ShelfSectionId,
                         principalTable: "shelfSections",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -580,6 +628,11 @@ namespace DoAnCuoiKy.Migrations
                 column: "PublisherId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_bookShelves_RoomId",
+                table: "bookShelves",
+                column: "RoomId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_borrowingDetails_BookItemId",
                 table: "borrowingDetails",
                 column: "BookItemId");
@@ -613,6 +666,11 @@ namespace DoAnCuoiKy.Migrations
                 name: "IX_locations_ShelfSectionId",
                 table: "locations",
                 column: "ShelfSectionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_rooms_FloorId",
+                table: "rooms",
+                column: "FloorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_shelfSections_ShelfId",
@@ -689,6 +747,12 @@ namespace DoAnCuoiKy.Migrations
 
             migrationBuilder.DropTable(
                 name: "bookShelves");
+
+            migrationBuilder.DropTable(
+                name: "rooms");
+
+            migrationBuilder.DropTable(
+                name: "floors");
         }
     }
 }

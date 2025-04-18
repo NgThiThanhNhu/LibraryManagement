@@ -537,7 +537,6 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("BookShelfName")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -553,6 +552,12 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("NumberOfShelves")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
@@ -564,7 +569,45 @@ namespace DoAnCuoiKy.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RoomId");
+
                     b.ToTable("bookShelves");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Floor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FloorName")
+                        .HasMaxLength(125)
+                        .HasColumnType("nvarchar(125)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("floors");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", b =>
@@ -583,22 +626,19 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("Floor")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Room")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ShelfSectionId")
+                    b.Property<Guid?>("ShelfSectionId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -617,13 +657,54 @@ namespace DoAnCuoiKy.Migrations
                     b.ToTable("locations");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Room", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("FloorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("RoomName")
+                        .HasMaxLength(125)
+                        .HasColumnType("nvarchar(125)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FloorId");
+
+                    b.ToTable("rooms");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Shelf", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BookshelfId")
+                    b.Property<Guid?>("BookshelfId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("CreateDate")
@@ -638,11 +719,10 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("NumberOfSections")
+                    b.Property<int?>("NumberOfSections")
                         .HasColumnType("int");
 
                     b.Property<string>("ShelfName")
-                        .IsRequired()
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
@@ -668,7 +748,7 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Capacity")
+                    b.Property<int?>("Capacity")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("CreateDate")
@@ -684,11 +764,10 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("SectionName")
-                        .IsRequired()
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
-                    b.Property<Guid>("ShelfId")
+                    b.Property<Guid?>("ShelfId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -1001,24 +1080,38 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("book");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookShelf", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Room", "Room")
+                        .WithMany("BookShelves")
+                        .HasForeignKey("RoomId");
+
+                    b.Navigation("Room");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", b =>
                 {
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.ShelfSection", "ShelfSection")
                         .WithMany("Locations")
-                        .HasForeignKey("ShelfSectionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShelfSectionId");
 
                     b.Navigation("ShelfSection");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Room", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Floor", "Floor")
+                        .WithMany("Rooms")
+                        .HasForeignKey("FloorId");
+
+                    b.Navigation("Floor");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Shelf", b =>
                 {
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookShelf", "Bookshelf")
                         .WithMany("Shelves")
-                        .HasForeignKey("BookshelfId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BookshelfId");
 
                     b.Navigation("Bookshelf");
                 });
@@ -1027,9 +1120,7 @@ namespace DoAnCuoiKy.Migrations
                 {
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Shelf", "Shelf")
                         .WithMany("Sections")
-                        .HasForeignKey("ShelfId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShelfId");
 
                     b.Navigation("Shelf");
                 });
@@ -1105,9 +1196,19 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("Shelves");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Floor", b =>
+                {
+                    b.Navigation("Rooms");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", b =>
                 {
                     b.Navigation("BookItems");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Room", b =>
+                {
+                    b.Navigation("BookShelves");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Shelf", b =>
