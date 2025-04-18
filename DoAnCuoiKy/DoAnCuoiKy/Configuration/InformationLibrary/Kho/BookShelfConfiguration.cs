@@ -11,7 +11,10 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary.Kho
             builder.HasKey(bs => bs.Id);
             builder.Property(bs=>bs.BookShelfName)
                 .HasMaxLength(256);
-           
+            //mối quan hệ với room
+            builder.HasOne(bs => bs.Room)
+                 .WithMany(room => room.BookShelves)
+                 .HasForeignKey(bs => bs.RoomId);
         }
     }
 }
