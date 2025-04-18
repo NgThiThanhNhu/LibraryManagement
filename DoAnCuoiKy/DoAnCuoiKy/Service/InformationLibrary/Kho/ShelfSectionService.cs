@@ -43,24 +43,89 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             return response;
         }
 
-        public Task<BaseResponse<ShelfSectionResponse>> DeleteShelfSection(Guid id)
+        public async Task<BaseResponse<ShelfSectionResponse>> DeleteShelfSection(Guid id)
         {
-            throw new NotImplementedException();
+            BaseResponse<ShelfSectionResponse> response = new BaseResponse<ShelfSectionResponse>();
+            ShelfSection shelfSection = await _context.shelfSections.Where(x=>x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
+            if (shelfSection == null)
+            {
+                response.IsSuccess = false;
+                response.message = "Dữ liệu không tồn tại";
+                return response;
+            }
+            shelfSection.IsDeleted = true;
+            _context.shelfSections.Update(shelfSection);
+            await _context.SaveChangesAsync();
+            response.IsSuccess = true;
+            response.message = "Xóa dữ liệu thành công";
+            response.data = null;
+            return response;
+
         }
 
-        public Task<BaseResponse<List<ShelfSectionResponse>>> GetAllShelfSection()
+        public async Task<BaseResponse<List<ShelfSectionResponse>>> GetAllShelfSection()
         {
-            throw new NotImplementedException();
+            BaseResponse<List<ShelfSectionResponse>> response = new BaseResponse<List<ShelfSectionResponse>>();
+            List<ShelfSectionResponse> shelfSectionResponses = await _context.shelfSections.Include(x=>x.Shelf).Where(x=>x.IsDeleted == false).Select(x=> new ShelfSectionResponse
+            {
+                Id = x.Id,
+                SectionName = x.SectionName,
+                Capacity = x.Capacity,
+                ShelfName = x.Shelf.ShelfName
+            }).ToListAsync();
+            response.IsSuccess = true;
+            response.message = "Lấy dữ liệu thành công";
+            response.data = shelfSectionResponses;
+            return response;
         }
 
-        public Task<BaseResponse<ShelfSectionResponse>> GetShelfSectionById(Guid id)
+        public async Task<BaseResponse<ShelfSectionResponse>> GetShelfSectionById(Guid id)
         {
-            throw new NotImplementedException();
+            BaseResponse<ShelfSectionResponse> response = new BaseResponse<ShelfSectionResponse>();
+            ShelfSection shelfSection = await _context.shelfSections.Where(x=>x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
+            if(shelfSection == null)
+            {
+                response.IsSuccess=false;
+                response.message = "Dữ liệu không tồn tại";
+                return response;
+            }
+            ShelfSectionResponse shelfSectionResponse = new ShelfSectionResponse();
+            shelfSectionResponse.Id = shelfSection.Id;
+            shelfSectionResponse.ShelfName = shelfSection.Shelf.ShelfName;
+            shelfSection.Capacity = shelfSection.Capacity;
+            shelfSection.SectionName = shelfSection.SectionName;
+            response.IsSuccess = true;
+            response.message = "Lấy dữ liệu thành công";
+            response.data = shelfSectionResponse;
+            return response;
         }
 
-        public Task<BaseResponse<ShelfSectionResponse>> UpdateShelfSection(Guid id, ShelfSectionRequest shelfSectionRequest)
+        public async Task<BaseResponse<ShelfSectionResponse>> UpdateShelfSection(Guid id, ShelfSectionRequest shelfSectionRequest)
         {
-            throw new NotImplementedException();
+            BaseResponse<ShelfSectionResponse> response = new BaseResponse<ShelfSectionResponse>();
+            ShelfSection shelfSection = await _context.shelfSections.Include(x=>x.Shelf).Where(x => x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
+            if(shelfSection == null)
+            {
+                response.IsSuccess=false;
+                response.message = "Dữ liệu không tồn tại";
+                return response;
+            }
+            shelfSection.SectionName = shelfSectionRequest.SectionName;
+            shelfSection.ShelfId = shelfSectionRequest.ShelfId;
+            shelfSection.Capacity= shelfSectionRequest.Capacity;
+            shelfSection.UpdateDate = DateTime.Now;
+            _context.shelfSections.Update(shelfSection);
+            await _context.SaveChangesAsync();
+            ShelfSectionResponse shelfSectionResponse = new ShelfSectionResponse();
+            shelfSectionResponse.Id = shelfSection.Id;
+            shelfSectionResponse.SectionName = shelfSection.SectionName;
+            shelfSectionResponse.Capacity = shelfSection.Capacity;
+            shelfSectionResponse.ShelfName = shelfSection.Shelf.ShelfName;
+            response.IsSuccess = true;
+            response.message = "Cập nhật thành công";
+            response.data = shelfSectionResponse;
+            return response;
+
         }
     }
 }

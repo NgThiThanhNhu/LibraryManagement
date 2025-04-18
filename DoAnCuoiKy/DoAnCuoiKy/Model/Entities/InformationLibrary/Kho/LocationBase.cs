@@ -2,7 +2,7 @@
 {
     public class LocationBase : BaseEntity
     {
-        public string Room {  get; set; }
-        public string Floor { get; set; }
+        public string? Room {  get; set; }
+        public string? Floor { get; set; }
     }
 }
