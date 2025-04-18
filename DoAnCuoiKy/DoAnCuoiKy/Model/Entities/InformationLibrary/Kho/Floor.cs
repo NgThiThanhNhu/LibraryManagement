@@ -1,6 +1,6 @@
 ﻿namespace DoAnCuoiKy.Model.Entities.InformationLibrary.Kho
 {
-    public class Floor
+    public class Floor : BaseEntity
     {
         public Guid? Id { get; set; }
         public string? FloorName { get; set; }
