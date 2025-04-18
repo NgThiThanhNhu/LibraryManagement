@@ -25,6 +25,8 @@ namespace DoAnCuoiKy.Data
         public DbSet<BookItem> bookItems { get; set; }
         public DbSet<BookAuthor> bookAuthors { get; set; }
         public DbSet<Publisher> publishers { get; set; }
+        public DbSet<Floor> floors { get; set; }
+        public DbSet<Room> rooms { get; set; }
         public DbSet<BookShelf> bookShelves { get; set; }
         public DbSet<Shelf> shelves { get; set; }
         public DbSet<ShelfSection> shelfSections { get; set; }
