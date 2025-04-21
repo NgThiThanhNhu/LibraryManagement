@@ -7,7 +7,7 @@ namespace DoAnCuoiKy.Service.IService.InformationLibrary.Kho
     public interface IRoomService
     {
         Task<BaseResponse<RoomResponse>> AddRoom(RoomRequest roomRequest);
-        Task<BaseResponse<RoomResponse>> GetAllRoom();
+        Task<BaseResponse<List<RoomResponse>>> GetAllRoom();
         Task<BaseResponse<RoomResponse>> GetRoomById(Guid id);
         Task<BaseResponse<RoomResponse>> UpdateRoom(Guid id, RoomRequest roomRequest);
         Task<BaseResponse<RoomResponse>> DeleteRoom(Guid id);
