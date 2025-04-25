@@ -15,6 +15,7 @@ namespace DoAnCuoiKy.Controllers
         private readonly IAuthenticationService _authenticationService;
         private readonly IConfiguration _configuration;
        
+
         public AuthenticationController(IAuthenticationService authenticationService, IConfiguration _config)
         {
             _authenticationService = authenticationService;

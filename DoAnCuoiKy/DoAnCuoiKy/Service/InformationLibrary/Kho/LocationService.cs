@@ -44,8 +44,8 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             locationResponse.SectionName = section.SectionName;
             locationResponse.ShelfName = section.Shelf.ShelfName;
             locationResponse.BookShelfName = section.Shelf.Bookshelf.BookShelfName;
-            locationResponse.Room = section.Shelf.Bookshelf.Room.RoomName;
-            locationResponse.Floor = section.Shelf.Bookshelf.Room.Floor.FloorName;
+            locationResponse.RoomName = section.Shelf.Bookshelf.Room.RoomName;
+            locationResponse.FloorName = section.Shelf.Bookshelf.Room.Floor.FloorName;
             locationResponse.LocationStatus = location.LocationStatus;
             response.IsSuccess = true;
             response.message = "Thêm dữ liệu thành công";
@@ -53,24 +53,103 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             return response;
         }
 
-        public Task<BaseResponse<LocationResponse>> DeleteLocation(Guid id)
+        public async Task<BaseResponse<LocationResponse>> DeleteLocation(Guid id)
         {
-            throw new NotImplementedException();
+            BaseResponse<LocationResponse> response = new BaseResponse<LocationResponse>();
+            Location location = await _context.locations.Where(x => x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
+            if (location == null)
+            {
+                response.IsSuccess = false;
+                response.message = "Dữ liệu không tồn tại";
+                response.data = null;
+                return response;
+            }
+            location.IsDeleted = true;
+            _context.locations.Update(location);
+            await _context.SaveChangesAsync();
+            response.IsSuccess = true;
+            response.message = "Xóa thành công";
+            response.data = null;
+            return response;
         }
 
-        public Task<BaseResponse<List<LocationResponse>>> GetAllLocation()
+        public async Task<BaseResponse<List<LocationResponse>>> GetAllLocation()
         {
-            throw new NotImplementedException();
+            BaseResponse<List<LocationResponse>> response = new BaseResponse<List<LocationResponse>>();
+            List<LocationResponse> locationResponses = await _context.locations.Include(x => x.ShelfSection).ThenInclude(x => x.Shelf).ThenInclude(x => x.Bookshelf).ThenInclude(x => x.Room).ThenInclude(x => x.Floor).Where(x => x.IsDeleted == false).Select(x => new LocationResponse
+            {
+                Id = x.Id,
+                SectionName = x.ShelfSection.SectionName,
+                ShelfName = x.ShelfSection.Shelf.ShelfName,
+                BookShelfName = x.ShelfSection.Shelf.Bookshelf.BookShelfName,
+                RoomName = x.ShelfSection.Shelf.Bookshelf.Room.RoomName,
+                FloorName = x.ShelfSection.Shelf.Bookshelf.Room.Floor.FloorName,
+                Description = x.Description,
+                LocationStatus = x.LocationStatus
+
+            }).ToListAsync();
+            response.IsSuccess = true;
+            response.message = "Lấy danh sách thành công";
+            response.data = locationResponses;
+            return response;
         }
 
-        public Task<BaseResponse<LocationResponse>> GetLocationById(Guid id)
+        public async Task<BaseResponse<LocationResponse>> GetLocationById(Guid id)
         {
-            throw new NotImplementedException();
+            BaseResponse<LocationResponse> response = new BaseResponse<LocationResponse>();
+            Location location = await _context.locations.Where(x => x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
+            if(location == null)
+            {
+                response.IsSuccess= false;
+                response.message = "Dữ liệu không tồn tại";
+                return response;
+            }
+            LocationResponse locationResponse = new LocationResponse();
+            locationResponse.Id = location.Id;
+            locationResponse.SectionName = location.ShelfSection.SectionName;
+            locationResponse.ShelfName = location.ShelfSection.Shelf.ShelfName;
+            locationResponse.BookShelfName = location.ShelfSection.Shelf.Bookshelf.BookShelfName;
+            locationResponse.RoomName = location.ShelfSection.Shelf.Bookshelf.Room.RoomName;
+            locationResponse.FloorName = location.ShelfSection.Shelf.Bookshelf.Room.Floor.FloorName;
+            locationResponse.Description = location.Description;
+            locationResponse.LocationStatus = location.LocationStatus;
+            response.IsSuccess = true;
+            response.message = "Lấy dữ liệu thành công";
+            response.data = locationResponse;
+            return response;
         }
 
-        public Task<BaseResponse<LocationResponse>> UpdateLocation(Guid id, LocationRequest locationRequest)
+        public async Task<BaseResponse<LocationResponse>> UpdateLocation(Guid id, LocationRequest locationRequest)
         {
-            throw new NotImplementedException();
+            BaseResponse<LocationResponse> response = new BaseResponse<LocationResponse>();
+            Location location = await _context.locations.Where(x=>x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
+            if(location == null)
+            {
+                response.IsSuccess = false;
+                response.message = "Dữ liệu không tồn tại";
+                return response;
+            }
+            location.UpdateDate = DateTime.Now;
+            ShelfSection shelfSection = await _context.shelfSections.Where(x=>x.IsDeleted == false && x.Id == locationRequest.ShelfSectionId).FirstOrDefaultAsync();
+            if(shelfSection == null)
+            {
+                response.IsSuccess = false;
+                response.message = "shelfSectionId không tồn tại";
+                return response;
+            }
+            location.ShelfSectionId = locationRequest.ShelfSectionId;
+            location.Description = locationRequest.Description;
+            location.LocationStatus = locationRequest.LocationStatus;
+            _context.locations.Update(location);
+            await _context.SaveChangesAsync();
+            LocationResponse locationResponse = new LocationResponse();
+            locationResponse.SectionName = location.ShelfSection.SectionName;
+            locationResponse.Description = location.Description;
+            locationResponse.LocationStatus = location.LocationStatus;
+            response.IsSuccess = true;
+            response.message = "Cập nhật thành công";
+            response.data = locationResponse;
+            return response;
         }
     }
 }
