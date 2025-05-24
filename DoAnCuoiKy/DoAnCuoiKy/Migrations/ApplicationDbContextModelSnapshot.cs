@@ -629,14 +629,11 @@ namespace DoAnCuoiKy.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("Floor")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Room")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte?>("LocationStatus")
+                        .HasColumnType("tinyint");
 
                     b.Property<Guid?>("ShelfSectionId")
                         .HasColumnType("uniqueidentifier");
