@@ -7,7 +7,7 @@ namespace DoAnCuoiKy.Model.Request.KhoRequest
     {
         public Guid? ShelfSectionId { get; set; }
         public string? Description { get; set; }
-        public LocationStatus? LocationStatus { get; set; };
+        public LocationStatus? LocationStatus { get; set; }
 
     }
 }
