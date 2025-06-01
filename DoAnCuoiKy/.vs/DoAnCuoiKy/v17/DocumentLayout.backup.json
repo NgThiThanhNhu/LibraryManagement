@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\controllers\\publishercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\controllers\\publishercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\controllers\\publishercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\controllers\\publishercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -250,7 +250,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 818,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -270,8 +270,7 @@
               "RelativeToolTip": "DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAA3wCYAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T02:52:07.616Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T02:52:07.616Z"
             },
             {
               "$type": "Document",
@@ -287,7 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PublisherController.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\PublisherController.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\PublisherController.cs",
@@ -295,8 +294,7 @@
               "RelativeToolTip": "DoAnCuoiKy\\Controllers\\PublisherController.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAkwC4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T10:33:28.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-14T10:33:28.367Z"
             },
             {
               "$type": "Document",
@@ -320,18 +318,17 @@
               "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookCategoryController.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAkwBUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T18:13:05.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T18:13:05.332Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Program.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Program.cs",
               "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Program.cs",
               "RelativeToolTip": "DoAnCuoiKy\\Program.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-18T15:04:47.457Z",
               "EditorCaption": ""
@@ -346,8 +343,7 @@
               "RelativeToolTip": "DoAnCuoiKy\\Controllers\\AuthenticationController.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAAACAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T18:12:57.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T18:12:57.183Z"
             },
             {
               "$type": "Document",
@@ -383,8 +379,7 @@
               "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookItem.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T15:27:38.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-24T15:27:38.968Z"
             },
             {
               "$type": "Document",
@@ -396,8 +391,7 @@
               "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\BookItemRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T03:24:36.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T03:24:36.723Z"
             },
             {
               "$type": "Document",
@@ -409,8 +403,7 @@
               "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\Usermanage\\Librarian.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T03:33:01.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T03:33:01.409Z"
             },
             {
               "$type": "Document",
