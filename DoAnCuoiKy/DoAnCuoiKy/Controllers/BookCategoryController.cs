@@ -19,7 +19,7 @@ namespace DoAnCuoiKy.Controllers
         }
 
         [HttpPost("AddBookCategory")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<BaseResponse<BookCategoryResponse>> addBookCategory(BookCategoryRequest bookCategoryRequest)
         {
             //gọi lại
@@ -28,20 +28,20 @@ namespace DoAnCuoiKy.Controllers
         }
 
         [HttpGet("GetAllBookCategory")]
-        [Authorize(Roles = "Admin, User")]
+        //[Authorize(Roles = "Admin, User")]
         public async Task<BaseResponse<List<BookCategoryResponse>>> getAllBookCategory()
         {
             BaseResponse<List<BookCategoryResponse>> responses = await _bookCategoryService.GetAllBookCategory();
             return responses;
         }
         [HttpGet("GetBookCategoryById/{id}")]
-        [Authorize(Roles = "Admin, User")]
+        //[Authorize(Roles = "Admin, User")]
         public async Task<BaseResponse<BookCategoryResponse>> getBookCategoryById(Guid id)
         {
             BaseResponse<BookCategoryResponse> response = await _bookCategoryService.GetBookCategoryById(id);
             return response;
         }
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost("UpdateBookCategory/{id}")]
         public async Task<BaseResponse<BookCategoryResponse>> updateBookCategory(Guid id, BookCategoryRequest categoryRequest)
         {
@@ -49,7 +49,7 @@ namespace DoAnCuoiKy.Controllers
             return response;
         }
         [HttpPost("DeleteBookCategory/{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<BaseResponse<BookCategoryResponse>> deleteBookCategory(Guid id)
         {
             BaseResponse<BookCategoryResponse> response = await _bookCategoryService.DeleteBookCategory(id);

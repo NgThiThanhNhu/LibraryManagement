@@ -22,7 +22,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             author.Name = authorRequest.Name;
             await _context.bookAuthors.AddAsync(author);
             await _context.SaveChangesAsync();
-            if (author == null)
+            if (author.Name == null)
             {
                 response.IsSuccess = false;
                 response.message = "Không có dữ liệu";

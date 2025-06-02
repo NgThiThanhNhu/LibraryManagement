@@ -16,7 +16,7 @@ namespace DoAnCuoiKy.Controllers
             _bookChapterService = bookChapterService;
         }
         [HttpPost("AddBookChapter")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<BaseResponse<BookChapterResponse>> addBookChapter(BookChapterRequest chapterRequest)
         {
             //dùng service
@@ -24,7 +24,7 @@ namespace DoAnCuoiKy.Controllers
             return responses;
         }
         [HttpGet("GetAllBookChapter")]
-        [Authorize(Roles = "Admin, User")]
+        //[Authorize(Roles = "Admin, User")]
         public async Task<BaseResponse<List<BookChapterResponse>>> getAllBookChapter()
         {
             //lấy tất cả bookchapter sẽ trả về một kết quả nên
@@ -33,7 +33,7 @@ namespace DoAnCuoiKy.Controllers
 
         }
         [HttpGet("GetBookChapterById/{id}")]
-        [Authorize(Roles = "Admin, User")]
+        //[Authorize(Roles = "Admin, User")]
         public async Task<BaseResponse<BookChapterResponse>> getBookChapterById(Guid id)
         {
             BaseResponse<BookChapterResponse> responses = await _bookChapterService.GetBookChapterById(id);
@@ -41,7 +41,7 @@ namespace DoAnCuoiKy.Controllers
         }
 
         [HttpPost("UpdateBookChapter/{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<BaseResponse<BookChapterResponse>> updateBookChapter(Guid id, BookChapterRequest bookChapterRequest)
         {
             BaseResponse<BookChapterResponse> responses = await _bookChapterService.UpdateBookChapter(id, bookChapterRequest);
@@ -49,7 +49,7 @@ namespace DoAnCuoiKy.Controllers
         }
 
         [HttpPost("DeleteBookChapter/{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<BaseResponse<BookChapterResponse>> deleteBookChapter(Guid id)
         {
             BaseResponse<BookChapterResponse> responses = await _bookChapterService.DeleteBookChapter(id);

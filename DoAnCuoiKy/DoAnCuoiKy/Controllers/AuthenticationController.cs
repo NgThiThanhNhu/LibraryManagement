@@ -28,6 +28,8 @@ namespace DoAnCuoiKy.Controllers
         {
 
             BaseResponse<LoginResponse> baseResponse = await _authenticationService.Login(loginRequest);
+            if (baseResponse.IsSuccess && baseResponse.data!=null)
+            {
             HttpContext.Response.Cookies.Append("token", baseResponse.data.Token ?? "", new CookieOptions
             {
                 HttpOnly = true,
@@ -54,6 +56,7 @@ namespace DoAnCuoiKy.Controllers
                     SameSite = SameSiteMode.None
                 });
                 Console.WriteLine("đăng nhập thành công");
+            }
             }
                 return baseResponse;
 

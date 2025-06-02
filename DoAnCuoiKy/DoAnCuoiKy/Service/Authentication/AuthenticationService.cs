@@ -37,12 +37,14 @@ namespace DoAnCuoiKy.Service.Authentication
             if (librarian == null)
             {
                 response.IsSuccess = false;
-                response.message = "Chưa có tài khoản";
+                response.message = "Không tồn tại tài khoản có email này";
+                response.data = null;
                 return response;
             }
+           
             //mã hóa mật khẩu để kiểm tra tài khoản
             //nếu tìm thấy email trong database thì so sánh mật khẩu
-            /* var passwordHasher = new PasswordHasher<Librarian>();
+            /*var passwordHasher = new PasswordHasher<Librarian>();
              var result = passwordHasher.VerifyHashedPassword(librarian, librarian.Password, loginRequest.Password);
              if (result == PasswordVerificationResult.Failed)
              {
@@ -56,6 +58,7 @@ namespace DoAnCuoiKy.Service.Authentication
             {
                 response.IsSuccess = false;
                 response.message = "Mật khẩu không đúng";
+                response.data = null;
                 return response;
             }
             Role role = await _context.roles.Where(x => x.IsDeleted == false && x.Id == librarian.RoleId).FirstOrDefaultAsync();
