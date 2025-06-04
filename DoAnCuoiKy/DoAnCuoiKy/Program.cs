@@ -15,6 +15,8 @@ using System.Text;
 using DoAnCuoiKy.Service.IService.Authentication;
 using DoAnCuoiKy.Service.Authentication;
 using System.Security.Claims;
+using DoAnCuoiKy.Service.IService.InformationLibrary.Kho;
+using DoAnCuoiKy.Service.InformationLibrary.Kho;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = builder.Configuration;
@@ -78,6 +80,12 @@ builder.Services.AddTransient<IRoleService, RoleService>();
 builder.Services.AddTransient<IBookImportTransactionService, BookImportTransactionService>();
 builder.Services.AddTransient<IBookAuthorService, BookAuthorService>();
 builder.Services.AddTransient<IPublisherService, PublisherService>();
+builder.Services.AddTransient<IFloorService, FloorService>();
+builder.Services.AddTransient<IRoomService, RoomService>();
+builder.Services.AddTransient<IBookShelfService, BookShelfService>();
+builder.Services.AddTransient<IShelfService, ShelfService>();
+builder.Services.AddTransient<IShelfSectionService, ShelfSectionService>();
+builder.Services.AddTransient<ILocationService, LocationService>();
 builder.Services.AddHttpContextAccessor();
 
 
