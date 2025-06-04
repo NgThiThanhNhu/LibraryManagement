@@ -15,6 +15,33 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         {
             _context = context;
         }
+        public async Task<List<BookItem>> GenerateMultipleBookItems(Guid bookId, int quantity)
+        {
+            string shortBookId = bookId.ToString().Substring(0, 6);
+
+            // Đếm số lượng BookItem đã có trong DB với BookId này
+            int existingCount = await _context.bookItems
+                .CountAsync(b => b.BookId == bookId);
+
+            List<BookItem> newBookItems = new List<BookItem>();
+
+            for (int i = 1; i <= quantity; i++)
+            {
+                int currentSeq = existingCount + i;
+                string barCode = $"BOOK-{shortBookId}-{currentSeq:D3}";
+
+                BookItem bookItem = new BookItem
+                {
+                    BookId = bookId,
+                    BookStatus = BookStatus.Available,
+                    BarCode = barCode
+                };
+
+                newBookItems.Add(bookItem);
+            }
+
+            return newBookItems;
+        }
 
         public async Task<BaseResponse<List<BookItemResponse>>> AddBookItem(BookItemRequest bookItemRequest)
         {
@@ -28,14 +55,15 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 response.message = "Không có dữ liệu để thêm BookItem";
                 return response;
             }
-            List<BookItem> bookItems1 = new List<BookItem>();
-            for(int i = 0; i<book.Quantity; i++)
-            {
-                BookItem bookItem = new BookItem();
-                bookItem.BookId = book.Id;
-                bookItem.BookStatus = BookStatus.Available;
-                bookItems1.Add(bookItem);
-            }
+            //List<BookItem> bookItems1 = new List<BookItem>();
+            //for(int i = 0; i<book.Quantity; i++)
+            //{
+            //    BookItem bookItem = new BookItem();
+            //    bookItem.BookId = book.Id;
+            //    bookItem.BookStatus = BookStatus.Available;
+               List<BookItem> bookItems1 = await GenerateMultipleBookItems(book.Id, book.Quantity);
+            //  /*  bookIt*/ems1.Add(bookItem);
+            //}
                 _context.bookItems.AddRange(bookItems1);
                 await _context.SaveChangesAsync();
 
@@ -49,7 +77,8 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 UnitPrice = i.Book.UnitPrice,
                 BookStatus = i.BookStatus.Value,
                 CategoryName = i.Book.Category.Name,
-                TitleBookChapter = i.Book.BookChapter.TitleChapter
+                TitleBookChapter = i.Book.BookChapter.TitleChapter,
+                BarCode = i.BarCode
             }).ToListAsync();
             response.IsSuccess = true;
             response.message = "Thêm dữ liệu thành công";
@@ -100,7 +129,8 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 UnitPrice = i.Book.UnitPrice,
                 BookStatus = i.BookStatus,
                 CategoryName = i.Book.Category.Name,
-                TitleBookChapter = i.Book.BookChapter.TitleChapter
+                TitleBookChapter = i.Book.BookChapter.TitleChapter,
+                BarCode = i.BarCode
             }).ToListAsync();
             if(bookItems == null)
             {
@@ -126,6 +156,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 return response;
             }
             bookItemResponse.Id = bookItem.Id.Value;
+            bookItemResponse.BarCode = bookItem.BarCode;
             bookItemResponse.BookId = bookItem.BookId.Value;
             bookItemResponse.Title = bookItem.Book.Title;
             bookItemResponse.TitleBookChapter = bookItem.Book.BookChapter.TitleChapter;
@@ -161,11 +192,12 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 return response;
             }
             
-            _context.bookItems.Update(item);
+            _context.bookItems.UpdateRange(item);
             await _context.SaveChangesAsync();
             
             BookItemResponse bookItemResponse = new BookItemResponse();
             bookItemResponse.Id = id;
+            bookItemResponse.BarCode = item.BarCode;
             bookItemResponse.BookId = item.BookId;
             bookItemResponse.Title = item.Book.Title;
             bookItemResponse.AuthorName = item.Book.BookAuthor.Name;
@@ -179,5 +211,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             response.data = bookItemResponse;
             return response;
         }
+        
     }
 }

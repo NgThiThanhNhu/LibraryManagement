@@ -26,6 +26,7 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.HasOne(b => b.Category)
                 .WithMany(cg => cg.books)
                 .HasForeignKey(b => b.CategoryId);
+            
             //thiết lập mối quan hệ với bảng bookimporttransaction
             builder.HasMany(b => b.ImportTransactions)
                 .WithOne(ip => ip.book)

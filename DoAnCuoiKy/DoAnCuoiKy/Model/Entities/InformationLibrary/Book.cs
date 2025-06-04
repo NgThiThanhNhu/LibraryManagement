@@ -7,14 +7,14 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
 {
     public class Book : BaseEntity
     {
-        public Guid? Id { get; set; }
+        public Guid Id { get; set; }
         public string? Title { get; set; }
         public Guid? PublisherId { get; set; }
         public Publisher? Publisher { get; set; }
         public Guid? BookAuthorId { get; set; }
         public BookAuthor? BookAuthor { get; set; }
         public int? YearPublished { get; set; }
-        public int? Quantity { get; set; } //số lượng sách nhập
+        public int Quantity { get; set; } //số lượng sách nhập
         public float? TotalPrice { get; set; }
         public float? UnitPrice { get; set; }
         public Guid? CategoryId { get; set; }

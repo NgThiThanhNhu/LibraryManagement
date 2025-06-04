@@ -30,10 +30,12 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
                 response.message = "Thêm thất bại";
                 return response;
             }
+            Floor findFloor = await _context.floors.FirstOrDefaultAsync(x => x.Id == room.FloorId);
             RoomResponse roomResponse = new RoomResponse();
             roomResponse.Id = room.Id;
             roomResponse.RoomName = room.RoomName;
-            roomResponse.FloorName = room.Floor.FloorName;
+            roomResponse.FloorId = room.FloorId;
+            roomResponse.FloorName = findFloor.FloorName;
             response.IsSuccess = true;
             response.message = "Thêm thành công";
             response.data = roomResponse;
@@ -66,6 +68,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             {
                 Id = x.Id,
                 RoomName = x.RoomName,
+                FloorId = x.FloorId,
                 FloorName = x.Floor.FloorName
             }).ToListAsync();
             response.IsSuccess = true;
@@ -88,6 +91,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             RoomResponse roomResponse = new RoomResponse();
             roomResponse.Id = room.Id;
             roomResponse.RoomName = room.RoomName;
+            roomResponse.FloorId = room.FloorId;
             roomResponse.FloorName = room.Floor.FloorName;
             response.IsSuccess = true;
             response.message = "Lấy dữ liệu thành công";
@@ -114,7 +118,9 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             await _context.SaveChangesAsync();
             RoomResponse roomResponse = new RoomResponse();
             roomResponse.Id = room.Id;
+            roomResponse.FloorId = room.FloorId;
             roomResponse.RoomName = room.RoomName;
+            //mai sửa chỗ này
             roomResponse.FloorName = room.Floor.FloorName;
             response.IsSuccess = true;
             response.message = "Cập nhật thành công";

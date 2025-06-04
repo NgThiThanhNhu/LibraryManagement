@@ -6,7 +6,7 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
     public class BookItem : BaseEntity
     {
         public Guid? Id { get; set; }
-        public string? BarCode { get; set; }
+        public string BarCode { get; set; }
         public BookStatus? BookStatus { get; set; }
         public Guid? BookId { get; set; }
         public Book? Book { get; set; }

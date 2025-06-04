@@ -15,10 +15,7 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.HasMany(c => c.books)
                 .WithOne(b => b.BookChapter)
                 .HasForeignKey(b => b.BookChapterId);
-            ////với bảng bookitem
-            //builder.HasMany(c => c.bookItems)
-            //    .WithOne(i => i.BookChapter)
-            //    .HasForeignKey(i => i.BookChapterId);
+           
             
         }
     }
