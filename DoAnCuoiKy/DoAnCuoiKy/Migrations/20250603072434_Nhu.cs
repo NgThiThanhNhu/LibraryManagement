@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DoAnCuoiKy.Migrations
 {
     /// <inheritdoc />
-    public partial class newServer : Migration
+    public partial class Nhu : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -182,7 +182,7 @@ namespace DoAnCuoiKy.Migrations
                     PublisherId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     BookAuthorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     YearPublished = table.Column<int>(type: "int", nullable: true),
-                    Quantity = table.Column<int>(type: "int", nullable: true),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
                     TotalPrice = table.Column<float>(type: "real", nullable: true),
                     UnitPrice = table.Column<float>(type: "real", nullable: true),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
@@ -431,12 +431,11 @@ namespace DoAnCuoiKy.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BarCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
+                    BarCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     BookStatus = table.Column<byte>(type: "tinyint", nullable: true),
                     BookId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     LocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ExportTransactionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    BookChapterId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -448,11 +447,6 @@ namespace DoAnCuoiKy.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_bookItems", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_bookItems_bookChapters_BookChapterId",
-                        column: x => x.BookChapterId,
-                        principalTable: "bookChapters",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_bookItems_bookExportTransactions_ExportTransactionId",
                         column: x => x.ExportTransactionId,
@@ -575,11 +569,6 @@ namespace DoAnCuoiKy.Migrations
                 name: "IX_bookImportTransactions_BookId",
                 table: "bookImportTransactions",
                 column: "BookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_bookItems_BookChapterId",
-                table: "bookItems",
-                column: "BookChapterId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_bookItems_BookId",

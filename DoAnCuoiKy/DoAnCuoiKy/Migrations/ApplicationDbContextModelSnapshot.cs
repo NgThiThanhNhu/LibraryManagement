@@ -52,7 +52,7 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<Guid?>("PublisherId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("Quantity")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -204,11 +204,9 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("BarCode")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
-
-                    b.Property<Guid?>("BookChapterId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("BookId")
                         .HasColumnType("uniqueidentifier");
@@ -244,8 +242,6 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BookChapterId");
 
                     b.HasIndex("BookId");
 
@@ -991,10 +987,6 @@ namespace DoAnCuoiKy.Migrations
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookItem", b =>
                 {
-                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BookChapter", null)
-                        .WithMany("bookItems")
-                        .HasForeignKey("BookChapterId");
-
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", "Book")
                         .WithMany("bookItems")
                         .HasForeignKey("BookId");
@@ -1161,8 +1153,6 @@ namespace DoAnCuoiKy.Migrations
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookChapter", b =>
                 {
-                    b.Navigation("bookItems");
-
                     b.Navigation("books");
                 });
 
