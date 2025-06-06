@@ -85,7 +85,7 @@ builder.Services.AddTransient<IRoomService, RoomService>();
 builder.Services.AddTransient<IBookShelfService, BookShelfService>();
 builder.Services.AddTransient<IShelfService, ShelfService>();
 builder.Services.AddTransient<IShelfSectionService, ShelfSectionService>();
-builder.Services.AddTransient<ILocationService, LocationService>();
+
 builder.Services.AddHttpContextAccessor();
 
 

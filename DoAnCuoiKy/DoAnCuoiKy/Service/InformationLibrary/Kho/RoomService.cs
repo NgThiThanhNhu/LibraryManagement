@@ -21,6 +21,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             Room room = new Room();
             room.Id = Guid.NewGuid();
             room.RoomName = roomRequest.RoomName;
+            room.MaxBookShelfCapity = roomRequest.MaxBookShelfCapity;
             room.FloorId = roomRequest.FloorId;
             _context.rooms.Add(room);
             await _context.SaveChangesAsync();
@@ -34,6 +35,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             RoomResponse roomResponse = new RoomResponse();
             roomResponse.Id = room.Id;
             roomResponse.RoomName = room.RoomName;
+            roomResponse.MaxBookShelfCapity = room.MaxBookShelfCapity;
             roomResponse.FloorId = room.FloorId;
             roomResponse.FloorName = findFloor.FloorName;
             response.IsSuccess = true;
@@ -64,12 +66,14 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
         public async Task<BaseResponse<List<RoomResponse>>> GetAllRoom()
         {
             BaseResponse<List<RoomResponse>> response =  new BaseResponse<List<RoomResponse>>();
-            List<RoomResponse> roomResponses = await _context.rooms.Include(x => x.Floor).Where(x => x.IsDeleted == false).Select(x => new RoomResponse
+            List<RoomResponse> roomResponses = await _context.rooms.Include(x => x.Floor).Include(r => r.BookShelves).Where(x => x.IsDeleted == false).Select(x => new RoomResponse
             {
                 Id = x.Id,
                 RoomName = x.RoomName,
+                MaxBookShelfCapity = x.MaxBookShelfCapity,
                 FloorId = x.FloorId,
-                FloorName = x.Floor.FloorName
+                FloorName = x.Floor.FloorName,
+                CurrentBookShelves = x.BookShelves.Count()
             }).ToListAsync();
             response.IsSuccess = true;
             response.message = "Lấy dữ liệu thành công";
@@ -80,7 +84,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
         public async Task<BaseResponse<RoomResponse>> GetRoomById(Guid id)
         {
             BaseResponse<RoomResponse> response = new BaseResponse<RoomResponse>();
-            Room room = await _context.rooms.Include(x=>x.Floor).Where(x => x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
+            Room room = await _context.rooms.Include(x=>x.Floor).Include(x=>x.BookShelves).Where(x => x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
             if(room == null)
             {
                 response.IsSuccess=false;
@@ -91,8 +95,10 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             RoomResponse roomResponse = new RoomResponse();
             roomResponse.Id = room.Id;
             roomResponse.RoomName = room.RoomName;
+            roomResponse.MaxBookShelfCapity= room.MaxBookShelfCapity;
             roomResponse.FloorId = room.FloorId;
             roomResponse.FloorName = room.Floor.FloorName;
+            roomResponse.CurrentBookShelves = room.BookShelves.Count();
             response.IsSuccess = true;
             response.message = "Lấy dữ liệu thành công";
             response.data = roomResponse;
@@ -113,15 +119,20 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             }
             room.UpdateDate = DateTime.Now;
             room.RoomName = roomRequest.RoomName;
+            room.MaxBookShelfCapity = roomRequest.MaxBookShelfCapity;
             room.FloorId = roomRequest.FloorId;
             _context.rooms.Update(room);
             await _context.SaveChangesAsync();
+
             RoomResponse roomResponse = new RoomResponse();
+
             roomResponse.Id = room.Id;
             roomResponse.FloorId = room.FloorId;
             roomResponse.RoomName = room.RoomName;
-            //mai sửa chỗ này
-            roomResponse.FloorName = room.Floor.FloorName;
+            roomResponse.MaxBookShelfCapity = roomResponse.MaxBookShelfCapity;
+            Floor floor = await _context.floors.FirstOrDefaultAsync(x=>x.Id == room.FloorId);
+     
+            roomResponse.FloorName = floor.FloorName;
             response.IsSuccess = true;
             response.message = "Cập nhật thành công";
             response.data = roomResponse;

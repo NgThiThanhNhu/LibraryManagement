@@ -30,7 +30,7 @@ namespace DoAnCuoiKy.Data
         public DbSet<BookShelf> bookShelves { get; set; }
         public DbSet<Shelf> shelves { get; set; }
         public DbSet<ShelfSection> shelfSections { get; set; }
-        public DbSet<Location> locations { get; set; }
+       
         public DbSet<BookImportTransaction> bookImportTransactions { get; set; }
         public DbSet<BookExportTransaction> bookExportTransactions { get; set; }
 

@@ -229,7 +229,7 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("LocationId")
+                    b.Property<Guid?>("ShelfSectionId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -247,7 +247,7 @@ namespace DoAnCuoiKy.Migrations
 
                     b.HasIndex("ExportTransactionId");
 
-                    b.HasIndex("LocationId");
+                    b.HasIndex("ShelfSectionId");
 
                     b.ToTable("bookItems");
                 });
@@ -606,50 +606,6 @@ namespace DoAnCuoiKy.Migrations
                     b.ToTable("floors");
                 });
 
-            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreateUser")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DeleteDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<byte?>("LocationStatus")
-                        .HasColumnType("tinyint");
-
-                    b.Property<Guid?>("ShelfSectionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdateUser")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("deleteUser")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ShelfSectionId");
-
-                    b.ToTable("locations");
-                });
-
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Room", b =>
                 {
                     b.Property<Guid>("Id")
@@ -670,6 +626,9 @@ namespace DoAnCuoiKy.Migrations
 
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<int?>("MaxBookShelfCapity")
+                        .HasColumnType("int");
 
                     b.Property<string>("RoomName")
                         .HasMaxLength(125)
@@ -995,15 +954,15 @@ namespace DoAnCuoiKy.Migrations
                         .WithMany("bookItems")
                         .HasForeignKey("ExportTransactionId");
 
-                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", "Location")
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.ShelfSection", "ShelfSection")
                         .WithMany("BookItems")
-                        .HasForeignKey("LocationId");
+                        .HasForeignKey("ShelfSectionId");
 
                     b.Navigation("Book");
 
                     b.Navigation("BookExportTransaction");
 
-                    b.Navigation("Location");
+                    b.Navigation("ShelfSection");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookReservation", b =>
@@ -1076,15 +1035,6 @@ namespace DoAnCuoiKy.Migrations
                         .HasForeignKey("RoomId");
 
                     b.Navigation("Room");
-                });
-
-            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", b =>
-                {
-                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.ShelfSection", "ShelfSection")
-                        .WithMany("Locations")
-                        .HasForeignKey("ShelfSectionId");
-
-                    b.Navigation("ShelfSection");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Room", b =>
@@ -1188,11 +1138,6 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("Rooms");
                 });
 
-            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Location", b =>
-                {
-                    b.Navigation("BookItems");
-                });
-
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Room", b =>
                 {
                     b.Navigation("BookShelves");
@@ -1205,7 +1150,7 @@ namespace DoAnCuoiKy.Migrations
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.ShelfSection", b =>
                 {
-                    b.Navigation("Locations");
+                    b.Navigation("BookItems");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Publisher", b =>

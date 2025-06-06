@@ -3,6 +3,66 @@
   "WorkspaceRootPath": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Migrations\\20250606064257_nhu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DoAnCuoiKy\\Migrations\\20250606064257_nhu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\configuration\\informationlibrary\\bookitemconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\configuration\\informationlibrary\\bookitemconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\bookitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\bookitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\kho\\shelfsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\kho\\shelfsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\kho\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\kho\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\enum\\informationlibrary\\kho\\locationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\enum\\informationlibrary\\kho\\locationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\kho\\shelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\kho\\shelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\response\\khoresponse\\shelfresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\response\\khoresponse\\shelfresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\request\\khorequest\\bookshelfrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\request\\khorequest\\bookshelfrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\response\\khoresponse\\bookshelfresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\response\\khoresponse\\bookshelfresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\response\\khoresponse\\roomresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\response\\khoresponse\\roomresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\informationlibrary\\kho\\bookshelfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\informationlibrary\\kho\\bookshelfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\informationlibrary\\kho\\roomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\informationlibrary\\kho\\roomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,8 +71,12 @@
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\request\\khorequest\\roomrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\response\\khoresponse\\roomresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\response\\khoresponse\\roomresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\kho\\bookshelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\kho\\bookshelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\controllers\\khocontroller\\bookshelfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\controllers\\khocontroller\\bookshelfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\response\\bookitemresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,14 +123,6 @@
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\configuration\\informationlibrary\\bookauthorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\request\\khorequest\\floorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\request\\khorequest\\floorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -75,16 +131,8 @@
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\controllers\\khocontroller\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\controllers\\khocontroller\\locationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\controllers\\khocontroller\\locationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\controllers\\khocontroller\\shelfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\controllers\\khocontroller\\shelfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\kho\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\kho\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\informationlibrary\\bookitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,32 +143,8 @@
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\request\\bookitemrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\informationlibrary\\kho\\locationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\informationlibrary\\kho\\locationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\informationlibrary\\kho\\bookshelfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\informationlibrary\\kho\\bookshelfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\informationlibrary\\kho\\shelfsectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\informationlibrary\\kho\\shelfsectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\kho\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\kho\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\kho\\shelfsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\kho\\shelfsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\kho\\shelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\kho\\shelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\kho\\bookshelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\kho\\bookshelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\configuration\\informationlibrary\\kho\\roomconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -129,14 +153,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\bookchapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\bookchapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\bookitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\bookitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\entities\\informationlibrary\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\entities\\informationlibrary\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Migrations\\20250602142144_Nhu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -227,14 +243,6 @@
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\enum\\informationlibrary\\kho\\exportreason.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\enum\\informationlibrary\\kho\\locationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\enum\\informationlibrary\\kho\\locationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\controllers\\khocontroller\\bookshelfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\controllers\\khocontroller\\bookshelfcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\configuration\\informationlibrary\\kho\\bookshelfconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\configuration\\informationlibrary\\kho\\bookshelfconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -267,20 +275,8 @@
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\informationlibrary\\kho\\shelfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\response\\khoresponse\\locationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\response\\khoresponse\\locationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\model\\request\\khorequest\\locationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\model\\request\\khorequest\\locationrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\iservice\\informationlibrary\\kho\\ishelfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\iservice\\informationlibrary\\kho\\ishelfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\iservice\\informationlibrary\\kho\\ilocationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\iservice\\informationlibrary\\kho\\ilocationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\iservice\\informationlibrary\\kho\\ishelfsectionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -289,10 +285,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\controllers\\khocontroller\\shelfsectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\controllers\\khocontroller\\shelfsectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\migrations\\20250603072434_nhu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\migrations\\20250603072434_nhu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -302,8 +294,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 818,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250606064257_nhu.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Migrations\\20250606064257_nhu.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Migrations\\20250606064257_nhu.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Migrations\\20250606064257_nhu.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Migrations\\20250606064257_nhu.cs",
+              "ViewState": "AgIAAK4BAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T06:42:57.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookItemConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookItemConfiguration.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookItemConfiguration.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookItemConfiguration.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookItemConfiguration.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAcwCAAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T06:20:35.023Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -314,711 +332,170 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RoomResponse.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\RoomResponse.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\RoomResponse.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\RoomResponse.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\RoomResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T16:18:27.231Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FloorConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\FloorConfiguration.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\FloorConfiguration.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\FloorConfiguration.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\FloorConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T15:08:42.002Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Floor.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Floor.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Floor.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Floor.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Floor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T11:43:54.536Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FloorController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\FloorController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\KhoController\\FloorController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\FloorController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\KhoController\\FloorController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAzwB4AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T15:57:54.294Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BookAuthorService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookAuthorService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\BookAuthorService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookAuthorService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\BookAuthorService.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAowB0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T04:33:03.888Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RoomService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\RoomService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\RoomService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\RoomService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\RoomService.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAswHgAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T16:25:28.979Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RoomRequest.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\RoomRequest.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\RoomRequest.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\RoomRequest.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\RoomRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T16:18:09.985Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "BookCategoryConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookCategoryConfiguration.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookCategoryConfiguration.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookCategoryConfiguration.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookCategoryConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T15:25:15.945Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BookAuthorResponse.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BookAuthorResponse.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\BookAuthorResponse.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BookAuthorResponse.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\BookAuthorResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T12:01:16.176Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BookItemResponse.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BookItemResponse.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\BookItemResponse.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BookItemResponse.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\BookItemResponse.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAA2wBEAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T13:28:13.633Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "BookChapterConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookChapterConfiguration.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookChapterConfiguration.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookChapterConfiguration.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookChapterConfiguration.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAuwA8AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T14:26:48.737Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "BookItemService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookItemService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\BookItemService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookItemService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\BookItemService.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAWwEEAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T13:19:17.329Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Program.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Program.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Program.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Program.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAYwFwAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T15:04:47.457Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BookConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookConfiguration.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookConfiguration.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookConfiguration.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookConfiguration.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwB8AAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T14:27:01.226Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "BookAuthor.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookAuthor.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookAuthor.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookAuthor.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookAuthor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T11:47:49.766Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "BookAuthorConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookAuthorConfiguration.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookAuthorConfiguration.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookAuthorConfiguration.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookAuthorConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T15:25:18.624Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 72,
-              "Title": "20250603072434_Nhu.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Migrations\\20250603072434_Nhu.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Migrations\\20250603072434_Nhu.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Migrations\\20250603072434_Nhu.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Migrations\\20250603072434_Nhu.cs",
-              "ViewState": "AgIAAOMBAAAAAAAAAAAnwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T07:24:34.797Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "FloorRequest.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\FloorRequest.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\FloorRequest.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\FloorRequest.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\FloorRequest.cs",
-              "ViewState": "AgIAAAAAAABgmnaCD5EqwAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T13:07:27.901Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "LocationController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\LocationController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\KhoController\\LocationController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\LocationController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\KhoController\\LocationController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwBEAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T09:59:22.04Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ShelfController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\ShelfController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\KhoController\\ShelfController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\ShelfController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\KhoController\\ShelfController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T16:14:07.704Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAgwBsAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T15:05:47.152Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "RoomController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\RoomController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\KhoController\\RoomController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\RoomController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\KhoController\\RoomController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwCoAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T14:41:21.687Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Room.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Room.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Room.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Room.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Room.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T11:43:44.965Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Shelf.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Shelf.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Shelf.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Shelf.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Shelf.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAkwAgAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T09:11:54.385Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "BookShelfService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\BookShelfService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\BookShelfService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\BookShelfService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\BookShelfService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T15:56:08.037Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ShelfSectionService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\ShelfSectionService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\ShelfSectionService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\ShelfSectionService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\ShelfSectionService.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAowD0AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T02:39:18.42Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "LocationService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\LocationService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\LocationService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\LocationService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\LocationService.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAzwJcAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T04:39:02.801Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Location.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Location.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Location.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Location.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Location.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T03:58:03.636Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "ShelfSection.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\ShelfSection.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\ShelfSection.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\ShelfSection.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\ShelfSection.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAA7wAgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T04:07:59.721Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "BookShelf.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookShelf.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookShelf.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookShelf.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookShelf.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T13:01:11.249Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "BookItemRequest.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookItemRequest.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\BookItemRequest.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookItemRequest.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\BookItemRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T03:24:36.723Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "RoomConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\RoomConfiguration.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\RoomConfiguration.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\RoomConfiguration.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\RoomConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T15:09:04.412Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Book.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Book.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Book.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Book.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Book.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA8wBAAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T13:30:04.231Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "BookItem.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookItem.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookItem.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookItem.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookItem.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAABEAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T15:27:38.968Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "20250602142144_Nhu.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Migrations\\20250602142144_Nhu.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Migrations\\20250602142144_Nhu.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Migrations\\20250602142144_Nhu.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Migrations\\20250602142144_Nhu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T14:21:44.814Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "BookChapter.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookChapter.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookChapter.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookChapter.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookChapter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T14:29:24.273Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAiwB4AAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T18:12:57.183Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "PublisherController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\PublisherController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\PublisherController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\PublisherController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\PublisherController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAkwC4AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T10:33:28.367Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "BookService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\BookService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\BookService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAMwBYAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T09:09:08.887Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "CommonConst.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Common\\CommonConst.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Common\\CommonConst.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Common\\CommonConst.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Common\\CommonConst.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T14:10:18.392Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "BookRequest.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookRequest.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\BookRequest.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookRequest.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\BookRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T14:13:22.3Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "BookItemController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookItemController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\BookItemController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookItemController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookItemController.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAkwDAAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T13:48:09.738Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "BookController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\BookController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookController.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAA5wDMAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T13:47:40.133Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "BookChapterController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookChapterController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\BookChapterController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookChapterController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookChapterController.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAkwCwAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T04:27:22.253Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "BookAuthorController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookAuthorController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\BookAuthorController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookAuthorController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookAuthorController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAABbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T18:12:58.551Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "BookCategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookCategoryController.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\BookCategoryController.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookCategoryController.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookCategoryController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwBUAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T18:13:05.332Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "BookAuthorRequest.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookAuthorRequest.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\BookAuthorRequest.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookAuthorRequest.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\BookAuthorRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T04:07:50.676Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "Librarian.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\Usermanage\\Librarian.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\Usermanage\\Librarian.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\Usermanage\\Librarian.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\Usermanage\\Librarian.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T03:33:01.409Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "AuthenticationService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAD4vycAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T02:52:07.616Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "BookImportTransaction.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookImportTransaction.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookImportTransaction.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookImportTransaction.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookImportTransaction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T15:24:48.056Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "BaseResponse.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BaseResponse.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\BaseResponse.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BaseResponse.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\BaseResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T03:39:50.913Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "BookExportTransaction.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookExportTransaction.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookExportTransaction.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookExportTransaction.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookExportTransaction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T15:24:49.784Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "SchoolYears.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationSystem\\SchoolYears.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationSystem\\SchoolYears.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationSystem\\SchoolYears.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationSystem\\SchoolYears.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T15:24:31.729Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "IBookShelfService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IBookShelfService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IBookShelfService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IBookShelfService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IBookShelfService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T18:58:47.137Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "IBookAuthorService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\IBookAuthorService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\IBookAuthorService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\IBookAuthorService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\IBookAuthorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAIwAgAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T18:58:49.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "ShelfConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\ShelfConfiguration.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\ShelfConfiguration.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\ShelfConfiguration.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\ShelfConfiguration.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T10:37:42.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "ExportReason.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\ExportReason.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\ExportReason.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\ExportReason.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\ExportReason.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T10:06:45.814Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
               "Title": "LocationStatus.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\LocationStatus.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\LocationStatus.cs",
               "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\LocationStatus.cs",
               "RelativeToolTip": "DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\LocationStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T10:06:42.994Z"
+              "WhenOpened": "2025-04-21T10:06:42.994Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 3,
+              "Title": "ShelfSection.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\ShelfSection.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\ShelfSection.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\ShelfSection.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\ShelfSection.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T04:07:59.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookItem.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookItem.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookItem.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookItem.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookItem.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAswA0AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T15:27:38.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Room.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Room.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Room.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Room.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Room.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T11:43:44.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Program.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Program.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Program.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Program.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAYwFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T15:04:47.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA9wCAAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T15:05:47.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ShelfResponse.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\ShelfResponse.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\ShelfResponse.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\ShelfResponse.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\ShelfResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T02:20:17.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BookShelfRequest.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\BookShelfRequest.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\BookShelfRequest.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\BookShelfRequest.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\BookShelfRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T02:29:46.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RoomService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\RoomService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\RoomService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\RoomService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\RoomService.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAgwF0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T16:25:28.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Shelf.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Shelf.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Shelf.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Shelf.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Shelf.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T09:11:54.385Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RoomResponse.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\RoomResponse.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\RoomResponse.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\RoomResponse.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\RoomResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T16:18:27.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "BookShelfService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\BookShelfService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\BookShelfService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\BookShelfService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\BookShelfService.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwDcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T15:56:08.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Book.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Book.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Book.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Book.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAkwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T13:30:04.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "BookShelfController.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\BookShelfController.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\KhoController\\BookShelfController.cs",
@@ -1030,7 +507,535 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "FloorController.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\FloorController.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\KhoController\\FloorController.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\FloorController.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\KhoController\\FloorController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAzwB4AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T15:57:54.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "BookAuthorService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookAuthorService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\BookAuthorService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookAuthorService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\BookAuthorService.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAowB0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T04:33:03.888Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "BookShelf.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookShelf.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookShelf.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookShelf.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookShelf.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T13:01:11.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "RoomRequest.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\RoomRequest.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\RoomRequest.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\RoomRequest.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\RoomRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T16:18:09.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BookShelfResponse.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\BookShelfResponse.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\BookShelfResponse.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\BookShelfResponse.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\BookShelfResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T02:30:39.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Floor.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Floor.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Floor.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Floor.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\Floor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T11:43:54.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FloorConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\FloorConfiguration.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\FloorConfiguration.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\FloorConfiguration.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\FloorConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T15:08:42.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "BookCategoryConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookCategoryConfiguration.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookCategoryConfiguration.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookCategoryConfiguration.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookCategoryConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T15:25:15.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BookAuthorResponse.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BookAuthorResponse.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\BookAuthorResponse.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BookAuthorResponse.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\BookAuthorResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T12:01:16.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BookItemResponse.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BookItemResponse.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\BookItemResponse.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BookItemResponse.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\BookItemResponse.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA2wBEAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T13:28:13.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "BookChapterConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookChapterConfiguration.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookChapterConfiguration.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookChapterConfiguration.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookChapterConfiguration.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwA8AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T14:26:48.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "BookItemService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookItemService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\BookItemService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookItemService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\BookItemService.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAWwEEAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T13:19:17.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "BookConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookConfiguration.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookConfiguration.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookConfiguration.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookConfiguration.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwB8AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T14:27:01.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "BookAuthor.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookAuthor.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookAuthor.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookAuthor.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookAuthor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T11:47:49.766Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "BookAuthorConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookAuthorConfiguration.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookAuthorConfiguration.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\BookAuthorConfiguration.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\BookAuthorConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T15:25:18.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "FloorRequest.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\FloorRequest.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\FloorRequest.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\FloorRequest.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\FloorRequest.cs",
+              "ViewState": "AgIAAAAAAABgmnaCD5EqwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T13:07:27.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ShelfController.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\ShelfController.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\KhoController\\ShelfController.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\ShelfController.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\KhoController\\ShelfController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T16:14:07.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "RoomController.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\RoomController.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\KhoController\\RoomController.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\RoomController.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\KhoController\\RoomController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwCoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-20T14:41:21.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ShelfSectionService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\ShelfSectionService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\ShelfSectionService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\ShelfSectionService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\ShelfSectionService.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAowD0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T02:39:18.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "BookItemRequest.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookItemRequest.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\BookItemRequest.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookItemRequest.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\BookItemRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T03:24:36.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "RoomConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\RoomConfiguration.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\RoomConfiguration.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\RoomConfiguration.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\RoomConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T15:09:04.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "20250602142144_Nhu.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Migrations\\20250602142144_Nhu.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Migrations\\20250602142144_Nhu.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Migrations\\20250602142144_Nhu.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Migrations\\20250602142144_Nhu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T14:21:44.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "BookChapter.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookChapter.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookChapter.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookChapter.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\BookChapter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T14:29:24.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAiwB4AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T18:12:57.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "PublisherController.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\PublisherController.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\PublisherController.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\PublisherController.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\PublisherController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAkwC4AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T10:33:28.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "BookService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\BookService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\BookService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\InformationLibrary\\BookService.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAMwBYAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T09:09:08.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "CommonConst.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Common\\CommonConst.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Common\\CommonConst.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Common\\CommonConst.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Common\\CommonConst.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T14:10:18.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "BookRequest.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookRequest.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\BookRequest.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookRequest.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\BookRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T14:13:22.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "BookItemController.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookItemController.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\BookItemController.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookItemController.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookItemController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwDAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T13:48:09.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookController.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAA5wDMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T13:47:40.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "BookChapterController.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookChapterController.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\BookChapterController.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookChapterController.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookChapterController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwCwAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T04:27:22.253Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "BookAuthorController.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookAuthorController.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\BookAuthorController.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookAuthorController.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookAuthorController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T18:12:58.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "BookCategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookCategoryController.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\BookCategoryController.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\BookCategoryController.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Controllers\\BookCategoryController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwBUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T18:13:05.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "BookAuthorRequest.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookAuthorRequest.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\BookAuthorRequest.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\BookAuthorRequest.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\BookAuthorRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T04:07:50.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Librarian.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\Usermanage\\Librarian.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\Usermanage\\Librarian.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\Usermanage\\Librarian.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\Usermanage\\Librarian.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T03:33:01.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAD4vycAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T02:52:07.616Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "BookImportTransaction.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookImportTransaction.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookImportTransaction.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookImportTransaction.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookImportTransaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T15:24:48.056Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "BaseResponse.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BaseResponse.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\BaseResponse.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\BaseResponse.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\BaseResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T03:39:50.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "BookExportTransaction.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookExportTransaction.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookExportTransaction.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookExportTransaction.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationLibrary\\Kho\\BookExportTransaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T15:24:49.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "SchoolYears.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationSystem\\SchoolYears.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Entities\\InformationSystem\\SchoolYears.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Entities\\InformationSystem\\SchoolYears.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Entities\\InformationSystem\\SchoolYears.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T15:24:31.729Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "IBookShelfService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IBookShelfService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IBookShelfService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IBookShelfService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IBookShelfService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T18:58:47.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "IBookAuthorService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\IBookAuthorService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\IBookAuthorService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\IBookAuthorService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\IBookAuthorService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwAgAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T18:58:49.832Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 58,
+              "Title": "ShelfConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\ShelfConfiguration.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\ShelfConfiguration.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\ShelfConfiguration.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\ShelfConfiguration.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T10:37:42.386Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "ExportReason.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\ExportReason.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\ExportReason.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\ExportReason.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Model\\Enum\\InformationLibrary\\Kho\\ExportReason.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T10:06:45.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
               "Title": "BookShelfConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\BookShelfConfiguration.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\BookShelfConfiguration.cs",
@@ -1042,7 +1047,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 61,
               "Title": "BookImportTransactionConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\BookImportTransactionConfiguration.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\BookImportTransactionConfiguration.cs",
@@ -1054,7 +1059,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 62,
               "Title": "BookExportTransactionConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\BookExportTransactionConfiguration.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Configuration\\InformationLibrary\\Kho\\BookExportTransactionConfiguration.cs",
@@ -1066,7 +1071,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 63,
               "Title": "FloorService.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\FloorService.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\FloorService.cs",
@@ -1078,7 +1083,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 64,
               "Title": "FloorResponse.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\FloorResponse.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\FloorResponse.cs",
@@ -1090,7 +1095,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 65,
               "Title": "IFloorService.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IFloorService.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IFloorService.cs",
@@ -1102,7 +1107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 66,
               "Title": "IRoomService.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IRoomService.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IRoomService.cs",
@@ -1114,7 +1119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 67,
               "Title": "ShelfService.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\ShelfService.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\InformationLibrary\\Kho\\ShelfService.cs",
@@ -1123,30 +1128,6 @@
               "ViewState": "AgIAABgAAAAAAAAAAAAlwCAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-18T04:33:28.21Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 66,
-              "Title": "LocationResponse.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\LocationResponse.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\LocationResponse.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Response\\KhoResponse\\LocationResponse.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Response\\KhoResponse\\LocationResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T03:53:20.779Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 67,
-              "Title": "LocationRequest.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\LocationRequest.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\LocationRequest.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Model\\Request\\KhoRequest\\LocationRequest.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Model\\Request\\KhoRequest\\LocationRequest.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAEwAkAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T03:53:03.821Z"
             },
             {
               "$type": "Document",
@@ -1163,18 +1144,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 69,
-              "Title": "ILocationService.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\ILocationService.cs",
-              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\ILocationService.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\ILocationService.cs",
-              "RelativeToolTip": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\ILocationService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T03:52:24.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 70,
               "Title": "IShelfSectionService.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IShelfSectionService.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\IService\\InformationLibrary\\Kho\\IShelfSectionService.cs",
@@ -1186,7 +1155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 70,
               "Title": "ShelfSectionController.cs",
               "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Controllers\\KhoController\\ShelfSectionController.cs",
               "RelativeDocumentMoniker": "DoAnCuoiKy\\Controllers\\KhoController\\ShelfSectionController.cs",

@@ -4,5 +4,6 @@
     {
         public string? BookShelfName { get; set; }
         public int? NumberOfShelves { get; set; } // số kệ trong 1 tủ
+        public Guid RoomId { get; set; }
     }
 }

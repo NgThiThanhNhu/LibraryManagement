@@ -10,9 +10,9 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public BookStatus? BookStatus { get; set; }
         public Guid? BookId { get; set; }
         public Book? Book { get; set; }
-        public Guid? LocationId { get; set; }
-        public Location? Location { get; set; }
-        
+        public Guid? ShelfSectionId { get; set; } 
+        public ShelfSection? ShelfSection { get; set; }
+
         public List<BookReservation>? BookReservations { get; set; }
         public List<BorrowingDetail>? borrowingDetails { get; set; }
         public Guid? ExportTransactionId { get; set; }

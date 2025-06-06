@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DoAnCuoiKy.Migrations
 {
     /// <inheritdoc />
-    public partial class Nhu : Migration
+    public partial class nhu : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -154,6 +154,7 @@ namespace DoAnCuoiKy.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RoomName = table.Column<string>(type: "nvarchar(125)", maxLength: 125, nullable: true),
+                    MaxBookShelfCapity = table.Column<int>(type: "int", nullable: true),
                     FloorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -401,32 +402,6 @@ namespace DoAnCuoiKy.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "locations",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ShelfSectionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    LocationStatus = table.Column<byte>(type: "tinyint", nullable: true),
-                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_locations", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_locations_shelfSections_ShelfSectionId",
-                        column: x => x.ShelfSectionId,
-                        principalTable: "shelfSections",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "bookItems",
                 columns: table => new
                 {
@@ -434,7 +409,7 @@ namespace DoAnCuoiKy.Migrations
                     BarCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     BookStatus = table.Column<byte>(type: "tinyint", nullable: true),
                     BookId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    LocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ShelfSectionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ExportTransactionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -458,9 +433,9 @@ namespace DoAnCuoiKy.Migrations
                         principalTable: "books",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_bookItems_locations_LocationId",
-                        column: x => x.LocationId,
-                        principalTable: "locations",
+                        name: "FK_bookItems_shelfSections_ShelfSectionId",
+                        column: x => x.ShelfSectionId,
+                        principalTable: "shelfSections",
                         principalColumn: "Id");
                 });
 
@@ -581,9 +556,9 @@ namespace DoAnCuoiKy.Migrations
                 column: "ExportTransactionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_bookItems_LocationId",
+                name: "IX_bookItems_ShelfSectionId",
                 table: "bookItems",
-                column: "LocationId");
+                column: "ShelfSectionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_bookReservations_BookItemId",
@@ -651,11 +626,6 @@ namespace DoAnCuoiKy.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_locations_ShelfSectionId",
-                table: "locations",
-                column: "ShelfSectionId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_rooms_FloorId",
                 table: "rooms",
                 column: "FloorId");
@@ -707,7 +677,7 @@ namespace DoAnCuoiKy.Migrations
                 name: "books");
 
             migrationBuilder.DropTable(
-                name: "locations");
+                name: "shelfSections");
 
             migrationBuilder.DropTable(
                 name: "users");
@@ -725,13 +695,10 @@ namespace DoAnCuoiKy.Migrations
                 name: "publishers");
 
             migrationBuilder.DropTable(
-                name: "shelfSections");
+                name: "shelves");
 
             migrationBuilder.DropTable(
                 name: "roles");
-
-            migrationBuilder.DropTable(
-                name: "shelves");
 
             migrationBuilder.DropTable(
                 name: "bookShelves");
