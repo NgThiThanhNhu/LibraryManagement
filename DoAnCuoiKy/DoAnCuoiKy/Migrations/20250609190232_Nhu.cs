@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DoAnCuoiKy.Migrations
 {
     /// <inheritdoc />
-    public partial class nhu : Migration
+    public partial class Nhu : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -301,12 +301,45 @@ namespace DoAnCuoiKy.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "bookFiles",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BookId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    PublicIdImage = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    FileUrl = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    PublicIdFile = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    bookFileType = table.Column<byte>(type: "tinyint", maxLength: 20, nullable: false),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_bookFiles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_bookFiles_books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "books",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "bookImportTransactions",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BookId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    TransactionType = table.Column<byte>(type: "tinyint", nullable: true),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    UnitPrice = table.Column<float>(type: "real", nullable: false),
+                    TotalPrice = table.Column<float>(type: "real", nullable: false),
+                    TransactionType = table.Column<byte>(type: "tinyint", nullable: false),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -356,7 +389,7 @@ namespace DoAnCuoiKy.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ShelfName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
                     NumberOfSections = table.Column<int>(type: "int", nullable: true),
-                    BookshelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    BookshelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -372,7 +405,8 @@ namespace DoAnCuoiKy.Migrations
                         name: "FK_shelves_bookShelves_BookshelfId",
                         column: x => x.BookshelfId,
                         principalTable: "bookShelves",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -382,7 +416,7 @@ namespace DoAnCuoiKy.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SectionName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
                     Capacity = table.Column<int>(type: "int", nullable: true),
-                    ShelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ShelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -398,7 +432,8 @@ namespace DoAnCuoiKy.Migrations
                         name: "FK_shelfSections_shelves_ShelfId",
                         column: x => x.ShelfId,
                         principalTable: "shelves",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -541,6 +576,11 @@ namespace DoAnCuoiKy.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_bookFiles_BookId",
+                table: "bookFiles",
+                column: "BookId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_bookImportTransactions_BookId",
                 table: "bookImportTransactions",
                 column: "BookId");
@@ -649,6 +689,9 @@ namespace DoAnCuoiKy.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "bookFiles");
+
             migrationBuilder.DropTable(
                 name: "bookImportTransactions");
 

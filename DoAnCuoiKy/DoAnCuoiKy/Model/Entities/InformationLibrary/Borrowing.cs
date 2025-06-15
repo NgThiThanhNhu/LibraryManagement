@@ -12,7 +12,7 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         //mối quan hệ giữa borrowingDetail
       
         public List<BorrowingDetail>? borrowingDetails { get; set; }
-
+        //mối quan hệ giữa borrowing với lịch sử export
 
     }
 }

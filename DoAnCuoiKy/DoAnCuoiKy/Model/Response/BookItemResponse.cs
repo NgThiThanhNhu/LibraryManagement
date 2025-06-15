@@ -16,6 +16,8 @@ namespace DoAnCuoiKy.Model.Response
         public string? CategoryName { get; set; }
         public string? TitleBookChapter { get; set; }
         public Guid? BookId { get; set; }
+        public Guid? ShelfSectionId { get; set; }
+        public string ShelfSectionName { get; set; }
 
     }
 }

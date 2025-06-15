@@ -18,6 +18,13 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
         public async Task<BaseResponse<ShelfSectionResponse>> AddShelfSection(ShelfSectionRequest shelfSectionRequest)
         {
             BaseResponse<ShelfSectionResponse> response = new BaseResponse<ShelfSectionResponse>();
+            bool canAdd = await CanAddShelfSectionToShelf(shelfSectionRequest.ShelfId);
+            if (!canAdd)
+            {
+                response.IsSuccess = false;
+                response.message = "Kệ sách đã đạt giới hạn ô sách, không thể thêm nữa.";
+                return response;
+            }
             ShelfSection shelfSection = new ShelfSection();
             shelfSection.Id = Guid.NewGuid();
             shelfSection.SectionName = shelfSectionRequest.SectionName;
@@ -37,10 +44,23 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             shelfSectionResponse.Id = shelfSection.Id;
             shelfSectionResponse.SectionName = shelfSection.SectionName;
             shelfSectionResponse.Capacity = shelfSection.Capacity;
+            shelfSectionResponse.ShelfId = shelfSection.ShelfId;
             shelfSectionResponse.ShelfName = shelfSection.Shelf.ShelfName;
             response.IsSuccess = true;
             response.message = "Thêm dữ liệu thành công";
             return response;
+        }
+
+        public async Task<bool> CanAddShelfSectionToShelf(Guid shelfId)
+        {
+            var shelf = await _context.shelves
+                .Include(s => s.Sections)
+                .FirstOrDefaultAsync(bs => bs.Id == shelfId);
+
+            if (shelf == null)
+                throw new Exception("Tủ sách không tồn tại.");
+
+            return shelf.Sections.Count < shelf.NumberOfSections;
         }
 
         public async Task<BaseResponse<ShelfSectionResponse>> DeleteShelfSection(Guid id)
@@ -71,7 +91,10 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
                 Id = x.Id,
                 SectionName = x.SectionName,
                 Capacity = x.Capacity,
-                ShelfName = x.Shelf.ShelfName
+                ShelfId = x.ShelfId,
+                ShelfName = x.Shelf.ShelfName,
+                CurrentBookItem = x.BookItems.Count(bi=>bi.IsDeleted==false)
+
             }).ToListAsync();
             response.IsSuccess = true;
             response.message = "Lấy dữ liệu thành công";
@@ -91,6 +114,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             }
             ShelfSectionResponse shelfSectionResponse = new ShelfSectionResponse();
             shelfSectionResponse.Id = shelfSection.Id;
+            shelfSectionResponse.ShelfId = shelfSection.ShelfId;
             shelfSectionResponse.ShelfName = shelfSection.Shelf.ShelfName;
             shelfSection.Capacity = shelfSection.Capacity;
             shelfSection.SectionName = shelfSection.SectionName;

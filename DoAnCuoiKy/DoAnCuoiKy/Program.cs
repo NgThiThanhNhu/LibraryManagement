@@ -41,6 +41,15 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            // Lấy token từ Cookie
+            context.Token = context.Request.Cookies["jwtToken"];
+            return Task.CompletedTask;
+        }
+    };
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
@@ -85,6 +94,8 @@ builder.Services.AddTransient<IRoomService, RoomService>();
 builder.Services.AddTransient<IBookShelfService, BookShelfService>();
 builder.Services.AddTransient<IShelfService, ShelfService>();
 builder.Services.AddTransient<IShelfSectionService, ShelfSectionService>();
+builder.Services.AddScoped<CloudinaryService>();
+builder.Services.AddTransient<IBookFileService, BookFileService>();
 
 builder.Services.AddHttpContextAccessor();
 
@@ -103,15 +114,15 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-//hỗ trợ đọc token từ cookie trước khi xác thực
-app.Use(async (context, next) =>
-{
-    if (context.Request.Cookies.TryGetValue("token", out var token))
-    {
-        context.Request.Headers.Append("Authorization", $"Bearer {token}");
-    }
-    await next();
-});
+////hỗ trợ đọc token từ cookie trước khi xác thực
+//app.Use(async (context, next) =>
+//{
+//    if (context.Request.Cookies.TryGetValue("token", out var token))
+//    {
+//        context.Request.Headers.Append("Authorization", $"Bearer {token}");
+//    }
+//    await next();
+//});
 //xác thực và đăng nhập
 app.UseAuthentication();
 app.UseAuthorization();

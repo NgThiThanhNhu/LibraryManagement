@@ -10,7 +10,7 @@ namespace DoAnCuoiKy.Model.Response
         public int? Quantity { get; set; }
         public float? UnitPrice { get; set; }
         public float? TotalPrice { get; set; }
-        public TransactionType? TransactionType { get; set; }
-        public DateTime? Created { get; set; }
+        public TransactionType TransactionType { get; set; }
+        public DateTime? CreatedDate { get; set; }
     }
 }

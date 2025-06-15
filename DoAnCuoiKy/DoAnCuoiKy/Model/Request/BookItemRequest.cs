@@ -8,6 +8,7 @@ namespace DoAnCuoiKy.Model.Request
         public BookStatus? bookStatus { get; set; }
       //coi ở đây để xử lý logic dữ liệu bookitem và nơi lưu trữ nó, phân bổ
         public Guid? BookId {  get; set; } 
+        public int Quantity { get; set; } //số lượng tổng của book để generate ra bookitem
 
     }
 }

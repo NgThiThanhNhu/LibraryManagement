@@ -6,6 +6,10 @@ namespace DoAnCuoiKy.Model.Response
     {
         public Guid? Id { get; set; }
         public string? Title { get; set; }
+        public Guid? CategoryId { get; set; }
+        public Guid? BookChapterId { get; set; }
+        public Guid? PublisherId { get; set; }
+        public Guid? BookAuthorId { get; set; }
         public string? AuthorName { get; set; }
         public string? PublisherName { get; set; }
         public int? YearPublished { get; set; }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnCuoiKy.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250606064257_nhu")]
-    partial class nhu
+    [Migration("20250609190232_Nhu")]
+    partial class Nhu
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -198,6 +198,67 @@ namespace DoAnCuoiKy.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("bookChapters");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookFile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FileUrl")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PublicIdFile")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("PublicIdImage")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("bookFileType")
+                        .HasMaxLength(20)
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("bookFiles");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookItem", b =>
@@ -510,8 +571,17 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<byte?>("TransactionType")
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<float>("TotalPrice")
+                        .HasColumnType("real");
+
+                    b.Property<byte>("TransactionType")
                         .HasColumnType("tinyint");
+
+                    b.Property<float>("UnitPrice")
+                        .HasColumnType("real");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
@@ -659,7 +729,7 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("BookshelfId")
+                    b.Property<Guid>("BookshelfId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("CreateDate")
@@ -722,7 +792,7 @@ namespace DoAnCuoiKy.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
-                    b.Property<Guid?>("ShelfId")
+                    b.Property<Guid>("ShelfId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -947,6 +1017,17 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("Publisher");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookFile", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", "book")
+                        .WithMany("bookFiles")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("book");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookItem", b =>
                 {
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", "Book")
@@ -1053,7 +1134,9 @@ namespace DoAnCuoiKy.Migrations
                 {
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookShelf", "Bookshelf")
                         .WithMany("Shelves")
-                        .HasForeignKey("BookshelfId");
+                        .HasForeignKey("BookshelfId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Bookshelf");
                 });
@@ -1062,7 +1145,9 @@ namespace DoAnCuoiKy.Migrations
                 {
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.Shelf", "Shelf")
                         .WithMany("Sections")
-                        .HasForeignKey("ShelfId");
+                        .HasForeignKey("ShelfId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Shelf");
                 });
@@ -1090,6 +1175,8 @@ namespace DoAnCuoiKy.Migrations
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", b =>
                 {
                     b.Navigation("ImportTransactions");
+
+                    b.Navigation("bookFiles");
 
                     b.Navigation("bookItems");
                 });

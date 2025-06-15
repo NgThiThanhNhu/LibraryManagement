@@ -31,6 +31,7 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.HasMany(b => b.ImportTransactions)
                 .WithOne(ip => ip.book)
                 .HasForeignKey(ip => ip.BookId);
+            
           
         }
     }

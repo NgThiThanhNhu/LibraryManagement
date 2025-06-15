@@ -7,5 +7,10 @@
         public int? NumberOfShelves { get; set; } // số kệ trong 1 tủ
         public Guid? RoomId { get; set; }
         public string? RoomName { get; set; }
+       
+        public int CurrentShelves { get; set; }
+
+        
+        public bool IsFull => CurrentShelves >= NumberOfShelves;
     }
 }

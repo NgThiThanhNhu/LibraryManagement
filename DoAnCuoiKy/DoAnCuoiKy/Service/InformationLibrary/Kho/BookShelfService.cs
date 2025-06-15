@@ -87,13 +87,15 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
         public async Task<BaseResponse<List<BookShelfResponse>>> GetAllBookShelf()
         {
             BaseResponse<List<BookShelfResponse>> response = new BaseResponse<List<BookShelfResponse>>();
-            List<BookShelfResponse> bookShelves = await _context.bookShelves.Include(x=>x.Room).Where(x=>x.IsDeleted == false).Select(x => new BookShelfResponse
+            List<BookShelfResponse> bookShelves = await _context.bookShelves.Include(x=>x.Shelves).Include(x=>x.Room).Where(x=>x.IsDeleted == false).Select(x => new BookShelfResponse
             {
                 Id = x.Id,
                 BookShelfName = x.BookShelfName,
                 NumberOfShelves = x.NumberOfShelves,
-                RoomId = x.RoomId,
-                RoomName = x.Room.RoomName
+                RoomId = x.Room.Id,
+                RoomName = x.Room.RoomName,
+                CurrentShelves = x.Shelves.Count()
+
             }).ToListAsync();
             response.IsSuccess = true;
             response.message = "Lấy dữ liệu thành công";
@@ -104,7 +106,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
         public async Task<BaseResponse<BookShelfResponse>> GetBookShelfById(Guid id)
         {
             BaseResponse<BookShelfResponse> response = new BaseResponse<BookShelfResponse>();
-            BookShelf bookShelf = await _context.bookShelves.Include(x=>x.Room).Where(x=>x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
+            BookShelf bookShelf = await _context.bookShelves.Include(x=>x.Shelves).Include(x=>x.Room).Where(x=>x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
             if(bookShelf == null)
             {
                 response.IsSuccess=false;
@@ -117,6 +119,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             bookShelfResponse.NumberOfShelves = bookShelf.NumberOfShelves;
             bookShelfResponse.RoomId = bookShelf.RoomId;
             bookShelfResponse.RoomName = bookShelf.Room.RoomName;
+            bookShelfResponse.CurrentShelves = bookShelf.Shelves.Count();
             response.IsSuccess = true;
             response.message = "Lấy dữ liệu thành công";
             response.data = bookShelfResponse;

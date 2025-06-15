@@ -16,13 +16,14 @@ namespace DoAnCuoiKy.Service.Authentication
     {
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
+        private readonly IHttpContextAccessor _contextAccessor;
         
 
-        public AuthenticationService(ApplicationDbContext context, IConfiguration Configuration)
+        public AuthenticationService(ApplicationDbContext context, IConfiguration Configuration, IHttpContextAccessor httpContextAccessor )
         {
             _configuration = Configuration;
             _context = context;
-           
+           _contextAccessor = httpContextAccessor;
         }
         public string GetJwtSecretKey()
         {
@@ -33,7 +34,7 @@ namespace DoAnCuoiKy.Service.Authentication
         public async Task<BaseResponse<LoginResponse>> Login(LoginRequest loginRequest)
         {
             BaseResponse<LoginResponse> response = new BaseResponse<LoginResponse>();
-            Librarian librarian = await _context.librarians.Where(x => x.IsDeleted == false && x.Email == loginRequest.Username).Include(x => x.Role).FirstOrDefaultAsync();
+            Librarian librarian = await _context.librarians.Where(x => x.IsDeleted == false && x.Email == loginRequest.Email).Include(x => x.Role).FirstOrDefaultAsync();
             if (librarian == null)
             {
                 response.IsSuccess = false;
@@ -71,13 +72,19 @@ namespace DoAnCuoiKy.Service.Authentication
             string jwtToken = Encrypt_decrypt.GenerateJwtToken(tokenRequest, _configuration);
             //sau khi generate token thì lưu token vào cookie vì bảo mật và tránh lộ token từ phía JavaScript
             //// Lưu token vào cookie
-            
+            _contextAccessor.HttpContext.Response.Cookies.Append("jwtToken", jwtToken ?? "", new CookieOptions
+            {
+                HttpOnly = true,
+                SameSite = SameSiteMode.None,//vì fe và be chạy trên 2 domain khác nhau là 3000 và 7260, set có SameSite=Strict, điều này có thể khiến nó không được gửi khi truy cập từ một domain khác.
+                Secure = true,
+                Expires = DateTime.Now.AddDays(1)
+            });
             response.IsSuccess = true;
             response.message = "Đăng nhập thành công!";
             response.data = new LoginResponse
             {
                 Token = jwtToken,
-                UserName = librarian.Name,
+                Email = librarian.Email,
                 RoleName = role.Name,
             };
             return response;

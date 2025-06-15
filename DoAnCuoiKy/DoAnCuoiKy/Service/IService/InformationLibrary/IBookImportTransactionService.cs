@@ -5,6 +5,8 @@ namespace DoAnCuoiKy.Service.IService.InformationLibrary
 {
     public interface IBookImportTransactionService
     {
-        Task<BaseResponse<BookImportTransactionResponse>> AddBookImportTransaction(BookImportTransactionRequest importTransactionRequest);
+        Task<BaseResponse<BookImportTransactionResponse>> AddBookImportTransaction(Guid BookId,BookImportTransactionRequest importTransactionRequest);
+        Task<BaseResponse<List<BookImportTransactionResponse>>> GetAllBookImportTransaction();
+        Task<BaseResponse<BookImportTransactionResponse>> GetBookImportTransactionById(Guid BookId);
     }
 }

@@ -13,26 +13,26 @@ namespace DoAnCuoiKy.Service.InformationLibrary
     public class BookService : IBookService
     {
         private readonly ApplicationDbContext _context;
-       
+        private readonly IBookImportTransactionService _importService;
 
-        public BookService(ApplicationDbContext context)
+        public BookService(ApplicationDbContext context, IBookImportTransactionService importService)
         {
             _context = context;
-           
+            _importService = importService;
         }
         public async Task<BaseResponse<BookResponse>> AddBook(BookRequest bookRequest)
         {
             BaseResponse<BookResponse> response = new BaseResponse<BookResponse>();
             Book newbook = new Book();
             newbook.Title = bookRequest.Title;
-            BookAuthor bookAuthor = await _context.bookAuthors.FirstOrDefaultAsync(x => x.Id == bookRequest.AuthorId);
+            BookAuthor bookAuthor = await _context.bookAuthors.FirstOrDefaultAsync(x => x.Id == bookRequest.BookAuthorId);
             if (bookAuthor == null)
             {
                 response.IsSuccess = false;
                 response.message = "Không tồn tại AuthorId";
                 return response;
             }
-            newbook.BookAuthorId = bookRequest.AuthorId.Value;
+            newbook.BookAuthorId = bookRequest.BookAuthorId.Value;
             Publisher publisher = await _context.publishers.FirstOrDefaultAsync(x => x.Id == bookRequest.PublisherId);
             if(publisher == null)
             {
@@ -72,32 +72,47 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             newbook.UnitPrice = bookRequest.UnitPrice;
             newbook.TotalPrice = CalculateTotalPrice(newbook.Quantity, newbook.UnitPrice);
 
-            _context.books.AddAsync(newbook);
+            await _context.books.AddAsync(newbook);
             await _context.SaveChangesAsync();
-
-            
-
             if (newbook == null)
             {
                 response.IsSuccess = false;
                 response.message = "Thêm thất bại";
                 return response;
             }
+            BookImportTransactionRequest importRequest = new BookImportTransactionRequest();
+            importRequest.Quantity = newbook.Quantity;
+            importRequest.UnitPrice = newbook.UnitPrice.Value;
+            importRequest.TotalPrice = newbook.TotalPrice.Value;
+            // Gọi import service để ghi nhận lần nhập
+            var importResult = await _importService.AddBookImportTransaction(newbook.Id, importRequest);//dto.UserId);
+            if (importResult == null)
+            {
+                response.IsSuccess = false;
+                response.message = "Thêm sách thành công, nhưng thêm lịch sử nhập kho thất bại: " + importResult.message;
+                return response;
+            }
+
+            
 
             BookResponse bookResponse = new BookResponse();
             bookResponse.Id = newbook.Id;
             bookResponse.Title = newbook.Title;
             bookResponse.Quantity = newbook.Quantity;
             bookResponse.YearPublished = newbook.YearPublished;
+            bookResponse.BookAuthorId = newbook.BookAuthorId;
             bookResponse.AuthorName = newbook.BookAuthor.Name;
+            bookResponse.PublisherId = newbook.PublisherId;
             bookResponse.PublisherName = newbook.Publisher.PublisherName;
+            bookResponse.CategoryId = newbook.CategoryId;
             bookResponse.CategoryName = newbook.Category.Name;
+            bookResponse.BookChapterId = newbook.BookChapterId;
             bookResponse.TitleBookChapter = newbook.BookChapter.TitleChapter;
             bookResponse.UnitPrice = newbook.UnitPrice;
             bookResponse.TotalPrice = newbook.TotalPrice;
 
             response.IsSuccess = true;
-            response.message = "Thêm thành công";
+            response.message = "Thêm sách và ghi nhận nhập kho thành công";
             response.data = bookResponse;
 
             return response;
@@ -233,7 +248,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             book.Title = bookRequest.Title;
             book.CategoryId = bookRequest.CategoryId;
             book.PublisherId = bookRequest.PublisherId;
-            book.BookAuthorId = bookRequest.AuthorId;
+            book.BookAuthorId = bookRequest.BookAuthorId;
             book.PublisherId = bookRequest.PublisherId;
             book.YearPublished= bookRequest.YearPublished;
             book.Quantity = bookRequest.Quantity;

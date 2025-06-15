@@ -38,6 +38,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             roomResponse.MaxBookShelfCapity = room.MaxBookShelfCapity;
             roomResponse.FloorId = room.FloorId;
             roomResponse.FloorName = findFloor.FloorName;
+          
             response.IsSuccess = true;
             response.message = "Thêm thành công";
             response.data = roomResponse;
@@ -73,7 +74,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
                 MaxBookShelfCapity = x.MaxBookShelfCapity,
                 FloorId = x.FloorId,
                 FloorName = x.Floor.FloorName,
-                CurrentBookShelves = x.BookShelves.Count()
+                CurrentBookShelves = x.BookShelves.Count(bs=>bs.IsDeleted==false)
             }).ToListAsync();
             response.IsSuccess = true;
             response.message = "Lấy dữ liệu thành công";

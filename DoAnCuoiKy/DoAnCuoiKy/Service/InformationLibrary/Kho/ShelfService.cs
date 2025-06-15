@@ -19,6 +19,13 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
         public async Task<BaseResponse<ShelfResponse>> AddShelf(ShelfRequest shelfRequest)
         {
             BaseResponse<ShelfResponse> response =  new BaseResponse<ShelfResponse>();
+            bool canAdd = await CanAddShelfToBookShelf(shelfRequest.BookshelfId);
+            if (!canAdd)
+            {
+                response.IsSuccess = false;
+                response.message = "Tủ sách đã đạt giới hạn kệ sách, không thể thêm nữa.";
+                return response;
+            }
             Shelf shelf = new Shelf();
             shelf.Id = Guid.NewGuid();
             shelf.ShelfName = shelfRequest.ShelfName;
@@ -37,11 +44,24 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             shelfResponse.Id = shelf.Id;
             shelfResponse.ShelfName = shelf.ShelfName;
             shelfResponse.NumberOfSections = shelf.NumberOfSections;
+            shelfResponse.BookshelfId = shelf.BookshelfId;
             shelfResponse.BookshelfName = bookShelf.BookShelfName;
             response.IsSuccess = true;
             response.message = "Thêm dữ liệu thành công";
             response.data = shelfResponse;
             return response;
+        }
+
+        public async Task<bool> CanAddShelfToBookShelf(Guid bookShelfId)
+        {
+            var bookShelf = await _context.bookShelves
+                .Include(bs => bs.Shelves)
+                .FirstOrDefaultAsync(bs => bs.Id == bookShelfId);
+
+            if (bookShelf == null)
+                throw new Exception("Tủ sách không tồn tại.");
+
+            return bookShelf.Shelves.Count < bookShelf.NumberOfShelves;
         }
 
         public async Task<BaseResponse<ShelfResponse>> DeleteShelf(Guid id)
@@ -67,12 +87,14 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
         public async Task<BaseResponse<List<ShelfResponse>>> GetAllShelf()
         {
             BaseResponse<List<ShelfResponse>> response = new BaseResponse<List<ShelfResponse>>();
-            List<ShelfResponse> shelfResponses = await _context.shelves.Include(x=>x.Bookshelf).Where(x=>x.IsDeleted == false).Select(x=> new ShelfResponse
+            List<ShelfResponse> shelfResponses = await _context.shelves.Include(x=>x.Sections).Include(x=>x.Bookshelf).Where(x=>x.IsDeleted == false).Select(x=> new ShelfResponse
             {
                 Id = x.Id,
                 ShelfName = x.ShelfName,
                 NumberOfSections = x.NumberOfSections,
-                BookshelfName = x.Bookshelf.BookShelfName
+                BookshelfName = x.Bookshelf.BookShelfName,
+                CurrentSection = x.Sections.Count,
+                BookshelfId = x.Bookshelf.Id
             }).ToListAsync();
             response.IsSuccess = true;
             response.message = "Lấy dữ liệu thành công";
@@ -83,7 +105,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
         public async Task<BaseResponse<ShelfResponse>> GetShelfById(Guid id)
         {
             BaseResponse<ShelfResponse> response = new BaseResponse<ShelfResponse>();
-            Shelf shelf = await _context.shelves.Include(x=>x.Bookshelf).Where(x=>x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
+            Shelf shelf = await _context.shelves.Include(x=>x.Sections).Include(x=>x.Bookshelf).Where(x=>x.IsDeleted == false && x.Id == id).FirstOrDefaultAsync();
             if (shelf == null)
             {
                 response.IsSuccess = false;
@@ -94,7 +116,9 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             shelfResponse.Id = shelf.Id;
             shelfResponse.ShelfName = shelf.ShelfName;
             shelfResponse.NumberOfSections = shelf.NumberOfSections;
+            shelfResponse.BookshelfId = shelf.BookshelfId;
             shelfResponse.BookshelfName = shelf.Bookshelf.BookShelfName;
+            shelfResponse.CurrentSection = shelf.Sections.Count();
             response.IsSuccess = true;
             response.message = "Lấy dữ liệu thành công";
             response.data = shelfResponse;
