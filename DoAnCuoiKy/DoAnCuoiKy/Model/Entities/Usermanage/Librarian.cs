@@ -14,7 +14,9 @@ namespace DoAnCuoiKy.Model.Entities.Usermanage
         public string? Salt { get; set; }
         public Guid? RoleId { get; set; } //phân quyền
         public Role? Role { get; set; }
+       
         //1librarian-nhiều transaction
+        public bool isValidate { get; set; } = false;
        
 
 

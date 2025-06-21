@@ -6,16 +6,17 @@ using DoAnCuoiKy.Service.IService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
-
 namespace DoAnCuoiKy.Service.InformationLibrary
 {
   
     public class BookCategoryService : IBookCategoryService
     {
         private readonly ApplicationDbContext _context;
-        public BookCategoryService(ApplicationDbContext context)
+        private readonly IHttpContextAccessor _contextAccessor;
+        public BookCategoryService(ApplicationDbContext context, IHttpContextAccessor contextAccessor)
         {
             _context = context;
+            _contextAccessor = contextAccessor;
         }
         public async Task<BaseResponse<BookCategoryResponse>> AddBookCategory(BookCategoryRequest categoryRequest)
         {
@@ -29,8 +30,8 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             BookCategory bookCategory = new BookCategory();
             bookCategory.Id = Guid.NewGuid();
             bookCategory.Name = categoryRequest.Name;
-            bookCategory.CreateUser = "Nguyen Thi Thanh Nhu";
-            bookCategory.UpdateUser = "Nguyen Thi Thanh Nhu";
+            bookCategory.CreateUser = getCurrentName();
+            bookCategory.UpdateUser = getCurrentName();
             bookCategory.UpdateDate = DateTime.Now;
             bookCategory.CreateDate = DateTime.Now;
    
@@ -63,7 +64,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 return baseResponse;
             }
             deleteCategory.IsDeleted = true;
-            deleteCategory.deleteUser = "Nguyen Thi Thanh Nhu";
+            deleteCategory.deleteUser = getCurrentName();
             deleteCategory.DeleteDate = DateTime.Now;
             _context.bookCategories.Update(deleteCategory);
             await _context.SaveChangesAsync();
@@ -146,6 +147,9 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             response.data = bookCategoryResponse;
             return response;
         }
-
+        private string getCurrentName()
+        {
+            return _contextAccessor.HttpContext.User.Identity.Name;
+        }
     }
 }

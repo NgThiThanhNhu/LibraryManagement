@@ -13,25 +13,18 @@ namespace DoAnCuoiKy.Controllers.Authentication
     public class AuthenticationController : ControllerBase
     {
         private readonly IAuthenticationService _authenticationService;
-        private readonly IConfiguration _configuration;
 
-
-        public AuthenticationController(IAuthenticationService authenticationService, IConfiguration _config)
+        public AuthenticationController(IAuthenticationService authenticationService)
         {
             _authenticationService = authenticationService;
-            _configuration = _config;
         }
 
-        [AllowAnonymous] //cho phép truy cập bất kì
+        [AllowAnonymous] 
         [HttpPost("Login")]
         public async Task<BaseResponse<LoginResponse>> Login(LoginRequest loginRequest)
         {
-
             BaseResponse<LoginResponse> baseResponse = await _authenticationService.Login(loginRequest);
-            
             return baseResponse;
-
-
         }
         [AllowAnonymous]
         [HttpPost("Register")]

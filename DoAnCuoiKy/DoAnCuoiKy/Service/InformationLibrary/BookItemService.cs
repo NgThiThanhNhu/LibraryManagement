@@ -5,6 +5,7 @@ using DoAnCuoiKy.Model.Enum.InformationLibrary;
 using DoAnCuoiKy.Model.Request;
 using DoAnCuoiKy.Model.Response;
 using DoAnCuoiKy.Service.IService.InformationLibrary;
+using DoAnCuoiKy.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoAnCuoiKy.Service.InformationLibrary
@@ -96,21 +97,16 @@ namespace DoAnCuoiKy.Service.InformationLibrary
 
         public async Task<BaseResponse<List<BookItemResponse>>> AddBookItem(BookItemRequest bookItemRequest)
         {
-            //đang thêm bookitem theo bookId dựa vào số lượng
             BaseResponse<List<BookItemResponse>> response = new BaseResponse<List<BookItemResponse>>();
             List<BookItemResponse> bookItemResponses = new List<BookItemResponse>();
             Book book = await _context.books.Include(x=>x.Category).Include(x=>x.BookChapter).Where(b => b.IsDeleted == false).FirstOrDefaultAsync(x=>x.Id == bookItemRequest.BookId);//muốn có được bookitem thì phải biết được bookitem đó thuộc bookId nào
             if(book == null)
-            {
-                response.IsSuccess = false;
-                response.message = "Không tìm thấy Book để thêm BookItem";
-                return response;
-            }
+                Global.getResponse(false, bookItemResponses, "Không tìm thấy Book để thêm BookItem");
             
-               BaseResponse<List<BookItem>> bookItems1 = await DistributeBookItemsToShelfSections(bookItemRequest);
+            BaseResponse<List<BookItem>> bookItems1 = await DistributeBookItemsToShelfSections(bookItemRequest);
             
-                _context.bookItems.AddRange(bookItems1.data);
-                await _context.SaveChangesAsync();
+            _context.bookItems.AddRange(bookItems1.data);
+            await _context.SaveChangesAsync();
 
             List<BookItemResponse> bookItemResponse = await _context.bookItems.Include(x=>x.ShelfSection).Include(x => x.Book).Where(x => x.IsDeleted == false && x.BookId == bookItemRequest.BookId).Select(i => new BookItemResponse
             {

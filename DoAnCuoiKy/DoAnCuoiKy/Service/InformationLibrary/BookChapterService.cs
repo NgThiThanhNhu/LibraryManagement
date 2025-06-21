@@ -10,9 +10,11 @@ namespace DoAnCuoiKy.Service.InformationLibrary
     public class BookChapterService : IBookChapterService
     {
         private readonly ApplicationDbContext _context;
-        public BookChapterService(ApplicationDbContext context)
+        private readonly IHttpContextAccessor _contextAccessor;
+        public BookChapterService(ApplicationDbContext context, IHttpContextAccessor contextAccessor)
         {
             _context = context;
+            _contextAccessor = contextAccessor;
         }
         public async Task<BaseResponse<BookChapterResponse>> AddBookChapter(BookChapterRequest chapterRequest)
         {
@@ -20,7 +22,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             BookChapterResponse chapterResponse = new BookChapterResponse();
             BookChapter bookChapter = new BookChapter();
             bookChapter.TitleChapter = chapterRequest.TitleChapter;
-            bookChapter.CreateUser = "Nguyen Thi Thanh Nhu";
+            bookChapter.CreateUser = getCurrentName();
             bookChapter.CreateDate = DateTime.Now;
             _context.bookChapters.AddAsync(bookChapter);
             await _context.SaveChangesAsync();
@@ -45,7 +47,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             if(bookChapter !=null && bookChapter.IsDeleted == false)
             {
                 bookChapter.IsDeleted = true;
-                bookChapter.deleteUser = "Nguyen Thi Thanh Nhu";
+                bookChapter.deleteUser = getCurrentName();
                 bookChapter.UpdateDate = DateTime.Now;
                 _context.bookChapters.Update(bookChapter);
                 await _context.SaveChangesAsync();
@@ -118,7 +120,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             }
             //BookChapter chapter = new BookChapter();
             bookChapter.TitleChapter = chapterRequest.TitleChapter;
-            bookChapter.UpdateUser = "Nguyen Thi Thanh Nhu";
+            bookChapter.UpdateUser = getCurrentName();
             bookChapter.UpdateDate = DateTime.Now;
 
                 _context.bookChapters.UpdateRange(bookChapter);
@@ -131,6 +133,9 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 response.data= bookChapterResponse; 
                 return response;
         }
-
+        private string getCurrentName()
+        {
+            return _contextAccessor.HttpContext.User.Identity.Name;
+        }
     }
 }

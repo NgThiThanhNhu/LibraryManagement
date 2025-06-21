@@ -96,6 +96,7 @@ builder.Services.AddTransient<IShelfService, ShelfService>();
 builder.Services.AddTransient<IShelfSectionService, ShelfSectionService>();
 builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddTransient<IBookFileService, BookFileService>();
+builder.Services.AddTransient<IBookWithBookFileService, BookWithBookFileService>();
 
 builder.Services.AddHttpContextAccessor();
 
