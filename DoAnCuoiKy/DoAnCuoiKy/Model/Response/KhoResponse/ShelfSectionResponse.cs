@@ -8,7 +8,7 @@
        
         public Guid ShelfId { get; set; }
         public string? ShelfName { get; set; }
-        public int CurrentBookItem { get; set; }
+        public int CurrentBookItem { get; set; } 
         public bool isFull => CurrentBookItem >= Capacity;
     }
 }

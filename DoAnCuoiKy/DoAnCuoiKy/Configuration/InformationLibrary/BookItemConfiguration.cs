@@ -23,10 +23,6 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
                 .WithMany(b => b.bookItems)
                 .HasForeignKey(i => i.BookId);
 
-            //mối quan hệ với bảng exporttransaction
-            builder.HasOne(i => i.BookExportTransaction)
-                .WithMany(ep => ep.bookItems)
-                .HasForeignKey(i => i.ExportTransactionId);
             //mối quan hệ với shelfSection
             builder.HasOne(i => i.ShelfSection)
                 .WithMany(section => section.BookItems)

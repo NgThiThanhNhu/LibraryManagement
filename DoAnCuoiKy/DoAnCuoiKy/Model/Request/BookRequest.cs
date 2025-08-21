@@ -17,6 +17,7 @@ namespace DoAnCuoiKy.Model.Request
         public Guid? CategoryId { get; set; }
        
         public Guid? BookChapterId { get; set; }
+        public string Description { get; set; }
       
     }
 }

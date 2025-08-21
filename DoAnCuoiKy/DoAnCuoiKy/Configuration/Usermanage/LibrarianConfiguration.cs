@@ -26,6 +26,7 @@ namespace DoAnCuoiKy.Configuration.Usermanage
             builder.HasOne(lan => lan.Role)
                 .WithMany(rl => rl.librarians)
                 .HasForeignKey(lan => lan.RoleId);
+         
         }
     }
 }

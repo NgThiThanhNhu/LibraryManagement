@@ -9,16 +9,13 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
         public void Configure(EntityTypeBuilder<Borrowing> builder)
         {
             builder.HasKey(bo => bo.Id);
-
-            //với bảng user
-            builder.HasOne(bo => bo.users)
-                .WithMany(u => u.borrowings)
-                .HasForeignKey(bo => bo.UserId);
-
-            //với bảng libararian
+            builder.Property(bod => bod.BorrowingStatus)
+                .HasConversion<byte>();
+            builder.Property(bo => bo.DueDate);
            
+            
 
-          
+
         }
     }
 }

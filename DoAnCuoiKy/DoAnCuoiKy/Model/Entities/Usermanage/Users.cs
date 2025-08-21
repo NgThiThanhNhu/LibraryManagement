@@ -13,9 +13,9 @@ namespace DoAnCuoiKy.Model.Entities.Usermanage
         public bool? IsActive { get; set; } 
         public Guid RoleId { get; set; }
         public Role Role { get; set; }
-        public List<BookReservation>? Reservations { get; set; }
-        public List<Borrowing>? borrowings { get; set; }
-        public List<Fine>? fines { get; set; }
+        //public List<BookReservation>? Reservations { get; set; }
+        //public List<Borrowing>? borrowings { get; set; }
+        //public List<Fine>? fines { get; set; }
 
     }
 }

@@ -5,7 +5,7 @@
         public string? CreateUser { get; set; } //người tạo
         public string? UpdateUser { get; set; } //người sửa
         public string? deleteUser { get; set; } //người xóa
-        public DateTime? CreateDate { get; set; } //ngày tạo
+        public DateTime CreateDate { get; set; } //ngày tạo
         public DateTime? UpdateDate { get; set; }//ngày sửa
         public DateTime? DeleteDate { get; set; }//ngày xóa
         public bool? IsDeleted { get; set; } = false; 

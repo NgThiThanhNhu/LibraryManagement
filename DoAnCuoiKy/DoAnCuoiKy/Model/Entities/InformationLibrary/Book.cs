@@ -24,5 +24,7 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public List<BookItem>? bookItems { get; set; }
         public List<BookImportTransaction> ImportTransactions { get; set; }
         public List<BookFile> bookFiles { get; set; }
+        public string Description { get; set; }
+        public string Slug { get; set; }
     }
 }

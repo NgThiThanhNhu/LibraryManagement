@@ -1,5 +1,6 @@
 ﻿using DoAnCuoiKy.Model.Entities.InformationLibrary;
 using DoAnCuoiKy.Model.Entities.InformationLibrary.Kho;
+using DoAnCuoiKy.Model.Entities.Notification;
 using DoAnCuoiKy.Model.Entities.Usermanage;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -31,9 +32,11 @@ namespace DoAnCuoiKy.Data
         public DbSet<Shelf> shelves { get; set; }
         public DbSet<ShelfSection> shelfSections { get; set; }
         public DbSet<BookFile> bookFiles { get; set; }
-
+        public DbSet<BookCartItem> bookCartItems { get; set; }
+        public DbSet<BookPickupSchedule> bookPickupSchedules { get; set; }
         public DbSet<BookImportTransaction> bookImportTransactions { get; set; }
         public DbSet<BookExportTransaction> bookExportTransactions { get; set; }
+        public DbSet<NotificationToUser> notificationToUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

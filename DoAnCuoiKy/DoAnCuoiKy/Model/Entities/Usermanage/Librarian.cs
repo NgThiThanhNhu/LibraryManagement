@@ -1,5 +1,6 @@
 ﻿using DoAnCuoiKy.Model.Entities.InformationLibrary;
 using DoAnCuoiKy.Model.Entities.InformationLibrary.Kho;
+using DoAnCuoiKy.Model.Entities.Notification;
 using System.Runtime.CompilerServices;
 
 namespace DoAnCuoiKy.Model.Entities.Usermanage
@@ -17,7 +18,11 @@ namespace DoAnCuoiKy.Model.Entities.Usermanage
        
         //1librarian-nhiều transaction
         public bool isValidate { get; set; } = false;
-       
+        public List<Borrowing> borrowings { get; set; }
+        public List<Fine>? fines { get; set; }
+        public List<BookCartItem> bookCartItems { get; set; }
+        public List<NotificationToUser> notifications { get; set; }
+
 
 
     }

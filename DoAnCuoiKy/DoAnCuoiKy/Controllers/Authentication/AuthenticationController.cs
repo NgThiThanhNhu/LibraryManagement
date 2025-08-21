@@ -33,5 +33,20 @@ namespace DoAnCuoiKy.Controllers.Authentication
             BaseResponse<RegisterResponse> baseResponse = await _authenticationService.Register(registerRequest);
             return baseResponse;
         }
+        [AllowAnonymous]
+        [HttpPost("ConfirmOtp")]
+        public async Task<BaseResponse<OtpResponse>> ConfirmOTP(OtpRequest otpRequest)
+        {
+            BaseResponse<OtpResponse> baseResponse = await _authenticationService.ConfirmOTP(otpRequest);
+            return baseResponse;
+        }
+        [AllowAnonymous]
+        [HttpPost("Logout")]
+        public async Task<BaseResponse<LogoutResponse>> Logout()
+        {
+            BaseResponse<LogoutResponse> baseResponse = await _authenticationService.Logout();
+            return baseResponse;
+
+        }
     }
 }

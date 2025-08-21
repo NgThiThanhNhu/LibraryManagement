@@ -8,7 +8,7 @@ namespace DoAnCuoiKy.Service.IService.InformationLibrary
         Task<BaseResponse<List<BookItemResponse>>> AddBookItem(BookItemRequest bookItemRequest);
         Task<BaseResponse<BookItemResponse>> UpdateBookItemStatus(Guid id, BookItemRequest bookItemRequest);
         Task<BaseResponse<List<BookItemResponse>>> GetAllBookItem();
-        Task<BaseResponse<BookItemResponse>> GetBookItemById(Guid id);
+        Task<BaseResponse<BookItemResponse>> ChooseBookItemByBookId(Guid bookId);
         Task<BaseResponse<BookItemResponse>> DeleteBookItem(Guid id);
     }
 }

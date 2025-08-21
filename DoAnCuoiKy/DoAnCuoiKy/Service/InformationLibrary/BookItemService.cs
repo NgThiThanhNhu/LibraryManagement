@@ -13,9 +13,11 @@ namespace DoAnCuoiKy.Service.InformationLibrary
     public class BookItemService : IBookItemService
     {
         private readonly ApplicationDbContext _context;
-        public BookItemService(ApplicationDbContext context)
+        private readonly IBookCartItemService _bookCartItemService;
+        public BookItemService(ApplicationDbContext context, IBookCartItemService bookCartItemService)
         {
             _context = context;
+            _bookCartItemService = bookCartItemService;
         }
         //public async Task<List<BookItem>> GenerateMultipleBookItems(Guid bookId, int quantity)
         //{
@@ -111,7 +113,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             List<BookItemResponse> bookItemResponse = await _context.bookItems.Include(x=>x.ShelfSection).Include(x => x.Book).Where(x => x.IsDeleted == false && x.BookId == bookItemRequest.BookId).Select(i => new BookItemResponse
             {
                 Id = i.Id,
-                BookId = i.BookId,
+               
                 Title = i.Book.Title,
                 AuthorName = i.Book.BookAuthor.Name,
                 PublisherName = i.Book.Publisher.PublisherName,
@@ -121,7 +123,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 CategoryName = i.Book.Category.Name,
                 TitleBookChapter = i.Book.BookChapter.TitleChapter,
                 BarCode = i.BarCode,
-                ShelfSectionId = i.ShelfSectionId,
+                
                 ShelfSectionName = i.ShelfSection.SectionName
             }).ToListAsync();
             response.IsSuccess = true;
@@ -162,10 +164,10 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         public async Task<BaseResponse<List<BookItemResponse>>> GetAllBookItem()
         {
             BaseResponse<List<BookItemResponse>> response = new BaseResponse<List<BookItemResponse>>();
-            List<BookItemResponse> bookItems = await _context.bookItems.Include(i=>i.Book).Include(x=>x.ShelfSection).Where(i=>i.IsDeleted == false).Select(i=> new BookItemResponse
+            List<BookItemResponse> bookItems = await _context.bookItems.Include(i=>i.Book).Include(x=>x.ShelfSection).Where(i=>i.IsDeleted == false && i.BookStatus == BookStatus.Borrowed).Select(i=> new BookItemResponse
             {
                 Id = i.Id,
-                BookId = i.BookId,
+             
                 Title = i.Book.Title,
                 AuthorName = i.Book.BookAuthor.Name,
                 PublisherName = i.Book.Publisher.PublisherName,
@@ -175,7 +177,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 CategoryName = i.Book.Category.Name,
                 TitleBookChapter = i.Book.BookChapter.TitleChapter,
                 BarCode = i.BarCode,
-                ShelfSectionId= i.ShelfSectionId,
+               
                 ShelfSectionName = i.ShelfSection.SectionName
             }).ToListAsync();
             if(bookItems == null)
@@ -190,20 +192,33 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             return response;
         }
 
-        public async Task<BaseResponse<BookItemResponse>> GetBookItemById(Guid id)
+        public async Task<BaseResponse<BookItemResponse>> ChooseBookItemByBookId(Guid bookId)
         {
             BaseResponse<BookItemResponse> response = new BaseResponse<BookItemResponse>();
             BookItemResponse bookItemResponse = new BookItemResponse();
-            BookItem bookItem = await _context.bookItems.Include(x=>x.Book).Where(x=>x.IsDeleted == false).FirstOrDefaultAsync(x => x.Id == id);
+            BookItem bookItem = await _context.bookItems.Include(x=>x.ShelfSection).Include(x=>x.Book.bookFiles).Include(x=>x.Book.BookChapter).Include(x=>x.Book.Category).Include(x=>x.Book.BookAuthor).Include(x=>x.Book.Publisher).Where(x=>x.IsDeleted == false && x.BookStatus == BookStatus.Available).FirstOrDefaultAsync(x => x.BookId == bookId);
             if(bookItem == null)
             {
                 response.IsSuccess = false;
-                response.message = "dữ liệu không tồn tại";
+                response.message = "Đã hết sách có thể mượn được";
                 return response;
             }
+            bookItem.BookStatus = BookStatus.Borrowed;
+            BookCartItemRequest bookCartItemRequest = new BookCartItemRequest();
+            bookCartItemRequest.BookItemId = bookItem.Id.Value;
+            _context.bookItems.Update(bookItem);
+            BaseResponse<BookCartItemResponse> bookCartItem = await _bookCartItemService.AddBookItemToCart(bookCartItemRequest);
+            Book book = await _context.books.FirstOrDefaultAsync(x => x.Id == bookItem.BookId && x.IsDeleted == false);
+            if (book != null)
+            {
+                book.Quantity--;
+                _context.books.Update(book);
+            }
+            _context.SaveChanges();
+           
             bookItemResponse.Id = bookItem.Id.Value;
             bookItemResponse.BarCode = bookItem.BarCode;
-            bookItemResponse.BookId = bookItem.BookId.Value;
+           
             bookItemResponse.Title = bookItem.Book.Title;
             bookItemResponse.TitleBookChapter = bookItem.Book.BookChapter.TitleChapter;
             bookItemResponse.CategoryName = bookItem.Book.Category.Name;
@@ -211,8 +226,10 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             bookItemResponse.PublisherName = bookItem.Book.Publisher.PublisherName;
             bookItemResponse.YearPublished = bookItem.Book.YearPublished;
             bookItemResponse.BookStatus = bookItem.BookStatus.Value;
+            bookItemResponse.ShelfSectionName = bookItem.ShelfSection.SectionName;
+            bookItemResponse.imageUrl = bookItem.Book.bookFiles.Select(x => x.ImageUrl).ToList();
             response.IsSuccess = true;
-            response.message = "getBookItemById thành công";
+            response.message = "thêm vào danh sách thành công";
             response.data = bookItemResponse;
             return response;
         }
@@ -244,7 +261,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             BookItemResponse bookItemResponse = new BookItemResponse();
             bookItemResponse.Id = id;
             bookItemResponse.BarCode = item.BarCode;
-            bookItemResponse.BookId = item.BookId;
             bookItemResponse.Title = item.Book.Title;
             bookItemResponse.AuthorName = item.Book.BookAuthor.Name;
             bookItemResponse.PublisherName = item.Book.Publisher.PublisherName;

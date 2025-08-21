@@ -38,11 +38,11 @@ namespace DoAnCuoiKy.Controllers
             BaseResponse<List<BookItemResponse>> response = await _bookItemService.GetAllBookItem();
             return response;
         }
-        [HttpGet("GetBookItemById/{id}")]
+        [HttpGet("ChooseBookItemByBookId/{bookId}")]
         //[Authorize(Roles = "Admin, User")]
-        public async Task<BaseResponse<BookItemResponse>> getBookItemById(Guid id)
+        public async Task<BaseResponse<BookItemResponse>> ChooseBookItemByBookId(Guid bookId)
         {
-            BaseResponse<BookItemResponse> response = await _bookItemService.GetBookItemById(id);
+            BaseResponse<BookItemResponse> response = await _bookItemService.ChooseBookItemByBookId(bookId);
             return response;
         }
         [HttpPost("DeleteBookItem/{id}")]

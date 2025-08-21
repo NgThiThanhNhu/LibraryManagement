@@ -93,7 +93,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
                 Capacity = x.Capacity,
                 ShelfId = x.ShelfId,
                 ShelfName = x.Shelf.ShelfName,
-                CurrentBookItem = x.BookItems.Count(bi=>bi.IsDeleted==false)
+                CurrentBookItem = x.BookItems.Where(bi=>bi.BookStatus == Model.Enum.InformationLibrary.BookStatus.Available && bi.IsDeleted == false).Count()
 
             }).ToListAsync();
             response.IsSuccess = true;
@@ -115,7 +115,14 @@ namespace DoAnCuoiKy.Service.InformationLibrary.Kho
             ShelfSectionResponse shelfSectionResponse = new ShelfSectionResponse();
             shelfSectionResponse.Id = shelfSection.Id;
             shelfSectionResponse.ShelfId = shelfSection.ShelfId;
-            shelfSectionResponse.ShelfName = shelfSection.Shelf.ShelfName;
+            Shelf findShelf = await _context.shelves.Where(x => x.IsDeleted == false).FirstOrDefaultAsync(x => x.Id == shelfSection.ShelfId);
+            if (findShelf == null)
+            {
+                response.IsSuccess=false;
+                response.message = "Không tồn tại id của kệ sách";
+                return response;
+            }
+            shelfSectionResponse.ShelfName = findShelf.ShelfName;
             shelfSection.Capacity = shelfSection.Capacity;
             shelfSection.SectionName = shelfSection.SectionName;
             response.IsSuccess = true;

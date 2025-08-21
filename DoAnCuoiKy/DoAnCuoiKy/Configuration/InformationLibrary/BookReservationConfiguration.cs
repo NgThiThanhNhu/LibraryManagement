@@ -16,14 +16,9 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
 
             //xây dựng mối quan hệ
             //với bảng user
-            builder.HasOne(r => r.users)
-                .WithMany(u => u.Reservations)
-                .HasForeignKey(r => r.UserId);
+          
 
-            //với bảng book
-            //builder.HasOne(r => r.book)
-            //    .WithMany(b => b.Reservations)
-            //    .HasForeignKey(r => r.BookId);
+         
             //với bảng bookitem
             builder.HasOne(r => r.BookItem)
                 .WithMany(i => i.BookReservations)

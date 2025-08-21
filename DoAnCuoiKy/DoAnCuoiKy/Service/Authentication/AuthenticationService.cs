@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using DoAnCuoiKy.Utils;
+using DoAnCuoiKy.Model;
 
 
 namespace DoAnCuoiKy.Service.Authentication
@@ -20,6 +21,7 @@ namespace DoAnCuoiKy.Service.Authentication
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _contextAccessor;
+        private static Dictionary<string, OtpData> otpStore = new(); 
         
 
         public AuthenticationService(ApplicationDbContext context, IConfiguration Configuration, IHttpContextAccessor httpContextAccessor )
@@ -28,6 +30,8 @@ namespace DoAnCuoiKy.Service.Authentication
             _context = context;
            _contextAccessor = httpContextAccessor;
         }
+
+
         public string GetJwtSecretKey()
         {
             return _configuration["Jwt:Key"];
@@ -42,7 +46,7 @@ namespace DoAnCuoiKy.Service.Authentication
             if (librarian == null)
                 return Global.getResponse(false, loginResponse, "Tài khoản không tồn tại");
 
-            if (librarian.isValidate)
+            if (!librarian.isValidate)
                 return Global.getResponse(false, loginResponse, "Tài khoản chưa được xác nhận");
         
             string hashInputPassword = Encrypt_decrypt.EncodePassword(loginRequest.Password, librarian.Salt);
@@ -86,12 +90,10 @@ namespace DoAnCuoiKy.Service.Authentication
             newLibrarian.Salt = salt;
             Role role = _context.roles.FirstOrDefault(x => x.Name == "User" && x.IsDeleted == false);
             newLibrarian.Role = role;
-            _context.librarians.AddAsync(newLibrarian);
-            await _context.SaveChangesAsync();
 
-            registerResponse.Name = newLibrarian.Name;
+            registerResponse.Email = newLibrarian.Email;
             string otp = getOTP();
-
+           
             if(!sendEmail(otp, newLibrarian.Email))
             {
                 response.IsSuccess = false;
@@ -99,7 +101,13 @@ namespace DoAnCuoiKy.Service.Authentication
                 response.data = registerResponse;
                 return response;
             }
-
+            _context.librarians.Add(newLibrarian);
+            _context.SaveChanges();
+            OtpData data = new OtpData();
+            //otpStore = new Dictionary<string, OtpData>();
+            data.Code = otp;
+            data.ExpiredAt = DateTime.Now.AddMinutes(5);
+            otpStore[newLibrarian.Email] = data;
             response.IsSuccess = true;
             response.message = "Bạn cần kiểm tra email xác nhận OTP";
             response.data = registerResponse;
@@ -149,6 +157,88 @@ namespace DoAnCuoiKy.Service.Authentication
             {
                 return false;
             }
+        }
+        public  Task<BaseResponse<OtpResponse>> ConfirmOTP(OtpRequest otpRequest)
+        {
+            BaseResponse<OtpResponse> response = new BaseResponse<OtpResponse>();
+            var libraryan = _context.librarians.Where(x => x.Email == otpRequest.Email).FirstOrDefault();
+            if (!otpStore.ContainsKey(otpRequest.Email))
+            {
+                response.IsSuccess = false;
+                response.message = "Mã Otp không tồn tại";
+                response.data = new OtpResponse { isValidate = false };
+                return  Task.FromResult(response);
+            }
+            var storedOtp = otpStore[otpRequest.Email];
+            if (DateTime.Now > storedOtp.ExpiredAt) {
+                response.IsSuccess = false;
+                response.message = "Mã đã hết hiệu lực";
+                if(libraryan != null)
+                {
+                    _context.librarians.Remove(libraryan);
+                    _context.SaveChanges();
+                }    
+                response.data = new OtpResponse { isValidate = false };       
+                return  Task.FromResult(response);
+            }
+            if (storedOtp.Code != otpRequest.ConfirmOtp)
+            {
+                response.IsSuccess = false;
+                response.message = "Mã OTP không chính xác";
+                response.data = new OtpResponse { isValidate = false };
+                return  Task.FromResult(response);
+            }
+            
+            if(libraryan == null)
+            {
+                response.IsSuccess = false;
+                response.message = "Lỗi hệ thống";
+                response.data = new OtpResponse { isValidate = false };
+                return  Task.FromResult(response);
+            }
+           
+            libraryan.isValidate = true;
+             _context.librarians.Update(libraryan);
+             _context.SaveChangesAsync();
+            otpStore.Remove(otpRequest.Email);
+            response.IsSuccess = true;
+            response.message = "Xác minh OTP thành công";
+            response.data = new OtpResponse
+            {
+                isValidate = true,
+                ConfirmOtp = otpRequest.ConfirmOtp,
+            };
+            return  Task.FromResult(response);
+        }
+
+        public  Task<BaseResponse<LogoutResponse>> Logout()
+        {
+           BaseResponse<LogoutResponse> response = new BaseResponse<LogoutResponse>();
+            LogoutResponse logoutResponse = new LogoutResponse();
+            logoutResponse.Name = getCurrentName();
+            logoutResponse.RoleName = getCurrentRole();
+            logoutResponse.Token = getCurrentToken();
+            _contextAccessor.HttpContext.Response.Cookies.Delete("jwtToken");
+
+            response.IsSuccess = true;
+            response.message = "Đăng xuất thành công";
+            response.data= logoutResponse;
+            return Task.FromResult(response);
+            
+
+        }
+        private string getCurrentName()
+        {
+            return _contextAccessor.HttpContext.User.Identity.Name;
+        }
+        private string getCurrentRole()
+        {
+            return _contextAccessor.HttpContext?.User?.Claims
+                .FirstOrDefault(c => c.Type == "RoleName")?.Value ?? "Unknown";
+        }
+        private string getCurrentToken()
+        {
+            return _contextAccessor.HttpContext?.Request?.Cookies["jwtToken"] ?? string.Empty;
         }
     }
 }

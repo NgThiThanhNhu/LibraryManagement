@@ -28,16 +28,16 @@ namespace DoAnCuoiKy.Controllers
         [HttpGet("GetAllBook")]
         public async Task<BaseResponse<List<BookResponse>>> getAllBook()
         {
-            var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
-            Console.WriteLine($"User Role: {userRole}");
+            //var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
+            //Console.WriteLine($"User Role: {userRole}");
             BaseResponse<List<BookResponse>> response = await _bookService.GetAllBook();
             return response;
         }
-        [HttpGet("GetBookById/{id}")]
+        [HttpGet("GetBookBySlug/{slug}")]
         //[Authorize(Roles = "Admin")]
-        public async Task<BaseResponse<BookResponse>> getBookById(Guid id)
+        public async Task<BaseResponse<BookResponse>> getBookBySlug(string slug)
         {
-            BaseResponse<BookResponse> response = await _bookService.GetBookById(id);
+            BaseResponse<BookResponse> response = await _bookService.GetBookBySlug(slug);
             return response;
         }
 

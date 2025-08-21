@@ -20,7 +20,7 @@ namespace DoAnCuoiKy.Migrations
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -35,11 +35,11 @@ namespace DoAnCuoiKy.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -58,7 +58,7 @@ namespace DoAnCuoiKy.Migrations
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -66,26 +66,6 @@ namespace DoAnCuoiKy.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_bookChapters", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "bookExportTransactions",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ExportReason = table.Column<byte>(type: "tinyint", nullable: false),
-                    TransactionType = table.Column<byte>(type: "tinyint", nullable: false),
-                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_bookExportTransactions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -97,7 +77,7 @@ namespace DoAnCuoiKy.Migrations
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -119,7 +99,7 @@ namespace DoAnCuoiKy.Migrations
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -138,7 +118,7 @@ namespace DoAnCuoiKy.Migrations
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -159,7 +139,7 @@ namespace DoAnCuoiKy.Migrations
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -188,10 +168,12 @@ namespace DoAnCuoiKy.Migrations
                     UnitPrice = table.Column<float>(type: "real", nullable: true),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     BookChapterId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Slug = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -226,16 +208,17 @@ namespace DoAnCuoiKy.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
                     Password = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Salt = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    isValidate = table.Column<bool>(type: "bit", nullable: false),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -285,7 +268,7 @@ namespace DoAnCuoiKy.Migrations
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -314,7 +297,7 @@ namespace DoAnCuoiKy.Migrations
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -343,7 +326,7 @@ namespace DoAnCuoiKy.Migrations
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -363,11 +346,17 @@ namespace DoAnCuoiKy.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Duration = table.Column<int>(type: "int", nullable: false),
+                    DueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BorrowingStatus = table.Column<byte>(type: "tinyint", nullable: true),
+                    LibrarianId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    isScheduled = table.Column<bool>(type: "bit", nullable: false),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -376,9 +365,9 @@ namespace DoAnCuoiKy.Migrations
                 {
                     table.PrimaryKey("PK_borrowings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_borrowings_users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "users",
+                        name: "FK_borrowings_librarians_LibrarianId",
+                        column: x => x.LibrarianId,
+                        principalTable: "librarians",
                         principalColumn: "Id");
                 });
 
@@ -393,7 +382,7 @@ namespace DoAnCuoiKy.Migrations
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -410,17 +399,83 @@ namespace DoAnCuoiKy.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "bookPickupSchedules",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BorrowingId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ScheduledPickupDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ExpiredPickupDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsPickedUp = table.Column<bool>(type: "bit", nullable: false),
+                    IsNotified = table.Column<bool>(type: "bit", nullable: false),
+                    NotificationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_bookPickupSchedules", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_bookPickupSchedules_borrowings_BorrowingId",
+                        column: x => x.BorrowingId,
+                        principalTable: "borrowings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "notificationToUsers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsRead = table.Column<bool>(type: "bit", nullable: false),
+                    NotificationType = table.Column<byte>(type: "tinyint", nullable: false),
+                    BorrowingId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_notificationToUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_notificationToUsers_borrowings_BorrowingId",
+                        column: x => x.BorrowingId,
+                        principalTable: "borrowings",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_notificationToUsers_librarians_UserId",
+                        column: x => x.UserId,
+                        principalTable: "librarians",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "shelfSections",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SectionName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
-                    Capacity = table.Column<int>(type: "int", nullable: true),
+                    Capacity = table.Column<int>(type: "int", nullable: false),
                     ShelfId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -445,11 +500,10 @@ namespace DoAnCuoiKy.Migrations
                     BookStatus = table.Column<byte>(type: "tinyint", nullable: true),
                     BookId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ShelfSectionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ExportTransactionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -457,11 +511,6 @@ namespace DoAnCuoiKy.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_bookItems", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_bookItems_bookExportTransactions_ExportTransactionId",
-                        column: x => x.ExportTransactionId,
-                        principalTable: "bookExportTransactions",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_bookItems_books_BookId",
                         column: x => x.BookId,
@@ -475,6 +524,38 @@ namespace DoAnCuoiKy.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "bookCartItems",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BookItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_bookCartItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_bookCartItems_bookItems_BookItemId",
+                        column: x => x.BookItemId,
+                        principalTable: "bookItems",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_bookCartItems_librarians_UserId",
+                        column: x => x.UserId,
+                        principalTable: "librarians",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "bookReservations",
                 columns: table => new
                 {
@@ -483,11 +564,12 @@ namespace DoAnCuoiKy.Migrations
                     ExpireDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Status = table.Column<byte>(type: "tinyint", nullable: true),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    usersId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     BookItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -501,8 +583,8 @@ namespace DoAnCuoiKy.Migrations
                         principalTable: "bookItems",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_bookReservations_users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_bookReservations_users_usersId",
+                        column: x => x.usersId,
                         principalTable: "users",
                         principalColumn: "Id");
                 });
@@ -512,16 +594,14 @@ namespace DoAnCuoiKy.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BorrowDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Duration = table.Column<int>(type: "int", nullable: false),
-                    ReturnedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Status = table.Column<byte>(type: "tinyint", nullable: true),
                     BorrowingId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    bookStatus = table.Column<byte>(type: "tinyint", nullable: true),
                     BookItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ReturnedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -542,6 +622,33 @@ namespace DoAnCuoiKy.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "bookExportTransactions",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ExportReason = table.Column<byte>(type: "tinyint", nullable: false),
+                    TransactionType = table.Column<byte>(type: "tinyint", nullable: false),
+                    BorrowingDetailId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_bookExportTransactions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_bookExportTransactions_borrowingDetails_BorrowingDetailId",
+                        column: x => x.BorrowingDetailId,
+                        principalTable: "borrowingDetails",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "fines",
                 columns: table => new
                 {
@@ -550,12 +657,13 @@ namespace DoAnCuoiKy.Migrations
                     fineReason = table.Column<byte>(type: "tinyint", nullable: true),
                     IssuedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsPaid = table.Column<bool>(type: "bit", nullable: true),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    LibrarianId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BorrowingDetailId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UpdateUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     deleteUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: true)
@@ -569,11 +677,28 @@ namespace DoAnCuoiKy.Migrations
                         principalTable: "borrowingDetails",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_fines_users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "users",
-                        principalColumn: "Id");
+                        name: "FK_fines_librarians_LibrarianId",
+                        column: x => x.LibrarianId,
+                        principalTable: "librarians",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_bookCartItems_BookItemId",
+                table: "bookCartItems",
+                column: "BookItemId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_bookCartItems_UserId",
+                table: "bookCartItems",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_bookExportTransactions_BorrowingDetailId",
+                table: "bookExportTransactions",
+                column: "BorrowingDetailId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_bookFiles_BookId",
@@ -591,14 +716,15 @@ namespace DoAnCuoiKy.Migrations
                 column: "BookId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_bookItems_ExportTransactionId",
-                table: "bookItems",
-                column: "ExportTransactionId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_bookItems_ShelfSectionId",
                 table: "bookItems",
                 column: "ShelfSectionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_bookPickupSchedules_BorrowingId",
+                table: "bookPickupSchedules",
+                column: "BorrowingId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_bookReservations_BookItemId",
@@ -606,9 +732,9 @@ namespace DoAnCuoiKy.Migrations
                 column: "BookItemId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_bookReservations_UserId",
+                name: "IX_bookReservations_usersId",
                 table: "bookReservations",
-                column: "UserId");
+                column: "usersId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_books_BookAuthorId",
@@ -646,9 +772,9 @@ namespace DoAnCuoiKy.Migrations
                 column: "BorrowingId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_borrowings_UserId",
+                name: "IX_borrowings_LibrarianId",
                 table: "borrowings",
-                column: "UserId");
+                column: "LibrarianId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_fines_BorrowingDetailId",
@@ -656,14 +782,24 @@ namespace DoAnCuoiKy.Migrations
                 column: "BorrowingDetailId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_fines_UserId",
+                name: "IX_fines_LibrarianId",
                 table: "fines",
-                column: "UserId");
+                column: "LibrarianId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_librarians_RoleId",
                 table: "librarians",
                 column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_notificationToUsers_BorrowingId",
+                table: "notificationToUsers",
+                column: "BorrowingId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_notificationToUsers_UserId",
+                table: "notificationToUsers",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_rooms_FloorId",
@@ -690,10 +826,19 @@ namespace DoAnCuoiKy.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "bookCartItems");
+
+            migrationBuilder.DropTable(
+                name: "bookExportTransactions");
+
+            migrationBuilder.DropTable(
                 name: "bookFiles");
 
             migrationBuilder.DropTable(
                 name: "bookImportTransactions");
+
+            migrationBuilder.DropTable(
+                name: "bookPickupSchedules");
 
             migrationBuilder.DropTable(
                 name: "bookReservations");
@@ -702,7 +847,10 @@ namespace DoAnCuoiKy.Migrations
                 name: "fines");
 
             migrationBuilder.DropTable(
-                name: "librarians");
+                name: "notificationToUsers");
+
+            migrationBuilder.DropTable(
+                name: "users");
 
             migrationBuilder.DropTable(
                 name: "borrowingDetails");
@@ -714,16 +862,13 @@ namespace DoAnCuoiKy.Migrations
                 name: "borrowings");
 
             migrationBuilder.DropTable(
-                name: "bookExportTransactions");
-
-            migrationBuilder.DropTable(
                 name: "books");
 
             migrationBuilder.DropTable(
                 name: "shelfSections");
 
             migrationBuilder.DropTable(
-                name: "users");
+                name: "librarians");
 
             migrationBuilder.DropTable(
                 name: "bookAuthors");

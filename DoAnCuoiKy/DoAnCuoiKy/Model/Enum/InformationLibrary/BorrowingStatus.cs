@@ -2,8 +2,12 @@
 {
     public enum BorrowingStatus : byte
     {
-        Borrowed = 0, //đang mượn
-        Returned = 1, //đã trả
-        Overdue = 2 //quá hạn
+        Wait = 0, // chờ duyệt
+        Approved = 1,
+        Scheduled = 2,
+        Borrowing = 3, //đang mượn
+        Returned = 4, //đã trả
+        Overdue = 5, //quá hạn
+        Reject = 6 // từ chối
     }
 }

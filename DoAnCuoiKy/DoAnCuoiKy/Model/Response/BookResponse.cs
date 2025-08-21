@@ -18,6 +18,11 @@ namespace DoAnCuoiKy.Model.Response
         public float? UnitPrice { get; set; }
         public string? CategoryName { get; set; }
         public string? TitleBookChapter { get; set; }
+        public string Description { get; set; }
+        public string Slug { get; set; }
+        public List<Guid> BookFileId {  get; set; } = new List<Guid>();
+        public List<string> ImageUrls { get; set; } = new List<string>();
+        public List<string> FileUrls { get; set; } = new List<string>();
 
     }
 }

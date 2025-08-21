@@ -15,8 +15,8 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
 
         public List<BookReservation>? BookReservations { get; set; }
         public List<BorrowingDetail>? borrowingDetails { get; set; }
-        public Guid? ExportTransactionId { get; set; }
-        public BookExportTransaction? BookExportTransaction { get; set; }
+        public BookCartItem BookCartItem { get; set; }
+        
        
        
 

@@ -21,7 +21,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         public async Task<BaseResponse<BookCategoryResponse>> AddBookCategory(BookCategoryRequest categoryRequest)
         {
             BaseResponse<BookCategoryResponse> response = new BaseResponse<BookCategoryResponse>();
-            if (categoryRequest.Name.IsNullOrEmpty())
+            if (categoryRequest.Name == null)
             {
                 response.IsSuccess = false;
                 response.message = "Thêm không thành công. Tên sách không được để trống";
@@ -102,7 +102,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         {
             BaseResponse<BookCategoryResponse> baseResponse = new BaseResponse<BookCategoryResponse>();
             BookCategoryResponse categoryResponse = new BookCategoryResponse();
-            //Guid rId = Guid.Parse(id);
             BookCategory bookCategory = await _context.bookCategories.FindAsync(id);
             if (bookCategory != null && bookCategory.IsDeleted == false)
             {
@@ -110,7 +109,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 categoryResponse.Name = bookCategory.Name;
                 baseResponse.IsSuccess = true;
                 baseResponse.message = "Lấy thành công";
-                baseResponse.data = categoryResponse;//trả về
+                baseResponse.data = categoryResponse;
             }
             else
             {

@@ -17,19 +17,24 @@ using DoAnCuoiKy.Service.Authentication;
 using System.Security.Claims;
 using DoAnCuoiKy.Service.IService.InformationLibrary.Kho;
 using DoAnCuoiKy.Service.InformationLibrary.Kho;
+using DoAnCuoiKy.Mapper;
+
+using DoAnCuoiKy;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = builder.Configuration;
 
+builder.Services.AddSignalR();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
         policy =>
         {
-            policy.WithOrigins("http://localhost:5173")//địa chỉ frontend
+            policy.WithOrigins("https://localhost:5173")//địa chỉ frontend
             .AllowAnyMethod()
             .AllowCredentials()
             .AllowAnyHeader();
+            //.SetIsOriginAllowed(_ => true); // cho phép mọi domain
         });
 });
 
@@ -96,7 +101,14 @@ builder.Services.AddTransient<IShelfService, ShelfService>();
 builder.Services.AddTransient<IShelfSectionService, ShelfSectionService>();
 builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddTransient<IBookFileService, BookFileService>();
-builder.Services.AddTransient<IBookWithBookFileService, BookWithBookFileService>();
+builder.Services.AddTransient<IBorrowingService, BorrowingService>();
+builder.Services.AddTransient<IBookCartItemService, BookCartItemService>();
+builder.Services.AddTransient<IBorrowingDetailService, BorrowingDetailService>();
+builder.Services.AddTransient<IFineService, FineService>();
+builder.Services.AddTransient<IBookPickupScheduleService, BookPickupScheduleService>();
+builder.Services.AddTransient<INotificationToUserService, NotificationToUserService>();
+builder.Services.AddAutoMapper(typeof(BorrowingProfile).Assembly);
+
 
 builder.Services.AddHttpContextAccessor();
 
@@ -106,6 +118,7 @@ builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 var app = builder.Build();
 //connect với frontend
 app.UseCors("AllowAll"); //kích hoạt CORS
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -130,5 +143,6 @@ app.UseAuthorization();
 
 
 app.MapControllers();
+app.MapHub<NotificationHub>("/notificationhub");
 
 app.Run();

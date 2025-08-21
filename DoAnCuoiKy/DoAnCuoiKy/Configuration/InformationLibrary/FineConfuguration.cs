@@ -20,10 +20,6 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
 
             builder.Property(f => f.IsPaid);
 
-            //với bảng user
-            builder.HasOne(f => f.users)
-                .WithMany(u => u.fines)
-                .HasForeignKey(f => f.UserId);
 
             //với bảng BorrowingDetail
             builder.HasOne(f => f.borrowingDetail)

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnCuoiKy.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250621032710_updateLibrarianVaild")]
-    partial class updateLibrarianVaild
+    [Migration("20250815085534_Nhu")]
+    partial class Nhu
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,7 +40,7 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -48,6 +48,10 @@ namespace DoAnCuoiKy.Migrations
 
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
@@ -57,6 +61,10 @@ namespace DoAnCuoiKy.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasMaxLength(200)
@@ -99,7 +107,7 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -129,13 +137,56 @@ namespace DoAnCuoiKy.Migrations
                     b.ToTable("bookAuthors");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCartItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookItemId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookItemId")
+                        .IsUnique();
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("bookCartItems");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCategory", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -148,6 +199,7 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -170,7 +222,7 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -209,7 +261,7 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<Guid>("BookId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -278,7 +330,7 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<byte?>("BookStatus")
                         .HasColumnType("tinyint");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -286,9 +338,6 @@ namespace DoAnCuoiKy.Migrations
 
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("ExportTransactionId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
@@ -309,11 +358,62 @@ namespace DoAnCuoiKy.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.HasIndex("ExportTransactionId");
-
                     b.HasIndex("ShelfSectionId");
 
                     b.ToTable("bookItems");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookPickupSchedule", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BorrowingId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ExpiredPickupDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsNotified")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPickedUp")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("NotificationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ScheduledPickupDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BorrowingId")
+                        .IsUnique();
+
+                    b.ToTable("bookPickupSchedules");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookReservation", b =>
@@ -325,7 +425,7 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<Guid?>("BookItemId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -358,11 +458,14 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<string>("deleteUser")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("usersId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BookItemId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("usersId");
 
                     b.ToTable("bookReservations");
                 });
@@ -373,7 +476,14 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<byte?>("BorrowingStatus")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -382,8 +492,17 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("DueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<Guid?>("LibrarianId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
@@ -397,9 +516,12 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<string>("deleteUser")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("isScheduled")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("LibrarianId");
 
                     b.ToTable("borrowings");
                 });
@@ -413,13 +535,10 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<Guid?>("BookItemId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("BorrowDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<Guid?>("BorrowingId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -428,23 +547,20 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Duration")
-                        .HasColumnType("int");
-
                     b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ReturnedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte?>("Status")
-                        .HasColumnType("tinyint");
-
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdateUser")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte?>("bookStatus")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("deleteUser")
                         .HasColumnType("nvarchar(max)");
@@ -470,7 +586,7 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<Guid?>("BorrowingDetailId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -488,13 +604,16 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<DateTime?>("IssuedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("LibrarianId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdateUser")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("UserId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("deleteUser")
@@ -507,7 +626,7 @@ namespace DoAnCuoiKy.Migrations
 
                     b.HasIndex("BorrowingDetailId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("LibrarianId");
 
                     b.ToTable("fines");
                 });
@@ -518,7 +637,10 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<Guid>("BorrowingDetailId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -547,6 +669,8 @@ namespace DoAnCuoiKy.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BorrowingDetailId");
+
                     b.ToTable("bookExportTransactions");
                 });
 
@@ -559,7 +683,7 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<Guid?>("BookId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -609,7 +733,7 @@ namespace DoAnCuoiKy.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -649,7 +773,7 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -685,7 +809,7 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -732,7 +856,7 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<Guid>("BookshelfId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -776,7 +900,7 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -821,7 +945,7 @@ namespace DoAnCuoiKy.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -859,13 +983,69 @@ namespace DoAnCuoiKy.Migrations
                     b.ToTable("publishers");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Notification.NotificationToUser", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BorrowingId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("NotificationType")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BorrowingId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("notificationToUsers");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -926,7 +1106,7 @@ namespace DoAnCuoiKy.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreateDate")
+                    b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreateUser")
@@ -1021,6 +1201,25 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("Publisher");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCartItem", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BookItem", "BookItem")
+                        .WithOne("BookCartItem")
+                        .HasForeignKey("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCartItem", "BookItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "User")
+                        .WithMany("bookCartItems")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BookItem");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookFile", b =>
                 {
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", "book")
@@ -1038,19 +1237,24 @@ namespace DoAnCuoiKy.Migrations
                         .WithMany("bookItems")
                         .HasForeignKey("BookId");
 
-                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookExportTransaction", "BookExportTransaction")
-                        .WithMany("bookItems")
-                        .HasForeignKey("ExportTransactionId");
-
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.ShelfSection", "ShelfSection")
                         .WithMany("BookItems")
                         .HasForeignKey("ShelfSectionId");
 
                     b.Navigation("Book");
 
-                    b.Navigation("BookExportTransaction");
-
                     b.Navigation("ShelfSection");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookPickupSchedule", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Borrowing", "borrowing")
+                        .WithOne("BookPickupSchedule")
+                        .HasForeignKey("DoAnCuoiKy.Model.Entities.InformationLibrary.BookPickupSchedule", "BorrowingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("borrowing");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookReservation", b =>
@@ -1060,8 +1264,8 @@ namespace DoAnCuoiKy.Migrations
                         .HasForeignKey("BookItemId");
 
                     b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Users", "users")
-                        .WithMany("Reservations")
-                        .HasForeignKey("UserId");
+                        .WithMany()
+                        .HasForeignKey("usersId");
 
                     b.Navigation("BookItem");
 
@@ -1070,11 +1274,11 @@ namespace DoAnCuoiKy.Migrations
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Borrowing", b =>
                 {
-                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Users", "users")
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "Librarian")
                         .WithMany("borrowings")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("LibrarianId");
 
-                    b.Navigation("users");
+                    b.Navigation("Librarian");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BorrowingDetail", b =>
@@ -1098,13 +1302,26 @@ namespace DoAnCuoiKy.Migrations
                         .WithMany("fines")
                         .HasForeignKey("BorrowingDetailId");
 
-                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Users", "users")
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "librarian")
                         .WithMany("fines")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("LibrarianId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("borrowingDetail");
 
-                    b.Navigation("users");
+                    b.Navigation("librarian");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookExportTransaction", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BorrowingDetail", "BorrowingDetail")
+                        .WithMany("bookExportTransactions")
+                        .HasForeignKey("BorrowingDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BorrowingDetail");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookImportTransaction", b =>
@@ -1156,6 +1373,25 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("Shelf");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Notification.NotificationToUser", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Borrowing", "borrowing")
+                        .WithMany("notificationToUsers")
+                        .HasForeignKey("BorrowingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "librarian")
+                        .WithMany("notifications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("borrowing");
+
+                    b.Navigation("librarian");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", b =>
                 {
                     b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Role", "Role")
@@ -1202,6 +1438,9 @@ namespace DoAnCuoiKy.Migrations
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookItem", b =>
                 {
+                    b.Navigation("BookCartItem")
+                        .IsRequired();
+
                     b.Navigation("BookReservations");
 
                     b.Navigation("borrowingDetails");
@@ -1209,17 +1448,18 @@ namespace DoAnCuoiKy.Migrations
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Borrowing", b =>
                 {
+                    b.Navigation("BookPickupSchedule");
+
                     b.Navigation("borrowingDetails");
+
+                    b.Navigation("notificationToUsers");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BorrowingDetail", b =>
                 {
-                    b.Navigation("fines");
-                });
+                    b.Navigation("bookExportTransactions");
 
-            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookExportTransaction", b =>
-                {
-                    b.Navigation("bookItems");
+                    b.Navigation("fines");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Kho.BookShelf", b =>
@@ -1252,20 +1492,22 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("Books");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", b =>
+                {
+                    b.Navigation("bookCartItems");
+
+                    b.Navigation("borrowings");
+
+                    b.Navigation("fines");
+
+                    b.Navigation("notifications");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Role", b =>
                 {
                     b.Navigation("librarians");
 
                     b.Navigation("users");
-                });
-
-            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Users", b =>
-                {
-                    b.Navigation("Reservations");
-
-                    b.Navigation("borrowings");
-
-                    b.Navigation("fines");
                 });
 #pragma warning restore 612, 618
         }
