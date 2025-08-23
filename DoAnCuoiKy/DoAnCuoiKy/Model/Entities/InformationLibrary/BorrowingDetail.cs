@@ -7,7 +7,6 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
     public class BorrowingDetail : BaseEntity
     {
         public Guid? Id { get; set; }
-       
         public Guid? BorrowingId { get; set; }
         public Borrowing? borrowing { get; set; }
         public BookStatus? bookStatus { get; set; }

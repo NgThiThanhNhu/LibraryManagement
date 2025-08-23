@@ -105,8 +105,9 @@ builder.Services.AddTransient<IBorrowingService, BorrowingService>();
 builder.Services.AddTransient<IBookCartItemService, BookCartItemService>();
 builder.Services.AddTransient<IBorrowingDetailService, BorrowingDetailService>();
 builder.Services.AddTransient<IFineService, FineService>();
-builder.Services.AddTransient<IBookPickupScheduleService, BookPickupScheduleService>();
+builder.Services.AddTransient<IBookPickupScheduleService, BookPickupScheduleService>(); 
 builder.Services.AddTransient<INotificationToUserService, NotificationToUserService>();
+builder.Services.AddTransient<IBookExportTransactionService, BookExportTransactionService>();
 builder.Services.AddAutoMapper(typeof(BorrowingProfile).Assembly);
 
 

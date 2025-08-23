@@ -26,15 +26,17 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         private readonly IHttpContextAccessor _contextAccessor;
         private readonly IBookCartItemService _bookCartItemService;
         private readonly INotificationToUserService _notificationToUserService;
+        private readonly IBookExportTransactionService _bookExportTransactionService;
         private readonly IMapper _mapper;
        
-        public BorrowingService(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IBookCartItemService bookCartItemService, IMapper mapper, INotificationToUserService notificationToUserService)
+        public BorrowingService(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IBookCartItemService bookCartItemService, IMapper mapper, INotificationToUserService notificationToUserService, IBookExportTransactionService bookExportTransactionService)
         {
             _context = context;
             _contextAccessor = httpContextAccessor;
             _bookCartItemService = bookCartItemService;
             _mapper = mapper;
             _notificationToUserService = notificationToUserService;
+            _bookExportTransactionService = bookExportTransactionService;
         }
         public async Task<BaseResponse<BorrowingResponse>> CreateBorrowing(BorrowingRequest borrowingRequest)
         {
@@ -68,7 +70,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 detail.BorrowingId = newBorrowing.Id;
                 detail.ReturnedDate = newBorrowing.DueDate;
                 detail.CreateDate = DateTime.Now;
-               
                 detail.bookStatus = BookStatus.Borrowed;
                 await _context.borrowingDetails.AddAsync(detail);
                 await _context.SaveChangesAsync();
@@ -119,7 +120,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 response.message = "Phiếu mượn đã quá thời gian chờ duyệt (24 giờ).";
                 return response;
             }
-            if (borrowingUpdate.BookPickupSchedule.ExpiredPickupDate < DateTime.Now)
+            if (borrowingUpdate.BorrowingStatus == BorrowingStatus.Scheduled && borrowingUpdate.BookPickupSchedule.ExpiredPickupDate < DateTime.Now)
             {
                 response.IsSuccess = false;
                 response.message = "Phiếu mượn bị hủy vì bạn không đến nhận đơn mượn này";
@@ -131,13 +132,22 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 response.message = "Phiếu mượn chưa tới hạn để đổi thành trạng thái quá hạn, vui lòng kiểm tra lại duedate";
                 return response;
             }
-           
+            
             var oldStatus = borrowingUpdate.BorrowingStatus;
             borrowingUpdate.BorrowingStatus = replyBorrowingRequest.borrowingStatus;
             //hủy phiếu
             if (borrowingUpdate.BorrowingStatus == BorrowingStatus.Reject)
                 borrowingUpdate.IsDeleted = true;
             
+            if (borrowingUpdate.BorrowingStatus == BorrowingStatus.Borrowing)
+            {
+                List<BorrowingDetail> findBorrowingDetails = await _context.borrowingDetails.Where(x=>x.IsDeleted == false && x.BorrowingId == id).ToListAsync();
+                foreach (var item in findBorrowingDetails)
+                {
+                    await _bookExportTransactionService.CreateBookExportTransaction(item.Id.Value);
+                }
+            }
+
             if (oldStatus != replyBorrowingRequest.borrowingStatus)
             {
                 NotificationToUserRequest notificationToUserRequest = new NotificationToUserRequest();

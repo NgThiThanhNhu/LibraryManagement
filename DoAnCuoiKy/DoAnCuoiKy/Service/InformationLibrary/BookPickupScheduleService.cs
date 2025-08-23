@@ -41,9 +41,9 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             }
             DateTime approvedDate = findBorrowing.UpdateDate ?? DateTime.Now;
 
-            if (bookPickupScheduleRequest.scheduledPickupDate < approvedDate ||
-                bookPickupScheduleRequest.scheduledPickupDate > approvedDate.AddDays(3) ||
-                bookPickupScheduleRequest.scheduledPickupDate > findBorrowing.DueDate || bookPickupScheduleRequest.scheduledPickupDate > bookPickupScheduleRequest.ExpiredPickupDate)
+            if (bookPickupScheduleRequest.scheduledPickupDate.ToUniversalTime() < approvedDate.ToUniversalTime() ||
+                bookPickupScheduleRequest.scheduledPickupDate.ToUniversalTime() > approvedDate.ToUniversalTime().AddDays(3) ||
+                bookPickupScheduleRequest.scheduledPickupDate.ToUniversalTime() > findBorrowing.DueDate.ToUniversalTime() || bookPickupScheduleRequest.scheduledPickupDate.ToUniversalTime() > bookPickupScheduleRequest.ExpiredPickupDate.ToUniversalTime())
             {
                 response.IsSuccess = false;
                 response.message = "Ngày hẹn không hợp lệ. Phải trong vòng 3 ngày kể từ ngày duyệt và trước ngày hết hạn mượn sách.";
