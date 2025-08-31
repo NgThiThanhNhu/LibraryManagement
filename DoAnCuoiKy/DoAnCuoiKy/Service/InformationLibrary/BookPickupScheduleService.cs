@@ -156,5 +156,28 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         {
             return _httpContextAccessor.HttpContext.User.Identity.Name;
         }
+
+        public async Task<BaseResponse<BookPickupScheduleResponse>> UpdateScheduled(Guid borrowingId)
+        {
+            BaseResponse<BookPickupScheduleResponse> response = new BaseResponse<BookPickupScheduleResponse>();
+            BookPickupSchedule findBookPickupSchedule = await _context.bookPickupSchedules.Include(x=>x.borrowing).FirstOrDefaultAsync(x => x.IsDeleted == false && x.IsPickedUp == false && x.BorrowingId == borrowingId);
+            findBookPickupSchedule.IsPickedUp = true;
+            findBookPickupSchedule.UpdateDate = DateTime.Now;
+            findBookPickupSchedule.UpdateUser = getCurrentName();
+            _context.bookPickupSchedules.Update(findBookPickupSchedule);
+            await _context.SaveChangesAsync();
+            BookPickupScheduleResponse bookPickupScheduleResponse = new BookPickupScheduleResponse();
+            bookPickupScheduleResponse.IsPickedUp = findBookPickupSchedule.IsPickedUp;
+            bookPickupScheduleResponse.ScheduledPickupDate = findBookPickupSchedule.ScheduledPickupDate.Value;
+            bookPickupScheduleResponse.ExpiredPickupDate = findBookPickupSchedule.ExpiredPickupDate;
+            bookPickupScheduleResponse.LibrarianName = findBookPickupSchedule.UpdateUser;
+            bookPickupScheduleResponse.Id = findBookPickupSchedule.Id;
+            bookPickupScheduleResponse.BorrowingId = findBookPickupSchedule.BorrowingId;
+            bookPickupScheduleResponse.isScheduled = findBookPickupSchedule.borrowing.isScheduled;
+            response.IsSuccess = true;
+            response.message = "Đã đến nhận sách";
+            response.data = bookPickupScheduleResponse;
+            return response;
+        }
     }
 }

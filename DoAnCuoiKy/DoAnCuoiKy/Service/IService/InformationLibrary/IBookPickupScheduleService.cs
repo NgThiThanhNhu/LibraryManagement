@@ -8,6 +8,7 @@ namespace DoAnCuoiKy.Service.IService.InformationLibrary
         Task<BaseResponse<BookPickupScheduleResponse>> CreateSchedule(BookPickupScheduleRequest bookPickupScheduleRequest);
         Task<BaseResponse<BookPickupScheduleResponse>> GetScheduledByBorrowingId(Guid borrowingId);
         Task<BaseResponse<BookPickupScheduleResponse>> DeleteScheduled(Guid borrowingId);
+        Task<BaseResponse<BookPickupScheduleResponse>> UpdateScheduled(Guid borrowingId);
 
     }
 }

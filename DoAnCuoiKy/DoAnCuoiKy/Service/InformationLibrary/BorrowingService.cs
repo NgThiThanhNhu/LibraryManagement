@@ -28,8 +28,9 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         private readonly INotificationToUserService _notificationToUserService;
         private readonly IBookExportTransactionService _bookExportTransactionService;
         private readonly IMapper _mapper;
+        private readonly IBookPickupScheduleService _bookPickupScheduleService;
        
-        public BorrowingService(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IBookCartItemService bookCartItemService, IMapper mapper, INotificationToUserService notificationToUserService, IBookExportTransactionService bookExportTransactionService)
+        public BorrowingService(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IBookCartItemService bookCartItemService, IMapper mapper, INotificationToUserService notificationToUserService, IBookExportTransactionService bookExportTransactionService, IBookPickupScheduleService bookPickupScheduleService)
         {
             _context = context;
             _contextAccessor = httpContextAccessor;
@@ -37,6 +38,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             _mapper = mapper;
             _notificationToUserService = notificationToUserService;
             _bookExportTransactionService = bookExportTransactionService;
+            _bookPickupScheduleService = bookPickupScheduleService;
         }
         public async Task<BaseResponse<BorrowingResponse>> CreateBorrowing(BorrowingRequest borrowingRequest)
         {
@@ -146,6 +148,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 {
                     await _bookExportTransactionService.CreateBookExportTransaction(item.Id.Value);
                 }
+                await _bookPickupScheduleService.UpdateScheduled(id);
             }
 
             if (oldStatus != replyBorrowingRequest.borrowingStatus)
