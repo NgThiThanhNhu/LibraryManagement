@@ -1,4 +1,5 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using AutoMapper;
 using DoAnCuoiKy.Data;
@@ -138,20 +139,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             return response;
 
         }
-        private Guid getCurrentUserId()
-        {
-            var user = _httpContextAccessor.HttpContext.User;
-            if (user == null || !user.Identity.IsAuthenticated)
-            {
-                throw new UnauthorizedAccessException("User is not Authentiated");
-            }
-            var userId = user.FindFirst(JwtRegisteredClaimNames.Sub) ?? user.FindFirst(ClaimTypes.NameIdentifier);
-            if (userId == null)
-            {
-                throw new Exception("userId không tồn tại");
-            }
-            return Guid.Parse(userId.Value);
-        }
+        
         private string getCurrentName()
         {
             return _httpContextAccessor.HttpContext.User.Identity.Name;

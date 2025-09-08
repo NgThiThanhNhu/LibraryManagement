@@ -1,21 +1,18 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
-using System.Net.NetworkInformation;
 using System.Security.Claims;
 using AutoMapper;
 using DoAnCuoiKy.Data;
 using DoAnCuoiKy.Model.Entities.InformationLibrary;
 using DoAnCuoiKy.Model.Entities.InformationLibrary.Kho;
+using DoAnCuoiKy.Model.Entities.Notification;
 using DoAnCuoiKy.Model.Entities.Usermanage;
 using DoAnCuoiKy.Model.Enum.InformationLibrary;
 using DoAnCuoiKy.Model.Request;
 using DoAnCuoiKy.Model.Response;
-using DoAnCuoiKy.Model.Response.KhoResponse;
 using DoAnCuoiKy.Service.IService;
-using DoAnCuoiKy.Service.IService.InformationLibrary;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using static DoAnCuoiKy.Mapper.BorrowingProfile;
+
 
 
 namespace DoAnCuoiKy.Service.InformationLibrary
@@ -24,26 +21,32 @@ namespace DoAnCuoiKy.Service.InformationLibrary
     {
         private readonly ApplicationDbContext _context;
         private readonly IHttpContextAccessor _contextAccessor;
-        private readonly IBookCartItemService _bookCartItemService;
-        private readonly INotificationToUserService _notificationToUserService;
-        private readonly IBookExportTransactionService _bookExportTransactionService;
         private readonly IMapper _mapper;
-        private readonly IBookPickupScheduleService _bookPickupScheduleService;
+        
        
-        public BorrowingService(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IBookCartItemService bookCartItemService, IMapper mapper, INotificationToUserService notificationToUserService, IBookExportTransactionService bookExportTransactionService, IBookPickupScheduleService bookPickupScheduleService)
+        public BorrowingService(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IMapper mapper)
         {
             _context = context;
             _contextAccessor = httpContextAccessor;
-            _bookCartItemService = bookCartItemService;
             _mapper = mapper;
-            _notificationToUserService = notificationToUserService;
-            _bookExportTransactionService = bookExportTransactionService;
-            _bookPickupScheduleService = bookPickupScheduleService;
+        }
+        private void RemoveBookItemFromList(Guid currentBookItemId)
+        {
+            var currentUser = getCurrentUserId();
+            BookCartItem bookCartItem = _context.bookCartItems.Include(x => x.BookItem).FirstOrDefault(x => x.IsDeleted == false && x.UserId == currentUser && x.BookItemId == currentBookItemId);
+            if (bookCartItem.BookItem.BookStatus == Model.Enum.InformationLibrary.BookStatus.Borrowed && bookCartItem != null)
+            {
+                bookCartItem.IsDeleted = true;
+                _context.bookCartItems.Update(bookCartItem);
+            }
+            else
+            {
+                throw new Exception("Không tìm thấy sách cần xóa của user này");
+            }
         }
         public async Task<BaseResponse<BorrowingResponse>> CreateBorrowing(BorrowingRequest borrowingRequest)
         {
             BaseResponse<BorrowingResponse> response = new BaseResponse<BorrowingResponse>();
-            
             Borrowing newBorrowing = new Borrowing();
             newBorrowing.Id= Guid.NewGuid();
             newBorrowing.Code = GenerateBorrowingCode();
@@ -60,10 +63,8 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             }
             newBorrowing.CreateUser = librarian.Name;
             newBorrowing.DueDate = newBorrowing.CreateDate.AddDays(newBorrowing.Duration);
-           
             await _context.borrowings.AddAsync(newBorrowing);
             await _context.SaveChangesAsync();
-           
             foreach (var item in borrowingRequest.BookiTemIds)
             {
                 BorrowingDetail detail = new BorrowingDetail();
@@ -74,11 +75,9 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 detail.CreateDate = DateTime.Now;
                 detail.bookStatus = BookStatus.Borrowed;
                 await _context.borrowingDetails.AddAsync(detail);
+                RemoveBookItemFromList(item);
                 await _context.SaveChangesAsync();
-
-                BaseResponse<BookCartItemResponse> removeBookItemFromList = await _bookCartItemService.DeleteBookCartItem(item);
             }
-
             BorrowingResponse borrowingResponse = _mapper.Map<BorrowingResponse>(newBorrowing);
             borrowingResponse.UserName = librarian.Name;
             response.IsSuccess = true;
@@ -99,7 +98,54 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             response.data = borrowingUsers;
             return response;
         }
-
+        private void UpdateScheduleAsync(Guid BorrowingId)
+        {
+            BookPickupSchedule findBookPickupSchedule = _context.bookPickupSchedules.FirstOrDefault(x => x.IsDeleted == false && !x.IsPickedUp && x.BorrowingId == BorrowingId);
+            findBookPickupSchedule.IsPickedUp = true;
+            findBookPickupSchedule.UpdateDate = DateTime.Now;
+            findBookPickupSchedule.UpdateUser = getCurrentName();
+            _context.bookPickupSchedules.Update(findBookPickupSchedule);
+        }
+        private void CreateBookExportTransaction(Guid IdBorrowingDetail)
+        {
+            BorrowingDetail borrowingDetail = _context.borrowingDetails.Include(x=>x.borrowing).FirstOrDefault(x => x.IsDeleted == false && x.Id == IdBorrowingDetail);
+            if (borrowingDetail == null)
+            {
+                throw new Exception("Chi tiết phiếu mượn này không tồn tại");
+            }
+            BookExportTransaction bookExportTransaction = new BookExportTransaction();
+            bookExportTransaction.Id = Guid.NewGuid();
+            bookExportTransaction.BorrowingDetailId = IdBorrowingDetail;
+            bookExportTransaction.CreateUser = getCurrentName();
+            bookExportTransaction.CreateDate = DateTime.Now;
+            if (borrowingDetail.borrowing.BorrowingStatus == Model.Enum.InformationLibrary.BorrowingStatus.Borrowing)
+            {
+                bookExportTransaction.ExportReason = Model.Enum.InformationLibrary.Kho.ExportReason.Borrow;
+                bookExportTransaction.TransactionType = Model.Enum.InformationLibrary.Kho.TransactionType.Export;
+            }
+            else if (borrowingDetail.borrowing.BorrowingStatus == Model.Enum.InformationLibrary.BorrowingStatus.Returned)
+            {
+                bookExportTransaction.ExportReason = null;
+                bookExportTransaction.TransactionType = Model.Enum.InformationLibrary.Kho.TransactionType.ReturnToStock;
+            }
+            _context.bookExportTransactions.Add(bookExportTransaction);
+        }
+        private void CreateNotification(NotificationToUserRequest notificationToUserRequest)
+        {
+            Borrowing findBorrowing = _context.borrowings.Include(x => x.Librarian).Where(x => x.IsDeleted == false).FirstOrDefault(x => x.Id == notificationToUserRequest.BorrowingId);
+            if (findBorrowing == null)
+            {
+                throw new Exception("Phiếu mượn này không tồn tại");
+            }
+            NotificationToUser notificationToUser = new NotificationToUser();
+            notificationToUser.BorrowingId = notificationToUserRequest.BorrowingId;
+            notificationToUser.UserId = notificationToUserRequest.UserId;
+            notificationToUser.Title = notificationToUserRequest.Title;
+            notificationToUser.Message = notificationToUserRequest.Message;
+            notificationToUser.NotificationType = notificationToUserRequest.NotificationType;
+            notificationToUser.CreateDate = notificationToUserRequest.CreatedAt;
+            _context.notificationToUsers.Add(notificationToUser);
+        }
         public async Task<BaseResponse<ReplyBorrowingResponse>> UpdateBorrowing(Guid id, ReplyBorrowingRequest replyBorrowingRequest)
         {
             BaseResponse<ReplyBorrowingResponse> response = new BaseResponse<ReplyBorrowingResponse>();
@@ -140,17 +186,29 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             //hủy phiếu
             if (borrowingUpdate.BorrowingStatus == BorrowingStatus.Reject)
                 borrowingUpdate.IsDeleted = true;
-            
-            if (borrowingUpdate.BorrowingStatus == BorrowingStatus.Borrowing)
+            using(var trans = await _context.Database.BeginTransactionAsync())
             {
-                List<BorrowingDetail> findBorrowingDetails = await _context.borrowingDetails.Where(x=>x.IsDeleted == false && x.BorrowingId == id).ToListAsync();
-                foreach (var item in findBorrowingDetails)
+                try
                 {
-                    await _bookExportTransactionService.CreateBookExportTransaction(item.Id.Value);
+                if (borrowingUpdate.BorrowingStatus == BorrowingStatus.Borrowing)
+                {
+                    List<BorrowingDetail> findBorrowingDetails = await _context.borrowingDetails.Where(x => x.IsDeleted == false && x.BorrowingId == id).ToListAsync();
+                    foreach (var item in findBorrowingDetails)
+                    {
+                            CreateBookExportTransaction(item.Id.Value);
+                    }
+                    UpdateScheduleAsync(id);
                 }
-                await _bookPickupScheduleService.UpdateScheduled(id);
-            }
+                await _context.SaveChangesAsync();
+                await trans.CommitAsync();
+                }
+                catch
+                {
+                    await trans.RollbackAsync();
+                }
 
+            }    
+            
             if (oldStatus != replyBorrowingRequest.borrowingStatus)
             {
                 NotificationToUserRequest notificationToUserRequest = new NotificationToUserRequest();
@@ -160,14 +218,13 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 notificationToUserRequest.Message = $"Trạng Thái phiếu mượn được cập nhật thành {BorrowingStatusHelper.GetStatusDescription(replyBorrowingRequest.borrowingStatus)}";
                 notificationToUserRequest.NotificationType = _mapper.Map<NotificationType>(replyBorrowingRequest.borrowingStatus);
                 notificationToUserRequest.CreatedAt = DateTime.Now;
-                 await _notificationToUserService.CreateNotification(notificationToUserRequest);
+                CreateNotification(notificationToUserRequest);
             }
-
             borrowingUpdate.LibrarianId = getCurrentUserId();
             borrowingUpdate.UpdateUser = getCurrentName();
             borrowingUpdate.UpdateDate = DateTime.Now;
             _context.borrowings.Update(borrowingUpdate);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             ReplyBorrowingResponse replyBorrowingResponse = _mapper.Map<ReplyBorrowingResponse>(borrowingUpdate);
 
@@ -236,6 +293,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             };
         }
 
-       
+        
     }
 }
