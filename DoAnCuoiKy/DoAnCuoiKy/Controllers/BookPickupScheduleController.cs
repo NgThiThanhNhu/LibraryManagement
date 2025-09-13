@@ -33,5 +33,11 @@ namespace DoAnCuoiKy.Controllers
             BaseResponse<BookPickupScheduleResponse> response = await _bookPickupScheduleService.DeleteScheduled(borrowingId);
             return response;
         }
+        [HttpPost("updateScheduled/{borrowingId}")]
+        public async Task<BaseResponse<BookPickupScheduleResponse>> UpdateScheduled(Guid borrowingId)
+        {
+            BaseResponse<BookPickupScheduleResponse> response = await _bookPickupScheduleService.UpdateScheduled(borrowingId);
+            return response;
+        }
     }
 }

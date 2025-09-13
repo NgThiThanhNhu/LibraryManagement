@@ -2,8 +2,10 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using AutoMapper;
+using Azure;
 using DoAnCuoiKy.Data;
 using DoAnCuoiKy.Model.Entities.InformationLibrary;
+using DoAnCuoiKy.Model.Entities.Notification;
 using DoAnCuoiKy.Model.Entities.Usermanage;
 using DoAnCuoiKy.Model.Enum.InformationLibrary;
 using DoAnCuoiKy.Model.Request;
@@ -19,16 +21,24 @@ namespace DoAnCuoiKy.Service.InformationLibrary
     {
         private readonly ApplicationDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly IBorrowingService _borrowingService;
         private readonly IMapper _mapper;
-        private readonly INotificationToUserService _notificationToUserService;
-        public BookPickupScheduleService(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IBorrowingService borrowingService, IMapper mapper, INotificationToUserService notificationToUserService)
+        public BookPickupScheduleService(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IMapper mapper)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
-            _borrowingService = borrowingService;
             _mapper = mapper;
-            _notificationToUserService = notificationToUserService;
+        }
+        private void UpdateBorrowing(Guid BorrowingId)
+        {
+            Borrowing findBorrowing = _context.borrowings.Where(x => x.IsDeleted == false && x.BorrowingStatus == Model.Enum.InformationLibrary.BorrowingStatus.Approved && x.isScheduled == false).FirstOrDefault(x => x.Id == BorrowingId);
+            if (findBorrowing == null)
+            {
+                throw new Exception("Không tồn tại phiếu mượn này");
+            }
+            findBorrowing.BorrowingStatus = BorrowingStatus.Scheduled;
+            findBorrowing.isScheduled = true;
+            _context.borrowings.Update(findBorrowing);
+
         }
         public async Task<BaseResponse<BookPickupScheduleResponse>> CreateSchedule(BookPickupScheduleRequest bookPickupScheduleRequest)
         {
@@ -58,13 +68,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             newSchedule.ScheduledPickupDate = bookPickupScheduleRequest.scheduledPickupDate;
             newSchedule.ExpiredPickupDate = bookPickupScheduleRequest.ExpiredPickupDate;
             _context.bookPickupSchedules.Add(newSchedule);
-            var replyRequest = new ReplyBorrowingRequest
-            {
-                borrowingStatus = Model.Enum.InformationLibrary.BorrowingStatus.Scheduled
-            };
-            await _borrowingService.UpdateBorrowing(findBorrowing.Id.Value, replyRequest);
-            findBorrowing.isScheduled = true;
-            _context.borrowings.Update(findBorrowing);
+            UpdateBorrowing(bookPickupScheduleRequest.BorrowingId);
             await _context.SaveChangesAsync();
             BookPickupScheduleResponse bookPickupScheduleResponse = new BookPickupScheduleResponse();
             bookPickupScheduleResponse.Id = newSchedule.Id;
@@ -81,7 +85,22 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             return response;
 
         }
-
+        private void CreateNotificationToUser(NotificationToUserRequest notificationToUserRequest)
+        {
+            Borrowing findBorrowing = _context.borrowings.Include(x => x.Librarian).Where(x => x.IsDeleted == false).FirstOrDefault(x => x.Id == notificationToUserRequest.BorrowingId);
+            if (findBorrowing == null)
+            {
+                throw new Exception("Phiếu mượn này không tồn tại");
+            }
+            NotificationToUser notificationToUser = new NotificationToUser();
+            notificationToUser.BorrowingId = notificationToUserRequest.BorrowingId;
+            notificationToUser.UserId = notificationToUserRequest.UserId;
+            notificationToUser.Title = notificationToUserRequest.Title;
+            notificationToUser.Message = notificationToUserRequest.Message;
+            notificationToUser.NotificationType = notificationToUserRequest.NotificationType;
+            notificationToUser.CreateDate = notificationToUserRequest.CreatedAt;
+            _context.notificationToUsers.Add(notificationToUser);
+        }
         public async Task<BaseResponse<BookPickupScheduleResponse>> DeleteScheduled(Guid borrowingId)
         {
             var replyRequest = new ReplyBorrowingRequest
@@ -109,7 +128,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             notificationToUserRequest.Message = $"Đọc giả không đến nhận đơn sách, phiếu mượn này bị hủy";
             notificationToUserRequest.NotificationType = _mapper.Map<NotificationType>(replyRequest);
             notificationToUserRequest.CreatedAt = DateTime.Now;
-            await _notificationToUserService.CreateNotification(notificationToUserRequest);
+            CreateNotificationToUser(notificationToUserRequest);
             findBookPickupSchedule.IsDeleted = true;
             _context.bookPickupSchedules.Update(findBookPickupSchedule);
             await _context.SaveChangesAsync();
@@ -130,9 +149,11 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             }
             BookPickupScheduleResponse bookPickupScheduleResponse = new BookPickupScheduleResponse();
             bookPickupScheduleResponse.ScheduledPickupDate = findSchedule.ScheduledPickupDate.Value;
+            bookPickupScheduleResponse.IsPickedUp = findSchedule.IsPickedUp;
             bookPickupScheduleResponse.ExpiredPickupDate = findSchedule.ExpiredPickupDate.Value;
             bookPickupScheduleResponse.LibrarianName = findSchedule.CreateUser;
             bookPickupScheduleResponse.UserName = findSchedule.borrowing.CreateUser;
+            bookPickupScheduleResponse.isScheduled = findSchedule.borrowing.isScheduled;
             response.IsSuccess = true;
             response.message = "Lấy thông tin lịch hẹn thành công";
             response.data = bookPickupScheduleResponse;
