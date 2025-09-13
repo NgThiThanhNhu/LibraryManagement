@@ -132,7 +132,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         }
         private void CreateNotification(NotificationToUserRequest notificationToUserRequest)
         {
-            Borrowing findBorrowing = _context.borrowings.Include(x => x.Librarian).Where(x => x.IsDeleted == false).FirstOrDefault(x => x.Id == notificationToUserRequest.BorrowingId);
+            Borrowing findBorrowing = _context.borrowings.Include(x => x.Librarian).FirstOrDefault(x => x.Id == notificationToUserRequest.BorrowingId);
             if (findBorrowing == null)
             {
                 throw new Exception("Phiếu mượn này không tồn tại");
@@ -286,7 +286,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             return current switch
             {
                 BorrowingStatus.Wait => next == BorrowingStatus.Approved || next == BorrowingStatus.Reject,
-                BorrowingStatus.Approved => next == BorrowingStatus.Scheduled,
+                BorrowingStatus.Approved => next == BorrowingStatus.Scheduled || next == BorrowingStatus.Reject,
                 BorrowingStatus.Scheduled => next == BorrowingStatus.Borrowing || next == BorrowingStatus.Reject,
                 BorrowingStatus.Borrowing => next == BorrowingStatus.Returned || next == BorrowingStatus.Overdue,
                 _ => false
