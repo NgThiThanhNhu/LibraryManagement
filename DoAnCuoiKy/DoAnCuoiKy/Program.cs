@@ -20,6 +20,9 @@ using DoAnCuoiKy.Service.InformationLibrary.Kho;
 using DoAnCuoiKy.Mapper;
 
 using DoAnCuoiKy;
+using Hangfire;
+using DoAnCuoiKy.Service.IService.Notification;
+using DoAnCuoiKy.Service.Notification;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = builder.Configuration;
@@ -33,8 +36,8 @@ builder.Services.AddCors(options =>
             policy.WithOrigins("https://localhost:5173")//địa chỉ frontend
             .AllowAnyMethod()
             .AllowCredentials()
-            .AllowAnyHeader();
-            //.SetIsOriginAllowed(_ => true); // cho phép mọi domain
+            .AllowAnyHeader()
+           .SetIsOriginAllowed(_ => true); // cho phép mọi domain
         });
 });
 
@@ -78,6 +81,17 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.Cookie.SameSite = SameSiteMode.None; // Cho phép cookie cross-site
 });
 
+builder.Services.AddHangfire(config =>
+    config.UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddHangfireServer(
+    options =>
+    {
+        // Worker này chỉ xử lý queue "email"
+        options.Queues = new[] { "email" };
+        options.WorkerCount = 2; // giới hạn số worker cho queue email
+    });
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -109,6 +123,7 @@ builder.Services.AddTransient<IBookPickupScheduleService, BookPickupScheduleServ
 builder.Services.AddTransient<INotificationToUserService, NotificationToUserService>();
 builder.Services.AddTransient<IBookExportTransactionService, BookExportTransactionService>();
 builder.Services.AddAutoMapper(typeof(BorrowingProfile).Assembly);
+builder.Services.AddScoped<IAutoNotificationService, AutoNotificationService>();
 
 
 builder.Services.AddHttpContextAccessor();
@@ -145,5 +160,19 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapHub<NotificationHub>("/notificationhub");
+app.UseHangfireDashboard("/hangfire"); // vào /hangfire để xem job
+
+// Đặt lịch job chạy 17h chiều mỗi ngày
+RecurringJob.AddOrUpdate<IAutoNotificationService>(
+    "nhac-tra-sach",
+    service => service.SendNotificationToEmail(),
+    "50 19 * * *",  
+    new RecurringJobOptions
+    {
+        TimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"), // Windows
+        QueueName = "email"
+    }
+);
+
 
 app.Run();

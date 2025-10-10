@@ -8,9 +8,8 @@ namespace DoAnCuoiKy.Model.Response
         public Guid BorrowingId { get; set; }
         public string Title { get; set; }
         public string Message { get; set; }
-        
+        public bool isReminded { get; set; }
         public Guid UserId { get; set; }
-        
         public string BorrowingCode { get; set; }
         public DateTime SendTime { get; set; }
         public bool IsRead { get; set; }
