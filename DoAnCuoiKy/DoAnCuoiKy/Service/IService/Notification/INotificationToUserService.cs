@@ -1,7 +1,7 @@
 ﻿using DoAnCuoiKy.Model.Request;
 using DoAnCuoiKy.Model.Response;
 
-namespace DoAnCuoiKy.Service.IService.InformationLibrary
+namespace DoAnCuoiKy.Service.IService.Notification
 {
     public interface INotificationToUserService
     {

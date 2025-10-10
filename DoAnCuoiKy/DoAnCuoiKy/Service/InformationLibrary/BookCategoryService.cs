@@ -81,8 +81,8 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             List<BookCategory> bookCategories = await _context.bookCategories.Where(x=>x.IsDeleted == false).ToListAsync();
             foreach(var category in bookCategories)
             {
-                BookCategoryResponse bookCategory = new BookCategoryResponse();//1 đối tượng, gán cho một đối tượng
-                bookCategory.Id = category.Id.Value;//.value nếu có giá trị sẽ gán vào còn không thì thôi
+                BookCategoryResponse bookCategory = new BookCategoryResponse();
+                bookCategory.Id = category.Id.Value;
                 bookCategory.Name = category.Name;
                 bookCategoryResponses.Add(bookCategory);
             }

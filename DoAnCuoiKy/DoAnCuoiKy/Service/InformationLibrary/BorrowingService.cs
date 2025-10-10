@@ -1,4 +1,6 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Net.Mail;
+using System.Net;
 using System.Security.Claims;
 using AutoMapper;
 using DoAnCuoiKy.Data;
@@ -12,6 +14,7 @@ using DoAnCuoiKy.Model.Response;
 using DoAnCuoiKy.Service.IService;
 using Microsoft.EntityFrameworkCore;
 using static DoAnCuoiKy.Mapper.BorrowingProfile;
+using Microsoft.AspNetCore.SignalR;
 
 
 
@@ -22,13 +25,15 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         private readonly ApplicationDbContext _context;
         private readonly IHttpContextAccessor _contextAccessor;
         private readonly IMapper _mapper;
+        private readonly IHubContext<NotificationHub> _hubContext;
         
        
-        public BorrowingService(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IMapper mapper)
+        public BorrowingService(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, IMapper mapper, IHubContext<NotificationHub> hubContext)
         {
             _context = context;
             _contextAccessor = httpContextAccessor;
             _mapper = mapper;
+            _hubContext = hubContext;
         }
         private void RemoveBookItemFromList(Guid currentBookItemId)
         {
@@ -130,6 +135,11 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             }
             _context.bookExportTransactions.Add(bookExportTransaction);
         }
+        private async Task SendToClient(NotificationToUserResponse response)
+        {
+            await _hubContext.Clients.User(response.UserId.ToString())
+                .SendAsync("ReceiveMessage", response);
+        }
         private void CreateNotification(NotificationToUserRequest notificationToUserRequest)
         {
             Borrowing findBorrowing = _context.borrowings.Include(x => x.Librarian).FirstOrDefault(x => x.Id == notificationToUserRequest.BorrowingId);
@@ -145,6 +155,16 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             notificationToUser.NotificationType = notificationToUserRequest.NotificationType;
             notificationToUser.CreateDate = notificationToUserRequest.CreatedAt;
             _context.notificationToUsers.Add(notificationToUser);
+            NotificationToUserResponse notificationToUserResponse = new NotificationToUserResponse();
+            notificationToUserResponse.NotiId = notificationToUser.Id;
+            notificationToUserResponse.Title = notificationToUser.Title;
+            notificationToUserResponse.Message = notificationToUser.Message;
+            notificationToUserResponse.BorrowingId = notificationToUser.BorrowingId;
+            notificationToUserResponse.BorrowingCode = findBorrowing.Code;
+            notificationToUserResponse.UserId = notificationToUser.UserId;
+            notificationToUserResponse.SendTime = notificationToUser.CreateDate;
+            notificationToUserResponse.IsRead = notificationToUser.IsRead;
+            SendToClient(notificationToUserResponse);
         }
         public async Task<BaseResponse<ReplyBorrowingResponse>> UpdateBorrowing(Guid id, ReplyBorrowingRequest replyBorrowingRequest)
         {
@@ -229,7 +249,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             ReplyBorrowingResponse replyBorrowingResponse = _mapper.Map<ReplyBorrowingResponse>(borrowingUpdate);
 
             response.IsSuccess = true;
-            response.message = "Đã phê duyệt phiếu mượn";
+            response.message = $"Đã phê duyệt phiếu mượn sang {BorrowingStatusHelper.GetStatusDescription(replyBorrowingRequest.borrowingStatus)}";
             response.data = replyBorrowingResponse;
             return response;
         }
@@ -266,7 +286,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             }
             return Guid.Parse(userId.Value);
         }
-
+        
         public async Task<BaseResponse<List<BorrowingResponse>>> GetAllAdminBorrowing()
         {
            
@@ -274,7 +294,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             List<Borrowing> borrowingResponse = await _context.borrowings.Include(x=>x.Librarian).Include(x=>x.borrowingDetails).Where(x => x.IsDeleted == false).ToListAsync();
             
             List<BorrowingResponse> borrowingResponses = _mapper.Map<List<BorrowingResponse>>(borrowingResponse);
-            
             response.IsSuccess = true;
             response.message = "tải danh sách thành công";
             response.data = borrowingResponses;

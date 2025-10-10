@@ -1,4 +1,6 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Net.Mail;
+using System.Net;
 using System.Security.Claims;
 using DoAnCuoiKy.Data;
 using DoAnCuoiKy.Model.Entities.InformationLibrary;
@@ -6,11 +8,11 @@ using DoAnCuoiKy.Model.Entities.Notification;
 using DoAnCuoiKy.Model.Entities.Usermanage;
 using DoAnCuoiKy.Model.Request;
 using DoAnCuoiKy.Model.Response;
-using DoAnCuoiKy.Service.IService.InformationLibrary;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using DoAnCuoiKy.Service.IService.Notification;
 
-namespace DoAnCuoiKy.Service.InformationLibrary
+namespace DoAnCuoiKy.Service.Notification
 {
     public class NotificationToUserService : INotificationToUserService
     {
@@ -23,16 +25,18 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             _hubContext = hubContext;
             _httpContext = httpContextAccessor;
         }
+
+
         public async Task<BaseResponse<NotificationToUserResponse>> CreateNotification(NotificationToUserRequest notificationToUserRequest)
         {
             BaseResponse<NotificationToUserResponse> response = new BaseResponse<NotificationToUserResponse>();
-            Borrowing findBorrowing = await _context.borrowings.Include(x=>x.Librarian).Where(x => x.IsDeleted == false).FirstOrDefaultAsync(x => x.Id == notificationToUserRequest.BorrowingId );
+            Borrowing findBorrowing = await _context.borrowings.Include(x => x.Librarian).Where(x => x.IsDeleted == false).FirstOrDefaultAsync(x => x.Id == notificationToUserRequest.BorrowingId);
             if (findBorrowing == null)
             {
                 response.IsSuccess = false;
                 response.message = "Không tồn tại phiếu mượn này";
                 return response;
-            } 
+            }
             NotificationToUser notificationToUser = new NotificationToUser();
             notificationToUser.BorrowingId = notificationToUserRequest.BorrowingId;
             notificationToUser.UserId = notificationToUserRequest.UserId;
@@ -56,7 +60,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             response.message = "Gửi thông báo tới user thành công";
             response.data = notificationToUserResponse;
             return response;
-                
+
 
         }
 
@@ -64,7 +68,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         {
             BaseResponse<List<NotificationToUserResponse>> response = new BaseResponse<List<NotificationToUserResponse>>();
             var CurrentUser = getCurrentUserId();
-            List<NotificationToUserResponse> notificationToUserResponses = await _context.notificationToUsers.Include(x=>x.borrowing).Where(x => x.IsDeleted == false && x.UserId == CurrentUser).Select(x => new NotificationToUserResponse
+            List<NotificationToUserResponse> notificationToUserResponses = await _context.notificationToUsers.Include(x => x.borrowing).Where(x => x.IsDeleted == false && x.UserId == CurrentUser).Select(x => new NotificationToUserResponse
             {
                 NotiId = x.Id,
                 BorrowingId = x.BorrowingId,

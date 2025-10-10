@@ -1,9 +1,9 @@
 ﻿using DoAnCuoiKy.Model.Request;
 using DoAnCuoiKy.Model.Response;
-using DoAnCuoiKy.Service.IService.InformationLibrary;
+using DoAnCuoiKy.Service.IService.Notification;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DoAnCuoiKy.Controllers
+namespace DoAnCuoiKy.Controllers.Notification
 {
     [Route("api/[controller]")]
     [ApiController]
