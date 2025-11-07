@@ -14,23 +14,18 @@ namespace DoAnCuoiKy.Controllers
         {
             _borrowingDetailService = borrowingDetailService;
         }
-        [HttpGet("getBorrowingDetails/{borrowingId}")]
-        public async Task<BaseResponse<List<BorrowingDetailResponse>>> GetBorrowingDetails(Guid borrowingId)
+        [HttpGet("borrowings/{borrowingId}/details/user")]
+        public async Task<BaseResponse<List<BorrowingDetailResponse>>> GetBorrowingDetailsForUser(Guid borrowingId)
         {
-            BaseResponse<List<BorrowingDetailResponse>> baseResponse = await _borrowingDetailService.GetBorrowingDetails(borrowingId);
+            BaseResponse<List<BorrowingDetailResponse>> baseResponse = await _borrowingDetailService.GetBorrowingDetailsForUser(borrowingId);
             return baseResponse;
         }
-        [HttpGet("getBorrowingDetailsManaged")]
-        public async Task<BaseResponse<List<BorrowingDetailResponse>>> GetBorrowingDetailsManaged()
+        [HttpGet("borrowings/{borrowingId}/details/fine")]
+        public async Task<BaseResponse<List<BorrowingDetailForFineResponse>>> GetBorrowingDetailsForFine(Guid borrowingId)
         {
-            BaseResponse<List<BorrowingDetailResponse>> baseResponse = await _borrowingDetailService.GetBorrowingDetailsManaged();
+            BaseResponse<List<BorrowingDetailForFineResponse>> baseResponse = await _borrowingDetailService.GetBorrowingDetailsForFine(borrowingId);
             return baseResponse;
         }
-        [HttpPost("updateBorrowingDetail/{id}")]
-        public async Task<BaseResponse<BorrowingDetailResponse>> UpdateBorrowingDetail(Guid id, BorrowingDetailRequest borrowingDetailRequest)
-        {
-            BaseResponse<BorrowingDetailResponse> response = await _borrowingDetailService.UpdateBorrowingDetail(id, borrowingDetailRequest);
-            return response;
-        }
+        
     }
 }
