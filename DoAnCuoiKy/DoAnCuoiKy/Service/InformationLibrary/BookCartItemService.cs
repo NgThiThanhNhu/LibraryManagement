@@ -44,10 +44,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             response.message = "Thêm sách vào giỏ hàng thành công";
             response.data = bookCartItemResponse;
             return response;
-
-            
-           
-
         }
 
         public async Task<BaseResponse<BookCartItemResponse>> DeleteBookCartItem(Guid currentBookItemId)
@@ -78,14 +74,14 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         {
             BaseResponse<List<BookCartItemResponse>> response = new BaseResponse<List<BookCartItemResponse>>();
             var currentUserId = getCurrentUserId();
-            List<BookCartItemResponse> bookCartItems = await _context.bookCartItems.Include(x=>x.BookItem.Book).ThenInclude(x=>x.BookAuthor).Include(x => x.BookItem.Book).ThenInclude(x=>x.Category).Where(x=>x.UserId == currentUserId && x.IsDeleted==false).Select(bookcartitem => new BookCartItemResponse{
+            List<BookCartItemResponse> bookCartItems = await _context.bookCartItems.Include(x => x.BookItem.Book).ThenInclude(x => x.BookAuthor).Include(x => x.BookItem.Book).ThenInclude(x => x.Category).Include(x => x.BookItem.Book).ThenInclude(x => x.bookFiles).Where(x => x.UserId == currentUserId && x.IsDeleted == false).Select(bookcartitem => new BookCartItemResponse {
                 Id = bookcartitem.Id,
                 BookItemId = bookcartitem.BookItemId,
                 BookItemTitle = bookcartitem.BookItem.Book.Title,
                 BookItemAuthor = bookcartitem.BookItem.Book.BookAuthor.Name,
                 BookItemCategory = bookcartitem.BookItem.Book.Category.Name,
                 UserName = bookcartitem.User.Name,
-
+                ImageUrls = bookcartitem.BookItem.Book.bookFiles.Where(y => y.BookId == bookcartitem.BookItem.Book.Id).Select(y => y.ImageUrl).ToList()
             }).ToListAsync();
             response.IsSuccess = true;
             response.message = "Đây là tất cả sách hiện có trong giỏ hàng của bạn";
