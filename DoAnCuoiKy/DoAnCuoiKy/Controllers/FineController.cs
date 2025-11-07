@@ -16,9 +16,9 @@ namespace DoAnCuoiKy.Controllers
             _fineService = fineService;
         }
         [HttpPost("createFine")]
-        public async Task<BaseResponse<FineResponse>> CreateFine(Guid BorrowingDetailId, FineReason fineReason)
+        public async Task<BaseResponse<List<FineResponse>>> CreateFine(Guid borrowingDetailId, List<FineRequest> fineRequests)
         {
-            BaseResponse<FineResponse> baseResponse = await _fineService.CreateFine(BorrowingDetailId, fineReason);
+            BaseResponse<List<FineResponse>> baseResponse = await _fineService.CreateFine(borrowingDetailId, fineRequests);
             return baseResponse;
         }
     }
