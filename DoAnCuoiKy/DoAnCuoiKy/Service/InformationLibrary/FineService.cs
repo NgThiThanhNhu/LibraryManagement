@@ -20,61 +20,86 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             _context = context;
             _httpContextAccessor = httpContextAccessor;
         }
-
-        public async Task<BaseResponse<FineResponse>> CreateFine(Guid BorrowingDetailId, FineReason fineReason)
+        public async Task<BaseResponse<List<FineResponse>>> CreateFine(Guid borrowingDetailId, List<FineRequest> fineRequests)
         {
-            BaseResponse<FineResponse> response = new BaseResponse<FineResponse>();
-            Fine fine = new Fine();
-            fine.Id = Guid.NewGuid();
-            BorrowingDetail find = await _context.borrowingDetails.Include(x=>x.borrowing).Include(x=>x.bookItem.Book).Where(x => x.IsDeleted == false).FirstOrDefaultAsync(x => x.Id == BorrowingDetailId);
-
-            if (find == null || find.ReturnedDate == null) 
-            { 
-                response.IsSuccess = true;
-                response.message = "Không tìm thấy chi tiết mượn sách hoặc chưa trả sách";
+            BaseResponse<List<FineResponse>> response = new BaseResponse<List<FineResponse>>();
+            BorrowingDetail findBorrowingDetail = await _context.borrowingDetails.Include(x=>x.borrowing).ThenInclude(x=>x.Librarian).FirstOrDefaultAsync(x => x.Id == borrowingDetailId);
+            if(findBorrowingDetail == null)
+            {
+                response.IsSuccess = false;
+                response.message = "Không tìm thấy chi tiết phiếu mượn phù hợp";
                 return response;
             }
-
-            if (fineReason == Model.Enum.InformationLibrary.FineReason.LateReturn && fine.IsPaid == false)
+            findBorrowingDetail.ReturnedDate = DateTime.Now;
+            findBorrowingDetail.UpdateDate = DateTime.Now;
+            if (findBorrowingDetail.IsFined==false)
             {
-                fine.Amount = getCalculateFine(find.ReturnedDate.Value, find.borrowing.DueDate);
-                fine.fineReason = fineReason;
-
-            }else if(fineReason == Model.Enum.InformationLibrary.FineReason.DamagedBook || fineReason == Model.Enum.InformationLibrary.FineReason.LostBook && fine.IsPaid == false)
-            {
-                fine.Amount = find.bookItem.Book.UnitPrice;
-                fine.fineReason = fineReason;
+                findBorrowingDetail.IsFined = true;
             }
-            fine.BorrowingDetailId = BorrowingDetailId;
-            var currentUser = getCurrentUserId();
-            fine.LibrarianId = currentUser;
-            fine.UserId = find.borrowing.UserId.Value;
-            _context.fines.Add(fine);
-            await _context.SaveChangesAsync();
-
+            _context.borrowingDetails.Update(findBorrowingDetail);
+            _context.SaveChanges();
+            int daysLate = 0;
+            List<FineResponse> fineResponses = new List<FineResponse>();
             FineResponse fineResponse = new FineResponse();
-            fineResponse.Id = fine.Id.Value;
-            fineResponse.BorrowingDetailId = fine.BorrowingDetailId;
-            fineResponse.Amount = fine.Amount;
-            fineResponse.fineReason = fine.fineReason;
-            fineResponse.IsPaid = fine.IsPaid;
-            Librarian librarian = await _context.librarians.Where(x => x.IsDeleted == false).FirstOrDefaultAsync(x=>x.Id == fine.UserId);
-            fineResponse.userName = librarian.Name;
-            Librarian librarian1 = await _context.librarians.Where(x => x.IsDeleted == false).FirstOrDefaultAsync(x => x.Id == fine.LibrarianId);
-            fineResponse.librarianName = librarian1.Name;
+            foreach (var item in fineRequests)
+            {
+                Fine newFine = new Fine();
+                newFine.Id = Guid.NewGuid();
+                newFine.fineReason = item.fineReason;
+                if (findBorrowingDetail.ReturnedDate.HasValue && findBorrowingDetail.borrowing?.DueDate != null)
+                {
+                    daysLate = (findBorrowingDetail.ReturnedDate.Value - findBorrowingDetail.borrowing.DueDate).Days;
+                    if (daysLate < 0)
+                        daysLate = 0;
+                    newFine.DaysLate = daysLate;
+                    if (newFine.fineReason == FineReason.LateReturn)
+                    {
+                        newFine.FineRate = item.FineRate;
+                        newFine.Amount = newFine.DaysLate * newFine.FineRate;
+                    }
+                    if (newFine.fineReason == FineReason.LostBook && item.FineRate == findBorrowingDetail.bookItem.Book.UnitPrice)
+                    {
+                        item.FineRate = findBorrowingDetail.bookItem.Book.UnitPrice.Value;
+                        newFine.FineRate = item.FineRate;
+                        newFine.Amount = newFine.FineRate;
+                    }
+                    if (newFine.fineReason == FineReason.DamagedBook)
+                    {
+                        newFine.FineRate = item.FineRate;
+                        newFine.Amount = newFine.FineRate;
+                    }
+                }
+                newFine.IssuedDate = DateTime.Now;
+                newFine.LibrarianId = getCurrentUserId();
+                newFine.UserId = findBorrowingDetail.borrowing.UserId.Value;
+                newFine.BorrowingDetailId = borrowingDetailId;
+                _context.fines.Add(newFine);
+                await _context.SaveChangesAsync();
+                fineResponse.FineReason = newFine.fineReason;
+                fineResponse.FineRate = newFine.FineRate;
+                fineResponse.DaysLate = newFine.DaysLate;
+                fineResponse.Amount = newFine.Amount;
+                fineResponses.Add(fineResponse);
+            }
             response.IsSuccess = true;
-            response.message = "Tạo tiền phạt thành công";
-            response.data = fineResponse;
+            response.message = "Tạo nộp phạt thành công";
+            response.data = fineResponses;
             return response;
         }
 
-        private float getCalculateFine(DateTime returnedDate, DateTime dueDate) 
+        public async Task<BaseResponse<FineResponse>> GetFineById(Guid borrowingDetailId)
         {
-            if (returnedDate == null || returnedDate <= dueDate) return 0;
-            TimeSpan delay = returnedDate.Date - dueDate.Date;
-            int daysLate = delay.Days;
-            const float perDay = 5000f;
-            return daysLate * perDay;
+            BaseResponse<FineResponse> response = new BaseResponse<FineResponse>();
+            Fine fine = await _context.fines.FirstOrDefaultAsync(x => x.Id == borrowingDetailId);
+            FineResponse fineResponse = new FineResponse();
+            fineResponse.DaysLate = fine.DaysLate;
+            fineResponse.Amount = fine.Amount;
+            fineResponse.FineRate = fine.FineRate;
+            fineResponse.FineReason = fine.fineReason;
+            response.IsSuccess = true;
+            response.message = "Hiển thị thông tin tiền phạt thành công";
+            response.data = fineResponse;
+            return response;
         }
         private Guid getCurrentUserId()
         {
