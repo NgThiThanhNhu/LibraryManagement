@@ -17,11 +17,11 @@ namespace DoAnCuoiKy.Controllers.Authentication
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             //bước 2: sau khi xác định được chính xác người dùng thì lấy thông tin từ token ra
             var name = identity?.FindFirst(ClaimTypes.Name)?.Value;
-            var role = identity?.FindFirst(ClaimTypes.Role)?.Value;
+            var roleName = identity?.FindFirst(ClaimTypes.Role)?.Value;
             return Ok(new
             {
                 name = name,
-                role = role
+                roleName = roleName
             });
         }
     }
