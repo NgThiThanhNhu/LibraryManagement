@@ -38,7 +38,7 @@ namespace DoAnCuoiKy.Service
                     File = new FileDescription(file.FileName, stream),
                     Folder = folder,
                     UseFilename = true,
-                    UniqueFilename = false,
+                    UniqueFilename = true,
                     Overwrite = true,
                     Transformation = new Transformation()
                         .Width(1000).Height(1000).Crop("limit")
@@ -67,7 +67,7 @@ namespace DoAnCuoiKy.Service
                     File = new FileDescription(file.FileName, stream),
                     Folder = folder,
                     UseFilename = true,
-                    UniqueFilename = false,
+                    UniqueFilename = true,
                     Overwrite = true
                 };
 
