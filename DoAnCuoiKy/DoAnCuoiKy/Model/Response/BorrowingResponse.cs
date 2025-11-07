@@ -14,5 +14,6 @@ namespace DoAnCuoiKy.Model.Response
         public string UserName { get; set; }
         public string LibrarianName { get; set; }
         public string ReplyDate { get; set; }
+        public bool isReminded { get; set; }
     }
 }
