@@ -22,7 +22,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         }
         
 
-        public async Task<BaseResponse<List<BorrowingDetailResponse>>> GetBorrowingDetails(Guid borrowingId)
+        public async Task<BaseResponse<List<BorrowingDetailResponse>>> GetBorrowingDetailsForUser(Guid borrowingId)
         {
             BaseResponse<List<BorrowingDetailResponse>> response = new BaseResponse<List<BorrowingDetailResponse>>();
             var currentUser = getCurrentUserId();
@@ -44,66 +44,37 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             return response;
         }
 
-        public async Task<BaseResponse<List<BorrowingDetailResponse>>> GetBorrowingDetailsManaged()
+        public async Task<BaseResponse<List<BorrowingDetailForFineResponse>>> GetBorrowingDetailsForFine(Guid borrowingId)
         {
-            BaseResponse<List<BorrowingDetailResponse>> response = new BaseResponse<List<BorrowingDetailResponse>>();
-            List<BorrowingDetailResponse> borrowingDetailResponses = await _context.borrowingDetails.Include(x => x.borrowing).Include(x => x.bookItem.Book.BookAuthor).Include(x => x.bookItem.Book.Category).Include(x => x.bookItem.Book).ThenInclude(b => b.bookFiles).Where(x => x.IsDeleted == false ).Select(x => new BorrowingDetailResponse
-                {               
-                    BorrowingCode = x.borrowing.Code,
-                    BookItemTitle = x.bookItem.Book.Title,
-                    AuthorBookItem = x.bookItem.Book.BookAuthor.Name,
-                    CategoryName = x.bookItem.Book.Category.Name,
-                    QuantityStorage = x.bookItem.Book.Quantity,
-                    UrlImage = x.bookItem.Book.bookFiles.FirstOrDefault().ImageUrl,
-                    ReturnedDate = x.ReturnedDate.Value
-                }).ToListAsync();
+            BaseResponse<List<BorrowingDetailForFineResponse>> response = new BaseResponse<List<BorrowingDetailForFineResponse>>();
+            List<BorrowingDetailForFineResponse> borrowingDetailResponses = await _context.borrowingDetails.Include(x => x.fines).Include(x => x.borrowing).Include(x => x.bookItem.Book).Where(x => x.IsDeleted == false && x.BorrowingId == borrowingId).Select(x => new BorrowingDetailForFineResponse
+            {
+                BorrowingDetailId = x.Id.Value,
+                BookTitle = x.bookItem.Book.Title,
+                ReturnedDate = x.ReturnedDate.Value,
+                UnitPrice = x.bookItem.Book.UnitPrice.Value,
+                fineResponses = x.fines.Where(y => y.BorrowingDetailId == x.Id.Value).Select(y => new FineResponse
+                {
+                    FineReason = y.fineReason,
+                    Amount = y.Amount,
+                    FineRate = y.FineRate,
+                    DaysLate = y.DaysLate
+                }).ToList(),
+                IsFined = x.IsFined,
+            }).ToListAsync();
+            if (!borrowingDetailResponses.Any())
+            {
+                response.IsSuccess = false;
+                response.message = " borrowingId này không tồn tại";
+                return response;
+            }
             response.IsSuccess = true;
             response.message = "Danh sách chi tiết phiếu mượn";
             response.data = borrowingDetailResponses;
             return response;
         }
 
-        public async Task<BaseResponse<BorrowingDetailResponse>> UpdateBorrowingDetail(Guid id, BorrowingDetailRequest borrowingDetailRequest)
-        {
-            BaseResponse<BorrowingDetailResponse> response = new BaseResponse<BorrowingDetailResponse>();
-            BorrowingDetail borrowingDetail = await _context.borrowingDetails.Include(x => x.borrowing).Include(x => x.bookItem.Book.BookAuthor).Include(x => x.bookItem.Book.Category).Include(x => x.bookItem.Book).ThenInclude(b => b.bookFiles).Where(x => x.IsDeleted == false ).FirstOrDefaultAsync(x => x.BorrowingId == id);
-            if(borrowingDetail == null)
-            {
-                response.IsSuccess = false;
-                response.message = "Không tồn tại borrowingdetail theo borrowingId này";
-                return response;
-            }
-            borrowingDetail.ReturnedDate = borrowingDetailRequest.ReturnedDate;
-            borrowingDetail.bookStatus = borrowingDetailRequest.BookStatusBorrowingDetail;
-            BookItem bookItem = await _context.bookItems.Where(x => x.IsDeleted == false).FirstOrDefaultAsync(x => x.Id == borrowingDetail.BookItemId);
-            if (borrowingDetail.bookStatus == Model.Enum.InformationLibrary.BookStatus.Available)
-                bookItem.BookStatus = borrowingDetail.bookStatus;
-            else if (borrowingDetail.bookStatus == Model.Enum.InformationLibrary.BookStatus.Lost)
-            {
-                BaseResponse<FineResponse> fine = await _fineService.CreateFine(borrowingDetail.Id.Value, Model.Enum.InformationLibrary.FineReason.LostBook);
-                bookItem.BookStatus = borrowingDetail.bookStatus.Value;
-            }else if (borrowingDetail.bookStatus == Model.Enum.InformationLibrary.BookStatus.Damaged)
-            {
-                BaseResponse<FineResponse> fineDamaged = await _fineService.CreateFine(borrowingDetail.Id.Value, Model.Enum.InformationLibrary.FineReason.DamagedBook);
-                bookItem.BookStatus = borrowingDetail.bookStatus.Value;
-            }
-            
-            _context.borrowingDetails.Update(borrowingDetail);
-            await _context.SaveChangesAsync();
-            BorrowingDetailResponse borrowingDetailResponse = new BorrowingDetailResponse();
-            borrowingDetailResponse.BorrowingCode = borrowingDetail.borrowing.Code;
-            borrowingDetailResponse.BookItemTitle = borrowingDetail.bookItem.Book.Title;
-            borrowingDetailResponse.UrlImage = borrowingDetail?.bookItem?.Book?.bookFiles?.FirstOrDefault()?.ImageUrl;
-            borrowingDetailResponse.AuthorBookItem = borrowingDetail.bookItem.Book.BookAuthor.Name;
-            borrowingDetailResponse.CategoryName = borrowingDetail.bookItem.Book.Category.Name;
-            borrowingDetailResponse.QuantityStorage = borrowingDetail.bookItem.Book.Quantity;
-            borrowingDetailResponse.ReturnedDate = borrowingDetail.ReturnedDate.Value;
-            response.IsSuccess = true;
-            response.message = "Cập nhật ngày trả sách thành công";
-            response.data = borrowingDetailResponse;
-            return response;
-        }
-
+       
         private Guid getCurrentUserId()
         {
             var user = _httpContextAccessor.HttpContext.User;

@@ -54,7 +54,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             BaseResponse<BorrowingResponse> response = new BaseResponse<BorrowingResponse>();
             Borrowing newBorrowing = new Borrowing();
             newBorrowing.Id= Guid.NewGuid();
-            newBorrowing.Code = GenerateBorrowingCode();
+            newBorrowing.Code = GenerateBorrowingCode(newBorrowing.Id.Value);
             newBorrowing.CreateDate = DateTime.Now;
             newBorrowing.Duration = borrowingRequest.Duration;
             newBorrowing.BorrowingStatus = BorrowingStatus.Wait;
@@ -166,6 +166,23 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             notificationToUserResponse.IsRead = notificationToUser.IsRead;
             SendToClient(notificationToUserResponse);
         }
+        private void BorrowingDetailUpdate(Guid borrowingId)
+        {
+            List<BorrowingDetail> borrowingDetails = _context.borrowingDetails.Include(x=>x.bookItem).ThenInclude(x=>x.Book).Where(x => x.BorrowingId == borrowingId).ToList();
+            if (!borrowingDetails.Any())
+            {
+                throw new Exception("Không có chi tiết phiếu mượn nào");
+            }
+            foreach (var item in borrowingDetails)
+            {
+                item.ReturnedDate = DateTime.Now;
+                item.UpdateDate = DateTime.Now;
+                item.bookItem.BookStatus = BookStatus.Available;
+                item.bookItem.Book.Quantity += 1;
+                _context.Update(item);
+            }
+            _context.SaveChanges();
+        }
         public async Task<BaseResponse<ReplyBorrowingResponse>> UpdateBorrowing(Guid id, ReplyBorrowingRequest replyBorrowingRequest)
         {
             BaseResponse<ReplyBorrowingResponse> response = new BaseResponse<ReplyBorrowingResponse>();
@@ -227,8 +244,11 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                     await trans.RollbackAsync();
                 }
 
-            }    
-            
+            }
+            if (borrowingUpdate.BorrowingStatus == BorrowingStatus.Returned)
+            {
+                BorrowingDetailUpdate(borrowingUpdate.Id.Value);
+            }
             if (oldStatus != replyBorrowingRequest.borrowingStatus)
             {
                 NotificationToUserRequest notificationToUserRequest = new NotificationToUserRequest();
@@ -254,7 +274,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             return response;
         }
 
-        public string GenerateBorrowingCode()
+        public string GenerateBorrowingCode(Guid borrowingId)
         {
             var today = DateTime.Now;
 
@@ -263,7 +283,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             string year = (today.Year % 10).ToString();    // 2025 -> 5
 
             string datePart = $"{day}{month}{year}";       // 17075
-            string guidPart = Guid.NewGuid().ToString("N").Substring(0, 6).ToUpper(); // ABC123
+            string guidPart = borrowingId.ToString("N").Substring(0, 6).ToUpper(); // ABC123
 
             return $"#{datePart}-{guidPart}";
         }
