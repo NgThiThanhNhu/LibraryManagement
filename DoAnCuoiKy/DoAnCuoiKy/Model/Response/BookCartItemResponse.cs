@@ -11,6 +11,6 @@ namespace DoAnCuoiKy.Model.Response
         public string BookItemCategory { get; set; }
         public Guid UserId { get; set; }
         public string UserName  { get; set; }
-
+        public List<string> ImageUrls { get; set; }
     }
 }
