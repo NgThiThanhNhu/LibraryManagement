@@ -19,7 +19,9 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.Property(f => f.IssuedDate);
 
             builder.Property(f => f.IsPaid);
-
+            builder.Property(f => f.DaysLate);
+            builder.Property(f => f.FineRate)
+                .HasColumnType("float");
 
             //với bảng BorrowingDetail
             builder.HasOne(f => f.borrowingDetail)
@@ -27,7 +29,9 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
                 .HasForeignKey(f => f.BorrowingDetailId);
 
             //với bảng librarian
-           
+            builder.HasOne(f => f.librarian)
+                 .WithMany(l => l.fines)
+                 .HasForeignKey(f => f.LibrarianId);
 
 
             
