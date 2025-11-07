@@ -60,8 +60,6 @@ namespace DoAnCuoiKy.Service.Notification
             response.message = "Gửi thông báo tới user thành công";
             response.data = notificationToUserResponse;
             return response;
-
-
         }
 
         public async Task<BaseResponse<List<NotificationToUserResponse>>> GetAllNotifications()
