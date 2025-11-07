@@ -16,7 +16,7 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         //mối quan hệ giữa borrowing với lịch sử export
         public List<BookExportTransaction> bookExportTransactions { get; set; }
         public DateTime? ReturnedDate { get; set; }
-
+        public bool? IsFined { get; set; }=false;
 
     }
 }
