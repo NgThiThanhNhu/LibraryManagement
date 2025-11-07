@@ -15,7 +15,8 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public Guid UserId { get; set; }
         public Guid? BorrowingDetailId { get; set; }
         public BorrowingDetail? borrowingDetail { get; set; } 
-        
+        public int? DaysLate { get; set; }
+        public float? FineRate { get; set; }
 
     }
 }
