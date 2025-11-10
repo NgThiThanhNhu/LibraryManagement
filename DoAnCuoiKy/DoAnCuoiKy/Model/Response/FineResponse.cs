@@ -6,7 +6,7 @@ namespace DoAnCuoiKy.Model.Response
     {
         public FineReason? FineReason { get; set; }
         public int? DaysLate { get; set; }
-        public float? Amount { get; set; }
-        public float? FineRate { get; set; }
+        public decimal? Amount { get; set; }
+        public decimal? FineRate { get; set; }
     }
 }

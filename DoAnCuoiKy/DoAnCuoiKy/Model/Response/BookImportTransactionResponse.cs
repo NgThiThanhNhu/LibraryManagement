@@ -8,8 +8,8 @@ namespace DoAnCuoiKy.Model.Response
         public Guid? BookId { get; set; }
         public string? BookTitle { get; set; }
         public int? Quantity { get; set; }
-        public float? UnitPrice { get; set; }
-        public float? TotalPrice { get; set; }
+        public decimal? UnitPrice { get; set; }
+        public decimal? TotalPrice { get; set; }
         public TransactionType TransactionType { get; set; }
         public DateTime? CreatedDate { get; set; }
     }

@@ -6,8 +6,8 @@ namespace DoAnCuoiKy.Model.Request
     public class BookImportTransactionRequest
     {
         public int Quantity { get; set; }  // Số lượng nhập
-        public float UnitPrice { get; set; }
-        public float TotalPrice { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal TotalPrice { get; set; }
         public TransactionType TransactionType { get; set; }
     }
 }

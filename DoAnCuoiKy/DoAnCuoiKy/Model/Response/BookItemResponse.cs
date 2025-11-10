@@ -11,7 +11,7 @@ namespace DoAnCuoiKy.Model.Response
         public string? PublisherName { get; set; }
         public int? YearPublished { get; set; }
         
-        public float? UnitPrice { get; set; }
+        public decimal? UnitPrice { get; set; }
         public BookStatus? BookStatus { get; set; }
         public string? CategoryName { get; set; }
         public string? TitleBookChapter { get; set; }

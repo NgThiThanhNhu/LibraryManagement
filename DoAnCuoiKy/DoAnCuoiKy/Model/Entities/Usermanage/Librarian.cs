@@ -22,8 +22,5 @@ namespace DoAnCuoiKy.Model.Entities.Usermanage
         public List<Fine>? fines { get; set; }
         public List<BookCartItem> bookCartItems { get; set; }
         public List<NotificationToUser> notifications { get; set; }
-
-
-
     }
 }

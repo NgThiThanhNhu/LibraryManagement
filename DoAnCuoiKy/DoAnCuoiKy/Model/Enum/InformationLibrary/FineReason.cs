@@ -4,6 +4,6 @@
     {
         LateReturn = 0,   // Trả sách muộn
         LostBook = 1,     // Làm mất sách
-        DamagedBook = 2   // Làm hỏng sách
+        DamagedBook = 2, // Làm hỏng sách
     }
 }
