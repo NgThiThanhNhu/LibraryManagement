@@ -15,8 +15,8 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public BookAuthor? BookAuthor { get; set; }
         public int? YearPublished { get; set; }
         public int Quantity { get; set; } //số lượng sách nhập
-        public float? TotalPrice { get; set; }
-        public float? UnitPrice { get; set; }
+        public decimal? TotalPrice { get; set; }
+        public decimal? UnitPrice { get; set; }
         public Guid? CategoryId { get; set; }
         public BookCategory? Category { get; set; }
         public Guid? BookChapterId { get; set; }

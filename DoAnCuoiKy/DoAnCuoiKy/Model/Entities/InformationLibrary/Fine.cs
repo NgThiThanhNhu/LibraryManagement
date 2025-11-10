@@ -6,7 +6,7 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
     public class Fine : BaseEntity
     {
         public Guid? Id { get; set; }
-        public float? Amount { get; set; } //số tiền phạt
+        public decimal? Amount { get; set; } //số tiền phạt
         public FineReason? fineReason { get; set; }
         public DateTime? IssuedDate { get; set; }
         public bool? IsPaid { get; set; } = false;
@@ -16,7 +16,9 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public Guid? BorrowingDetailId { get; set; }
         public BorrowingDetail? borrowingDetail { get; set; } 
         public int? DaysLate { get; set; }
-        public float? FineRate { get; set; }
-
+        public decimal? FineRate { get; set; }
+        public PaymentStatus? PaymentStatus { get; set; }
+        public PaymentType? PaymentType { get; set; }
+        public string? TransactionId { get; set; }
     }
 }

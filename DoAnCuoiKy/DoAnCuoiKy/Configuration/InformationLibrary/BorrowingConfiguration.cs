@@ -12,10 +12,9 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.Property(bod => bod.BorrowingStatus)
                 .HasConversion<byte>();
             builder.Property(bo => bo.DueDate);
-           
-            
-
-
+            builder.Property(bo => bo.Code)
+                .HasMaxLength(100);
+            builder.Property(bo => bo.Duration);
         }
     }
 }

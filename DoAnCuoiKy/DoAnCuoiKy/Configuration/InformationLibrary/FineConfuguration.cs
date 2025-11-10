@@ -11,7 +11,7 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.HasKey(f => f.Id);
 
             builder.Property(f => f.Amount)
-                .HasColumnType("float");
+                .HasColumnType("decimal(18,2)");
 
             builder.Property(f => f.fineReason)
                 .HasConversion<byte>();
@@ -21,7 +21,7 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.Property(f => f.IsPaid);
             builder.Property(f => f.DaysLate);
             builder.Property(f => f.FineRate)
-                .HasColumnType("float");
+                .HasColumnType("decimal(18,2)");
 
             //với bảng BorrowingDetail
             builder.HasOne(f => f.borrowingDetail)

@@ -18,9 +18,7 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public bool isScheduled { get; set; } = false;
         public bool isReminded { get; set; } = false;
         public List<BorrowingDetail> borrowingDetails { get; set; }
-       
         public BookPickupSchedule? BookPickupSchedule { get; set; }
         public List<NotificationToUser> notificationToUsers { get; set; }
-
     }
 }

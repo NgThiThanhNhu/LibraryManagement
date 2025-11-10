@@ -18,9 +18,11 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
 
             builder.Property(b => b.Quantity);
 
-            builder.Property(b => b.UnitPrice);
+            builder.Property(b => b.UnitPrice)
+                .HasColumnType("decimal(18,2)");
 
-            builder.Property(b => b.TotalPrice);
+            builder.Property(b => b.TotalPrice)
+                .HasColumnType("decimal(18,2)");
             
             //thiết lập mối quan hệ với bảng category
             builder.HasOne(b => b.Category)
@@ -31,8 +33,6 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
             builder.HasMany(b => b.ImportTransactions)
                 .WithOne(ip => ip.book)
                 .HasForeignKey(ip => ip.BookId);
-            
-          
         }
     }
 }
