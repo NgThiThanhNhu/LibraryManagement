@@ -6,6 +6,7 @@ namespace DoAnCuoiKy.Service.IService
 {
     public interface IFineService
     {
-        Task<BaseResponse<FineResponse>> CreateFine(Guid BorrowingDetailId, FineReason fineReason);
+        Task<BaseResponse<List<FineResponse>>> CreateFine(Guid borrowingDetailId, List<FineRequest> fineRequests);
+        Task<BaseResponse<FineResponse>> GetFineById(Guid borrowingDetailId);
     }
 }
