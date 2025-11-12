@@ -11,6 +11,8 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary.Kho
             builder.HasKey(ep => ep.Id);
             builder.Property(ep => ep.ExportReason)
                 .HasConversion<byte>();
+            builder.Property(ep=>ep.TransactionType)
+                .HasConversion<byte>();
             builder.HasOne(be => be.BorrowingDetail)
                 .WithMany(bod => bod.bookExportTransactions)
                 .HasForeignKey(be => be.BorrowingDetailId);
