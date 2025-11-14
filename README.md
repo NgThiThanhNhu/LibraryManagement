@@ -27,6 +27,7 @@ The backend project demonstrates knowledge of clean architecture, dependency inj
 │   └─ Enum             // Enums used across the project
 ├─ Mapper               // AutoMapper profiles for mapping between entities and DTOs
 └─ Program.cs           // Main program, service registrations, middleware, and pipeline configuration
+```
 ### Key Knowledge Applied:
 - Dependency Injection (DI): AddTransient and AddScoped for modularity and testability.
 - Authentication & Authorization: JWT Bearer with role claims and cookie support.
