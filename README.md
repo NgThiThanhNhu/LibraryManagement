@@ -12,7 +12,7 @@ This is the backend of the Electronic Library Management System with AI Recommen
 - Comprehensive Backend Workflows: Covers book management, user/role management, borrowing/return processes, reservations, overdue handling, notifications, import/export logs, and fine management.
 ## Project Structure & Applied Knowledge
 The backend project demonstrates knowledge of clean architecture, dependency injection, authentication & authorization, background task scheduling, real-time communication, and RESTful API design.
-
+```bash
 /DoAnCuoiKy.Backend
 │
 ├─ Controllers          // API endpoints for books, users, borrowing, notifications, etc.
