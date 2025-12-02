@@ -20,5 +20,6 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public List<BorrowingDetail> borrowingDetails { get; set; }
         public BookPickupSchedule? BookPickupSchedule { get; set; }
         public List<NotificationToUser> notificationToUsers { get; set; }
+        public Payment? Payment { get; set; }
     }
 }
