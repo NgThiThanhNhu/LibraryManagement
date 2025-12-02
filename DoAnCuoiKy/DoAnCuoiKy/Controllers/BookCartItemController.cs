@@ -14,22 +14,22 @@ namespace DoAnCuoiKy.Controllers
         {
             _bookCartItemService = bookCartItemService;
         }
-        [HttpPost("addBookItemToCart")]
-        public async Task<BaseResponse<BookCartItemResponse>> AddBookItemToCart(BookCartItemRequest bookCartItemRequest)
+        [HttpPut("{bookCartItemId}/quantity")]
+        public async Task<BaseResponse<int>> UpdateQuantity(Guid bookCartItemId, UpdateQuantityRequest updateQuantityRequest)
         {
-            BaseResponse<BookCartItemResponse> baseResponse = await _bookCartItemService.AddBookItemToCart(bookCartItemRequest);
+            BaseResponse<int> baseResponse = await _bookCartItemService.UpdateQuantity(bookCartItemId, updateQuantityRequest);
             return baseResponse;
         }
-        [HttpGet("getAllBookCartOfUser")]
-        public async Task<BaseResponse<List<BookCartItemResponse>>> GetAllBookCartOfUser()
+        [HttpDelete("bookCartItem/{bookCartItemId}")]
+        public async Task<BaseResponse<bool>> RemoveItem(Guid bookCartItemId)
         {
-            BaseResponse<List<BookCartItemResponse>> baseResponse = await _bookCartItemService.GetAllBookCartOfUser();
+            BaseResponse<bool> baseResponse = await _bookCartItemService.RemoveItem(bookCartItemId);
             return baseResponse;
         }
-        [HttpPost("deleteBookCartItem/{currentBookItemid}")]
-        public async Task<BaseResponse<BookCartItemResponse>> DeleteBookCartItem(Guid currentBookItemid)
+        [HttpDelete("clear/{bookCartId}")]
+        public async Task<BaseResponse<bool>> ClearAllBookCartItem(Guid bookCartId) 
         {
-            BaseResponse<BookCartItemResponse> baseResponse = await _bookCartItemService.DeleteBookCartItem(currentBookItemid);
+            BaseResponse<bool> baseResponse = await _bookCartItemService.ClearAllBookCartItem(bookCartId);
             return baseResponse;
         }
     }
