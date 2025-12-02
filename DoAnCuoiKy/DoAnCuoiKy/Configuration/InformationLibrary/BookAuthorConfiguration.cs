@@ -9,10 +9,11 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
         public void Configure(EntityTypeBuilder<BookAuthor> builder)
         {
             builder.HasKey(ba => ba.Id);
-
-            builder.Property(ba=>ba.Name)
-                .HasMaxLength(256);
-
+            builder.HasIndex(ba=>ba.Name)
+                .IsUnique();
+            builder.Property(ba => ba.Name)
+                .HasMaxLength(256)
+                .IsRequired();
             //mối quan hệ với bảng book
             builder.HasMany(ba => ba.books)
                 .WithOne(b => b.BookAuthor)

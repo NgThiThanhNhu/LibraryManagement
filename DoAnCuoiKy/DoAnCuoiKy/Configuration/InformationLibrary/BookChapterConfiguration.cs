@@ -9,14 +9,14 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
         public void Configure(EntityTypeBuilder<BookChapter> builder)
         {
             builder.HasKey(c => c.Id);
+            builder.HasIndex(c => c.TitleChapter)
+                .IsUnique();
             builder.Property(c => c.TitleChapter)
                 .HasMaxLength(150);
             //với bảng book
             builder.HasMany(c => c.books)
                 .WithOne(b => b.BookChapter)
                 .HasForeignKey(b => b.BookChapterId);
-           
-            
         }
     }
 }

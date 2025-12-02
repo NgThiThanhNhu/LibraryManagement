@@ -10,7 +10,8 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
         public void Configure(EntityTypeBuilder<Book> builder)
         {
             builder.HasKey(b => b.Id);
-
+            builder.HasIndex(b => b.Title)
+                .IsUnique();
             builder.Property(b => b.Title)
                 .HasMaxLength(200);
 

@@ -9,7 +9,8 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
         public void Configure(EntityTypeBuilder<BookCategory> builder)
         {
             builder.HasKey(bc => bc.Id);
-
+            builder.HasIndex(bc => bc.Name)
+                .IsUnique();
             builder.Property(bc => bc.Name);
 
             

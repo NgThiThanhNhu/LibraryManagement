@@ -9,7 +9,8 @@ namespace DoAnCuoiKy.Configuration.InformationLibrary
         public void Configure(EntityTypeBuilder<Publisher> builder)
         {
             builder.HasKey(p => p.Id);
-
+            builder.HasIndex(p => p.PublisherName)
+                .IsUnique();
             builder.Property(p=>p.PublisherName)
                 .HasMaxLength(256);
 
