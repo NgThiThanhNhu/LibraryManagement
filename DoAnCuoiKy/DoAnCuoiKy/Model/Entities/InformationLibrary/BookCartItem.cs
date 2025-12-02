@@ -1,13 +1,12 @@
-﻿using DoAnCuoiKy.Model.Entities.Usermanage;
-
-namespace DoAnCuoiKy.Model.Entities.InformationLibrary
+﻿namespace DoAnCuoiKy.Model.Entities.InformationLibrary
 {
     public class BookCartItem : BaseEntity
     {
         public Guid Id { get; set; }
-        public Guid UserId { get; set; }
-        public Librarian User { get; set; }
-        public Guid BookItemId { get; set; }
-        public BookItem BookItem { get; set; }
+        public Guid CartId { get; set; }
+        public BookCart BookCart { get; set; }
+        public Guid BookId { get; set; }
+        public Book Book { get; set; }
+        public int Quantity { get; set; } = 1;
     }
 }
