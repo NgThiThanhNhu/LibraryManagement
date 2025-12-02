@@ -12,14 +12,7 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public Book? Book { get; set; }
         public Guid? ShelfSectionId { get; set; } 
         public ShelfSection? ShelfSection { get; set; }
-
         public List<BookReservation>? BookReservations { get; set; }
         public List<BorrowingDetail>? borrowingDetails { get; set; }
-        public BookCartItem BookCartItem { get; set; }
-        
-       
-       
-
-
     }
 }

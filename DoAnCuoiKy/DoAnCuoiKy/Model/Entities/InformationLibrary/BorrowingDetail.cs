@@ -17,6 +17,5 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public List<BookExportTransaction> bookExportTransactions { get; set; }
         public DateTime? ReturnedDate { get; set; }
         public bool? IsFined { get; set; }=false;
-
     }
 }

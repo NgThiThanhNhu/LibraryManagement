@@ -12,7 +12,5 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public string FileUrl { get; set; }
         public string PublicIdFile { get; set; }   // publicId file
         public BookFileType bookFileType { get; set; }
-       
-        
     }
 }

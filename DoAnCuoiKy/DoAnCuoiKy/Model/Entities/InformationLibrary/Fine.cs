@@ -14,11 +14,9 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         public Librarian librarian {  get; set; }
         public Guid UserId { get; set; }
         public Guid? BorrowingDetailId { get; set; }
-        public BorrowingDetail? borrowingDetail { get; set; } 
+        public BorrowingDetail borrowingDetail { get; set; } 
         public int? DaysLate { get; set; }
         public decimal? FineRate { get; set; }
-        public PaymentStatus? PaymentStatus { get; set; }
-        public PaymentType? PaymentType { get; set; }
-        public string? TransactionId { get; set; }
+        
     }
 }

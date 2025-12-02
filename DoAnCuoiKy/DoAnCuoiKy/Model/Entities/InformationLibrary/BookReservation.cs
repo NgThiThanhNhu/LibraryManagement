@@ -16,9 +16,5 @@ namespace DoAnCuoiKy.Model.Entities.InformationLibrary
         //public Book? book { get; set; }
         public Guid? BookItemId { get; set; }
         public BookItem? BookItem { get; set; }
-       
-
-
-
     }
 }
