@@ -21,5 +21,11 @@ namespace DoAnCuoiKy.Controllers
             BaseResponse<BookFileResponse> baseResponse = await _bookFileService.UploadFileAndImage(bookFileRequest);
             return baseResponse;
         }
+        [HttpGet("pdf/{bookFileId}")]
+        public async Task<BaseResponse<ReadFileResponse>> GetPdfFile(Guid bookFileId)
+        {
+            BaseResponse < ReadFileResponse > response = await _bookFileService.GetPdfFileStream(bookFileId);
+            return response;
+        }
     }
 }
