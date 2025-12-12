@@ -27,6 +27,13 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 response.message = "Thêm không thành công. Tên sách không được để trống";
                 return response;
             }
+            BookCategory findBookCategory = _context.bookCategories.FirstOrDefault(x => x.Name == categoryRequest.Name);
+            if (findBookCategory != null)
+            {
+                response.IsSuccess = false;
+                response.message = "Tên đã tồn tại, vui lòng nhập tên khác. Lưu ý không được trùng tên.";
+                return response;
+            }
             BookCategory bookCategory = new BookCategory();
             bookCategory.Id = Guid.NewGuid();
             bookCategory.Name = categoryRequest.Name;

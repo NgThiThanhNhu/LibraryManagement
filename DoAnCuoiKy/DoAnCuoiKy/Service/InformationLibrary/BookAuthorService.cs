@@ -19,6 +19,13 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         {
             BaseResponse<BookAuthorResponse> response = new BaseResponse<BookAuthorResponse>();
             BookAuthorResponse bookAuthorResponse = new BookAuthorResponse();
+            BookAuthor findBookAuthor = _context.bookAuthors.FirstOrDefault(x => x.Name == authorRequest.Name);
+            if (findBookAuthor != null)
+            {
+                response.IsSuccess = false;
+                response.message = "Tên đã tồn tại, vui lòng nhập tên khác. Lưu ý không được trùng tên.";
+                return response;
+            }
             BookAuthor author = new BookAuthor();
             author.Id = Guid.NewGuid();
             author.Name = authorRequest.Name;
