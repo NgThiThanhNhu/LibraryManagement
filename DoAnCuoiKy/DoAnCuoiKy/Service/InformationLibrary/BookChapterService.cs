@@ -20,6 +20,13 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         {
             BaseResponse<BookChapterResponse> response = new BaseResponse<BookChapterResponse>();
             BookChapterResponse chapterResponse = new BookChapterResponse();
+            BookChapter findBookChapter = _context.bookChapters.FirstOrDefault(x => x.TitleChapter == chapterRequest.TitleChapter);
+            if (findBookChapter!=null)
+            {
+                response.IsSuccess = false;
+                response.message = "Tên đã tồn tại, vui lòng nhập tên khác. Lưu ý không được trùng tên.";
+                return response;
+            }
             BookChapter bookChapter = new BookChapter();
             bookChapter.TitleChapter = chapterRequest.TitleChapter;
             bookChapter.CreateUser = getCurrentName();
