@@ -15,8 +15,6 @@ namespace DoAnCuoiKy.Configuration.UserBehavior
             builder.HasOne(x=>x.Book)
                 .WithMany(b=>b.userReadingSessions)
                 .HasForeignKey(x => x.BookId);
-            builder.Property(e => e.DeviceType)
-                .HasMaxLength(20);
             builder.Property(x => x.ReadingProgress)
                 .HasPrecision(5, 2);
             builder.HasIndex(x => x.UserId)

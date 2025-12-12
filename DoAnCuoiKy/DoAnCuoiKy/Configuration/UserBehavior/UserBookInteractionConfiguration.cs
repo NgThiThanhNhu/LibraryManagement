@@ -25,9 +25,9 @@ namespace DoAnCuoiKy.Configuration.UserBehavior
                 .HasDatabaseName("IX_UserBookInteraction_BookId");
             builder.HasIndex(x => new { x.UserId, x.InteractionType })
                 .HasDatabaseName("IX_UserBookInteraction_User_Type");
-            builder.HasIndex(x => new { x.BookId, x.InteractionType, x.InteractionDate })
+            builder.HasIndex(x => new { x.BookId, x.InteractionType, x.CreateDate })
                 .HasDatabaseName("IX_UserBookInteraction_Book_Type_Date");
-            builder.HasIndex(e => e.InteractionDate)
+            builder.HasIndex(x => x.CreateDate)
                 .HasDatabaseName("IX_UserBookInteraction_Date");
         }
     }
