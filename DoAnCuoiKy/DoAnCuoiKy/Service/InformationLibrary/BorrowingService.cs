@@ -35,60 +35,88 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             _mapper = mapper;
             _hubContext = hubContext;
         }
-        private void RemoveBookItemFromList(Guid currentBookItemId)
+        /*private void RemoveBookItemFromList(Guid currentBookItemId)
         {
             var currentUser = getCurrentUserId();
-            BookCartItem bookCartItem = _context.bookCartItems.Include(x => x.BookItem).FirstOrDefault(x => x.IsDeleted == false && x.UserId == currentUser && x.BookItemId == currentBookItemId);
+            BookCart bookCartItem = _context.bookCartItems.Include(x => x.BookItem).FirstOrDefault(x => x.IsDeleted == false && x.UserId == currentUser && x.BookItemId == currentBookItemId);
             if (bookCartItem.BookItem.BookStatus == Model.Enum.InformationLibrary.BookStatus.Borrowed && bookCartItem != null)
             {
-                bookCartItem.IsDeleted = true;
-                _context.bookCartItems.Update(bookCartItem);
+                _context.bookCartItems.Remove(bookCartItem);
             }
             else
             {
                 throw new Exception("Không tìm thấy sách cần xóa của user này");
             }
-        }
+        }*/
         public async Task<BaseResponse<BorrowingResponse>> CreateBorrowing(BorrowingRequest borrowingRequest)
         {
             BaseResponse<BorrowingResponse> response = new BaseResponse<BorrowingResponse>();
-            Borrowing newBorrowing = new Borrowing();
-            newBorrowing.Id= Guid.NewGuid();
-            newBorrowing.Code = GenerateBorrowingCode(newBorrowing.Id.Value);
-            newBorrowing.CreateDate = DateTime.Now;
-            newBorrowing.Duration = borrowingRequest.Duration;
-            newBorrowing.BorrowingStatus = BorrowingStatus.Wait;
-            newBorrowing.UserId = getCurrentUserId();
-            Librarian librarian = await _context.librarians.Where(x => x.IsDeleted == false && x.Id == newBorrowing.UserId).FirstOrDefaultAsync();
-            if (librarian == null)
+            Borrowing find = _context.borrowings.Where(x=>x.IsDeleted == false).FirstOrDefault(x=>x.UserId == getCurrentUserId() && x.BorrowingStatus == BorrowingStatus.Borrowing);
+            if (find != null)
             {
-                response.IsSuccess = false;
-                response.message = "Lỗi chưa đăng nhập, không có user";
+                response.message = "Đọc giả đã có phiếu mượn và chưa trả, không thể mượn tiếp";
                 return response;
             }
-            newBorrowing.CreateUser = librarian.Name;
-            newBorrowing.DueDate = newBorrowing.CreateDate.AddDays(newBorrowing.Duration);
-            await _context.borrowings.AddAsync(newBorrowing);
-            await _context.SaveChangesAsync();
-            foreach (var item in borrowingRequest.BookiTemIds)
+            else
             {
-                BorrowingDetail detail = new BorrowingDetail();
-                detail.Id = Guid.NewGuid();
-                detail.BookItemId = item;
-                detail.BorrowingId = newBorrowing.Id;
-                detail.ReturnedDate = newBorrowing.DueDate;
-                detail.CreateDate = DateTime.Now;
-                detail.bookStatus = BookStatus.Borrowed;
-                await _context.borrowingDetails.AddAsync(detail);
-                RemoveBookItemFromList(item);
+                Borrowing newBorrowing = new Borrowing();
+                newBorrowing.Id = Guid.NewGuid();
+                newBorrowing.Code = GenerateBorrowingCode(newBorrowing.Id.Value);
+                newBorrowing.CreateDate = DateTime.Now;
+                newBorrowing.Duration = borrowingRequest.Duration;
+                newBorrowing.BorrowingStatus = BorrowingStatus.Wait;
+                newBorrowing.UserId = getCurrentUserId();
+                Librarian librarian = await _context.librarians.Where(x => x.IsDeleted == false && x.Id == newBorrowing.UserId).FirstOrDefaultAsync();
+                if (librarian == null)
+                {
+                    response.IsSuccess = false;
+                    response.message = "Lỗi chưa đăng nhập, không có user";
+                    return response;
+                }
+                newBorrowing.CreateUser = librarian.Name;
+                newBorrowing.DueDate = newBorrowing.CreateDate.AddDays(newBorrowing.Duration);
+                await _context.borrowings.AddAsync(newBorrowing);
                 await _context.SaveChangesAsync();
+                foreach (var item in borrowingRequest.BookiTemIds)
+                {
+                    var bookItem = _context.bookItems.FirstOrDefault(x => x.Id == item);
+                    
+                    BorrowingDetail detail = new BorrowingDetail();
+                    detail.Id = Guid.NewGuid();
+                    detail.BookItemId = bookItem.Id;
+                    detail.BorrowingId = newBorrowing.Id;
+                    detail.ReturnedDate = newBorrowing.DueDate;
+                    detail.CreateDate = DateTime.Now;
+                    detail.bookStatus = BookStatus.Borrowed;
+                    await _context.borrowingDetails.AddAsync(detail);
+                    if (bookItem == null)
+                    {
+                        response.message = "book item không tồn tại";
+                        return response;
+                    }
+                    bookItem.BookStatus = BookStatus.Borrowed;
+                    bookItem.UpdateDate = DateTime.Now;
+                    bookItem.UpdateUser = getCurrentName();
+                    _context.bookItems.Update(bookItem);
+                    await _context.SaveChangesAsync();
+                    Book book = _context.books.FirstOrDefault(x => x.Id == bookItem.BookId);
+                    if (book != null)
+                    {
+                        book.Quantity--;
+                        book.UpdateDate = DateTime.Now;
+                        book.UpdateUser = getCurrentName();
+                        _context.books.Update(book);
+                    }
+                    //RemoveBookItemFromList(item);
+                    await _context.SaveChangesAsync();
+                }
+                BorrowingResponse borrowingResponse = _mapper.Map<BorrowingResponse>(newBorrowing);
+                borrowingResponse.UserName = librarian.Name;
+                response.IsSuccess = true;
+                response.message = "Lập phiếu mượn thành công, đợi admin duyệt";
+                response.data = borrowingResponse;
+                return response;
             }
-            BorrowingResponse borrowingResponse = _mapper.Map<BorrowingResponse>(newBorrowing);
-            borrowingResponse.UserName = librarian.Name;
-            response.IsSuccess = true;
-            response.message = "Lập phiếu mượn thành công, đợi admin duyệt";
-            response.data = borrowingResponse;
-            return response;
         }
 
         public async Task<BaseResponse<List<BorrowingUserResponse>>> GetAllUserBorrowing()
