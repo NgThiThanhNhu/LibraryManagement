@@ -37,4 +37,5 @@ The backend project demonstrates knowledge of clean architecture, dependency inj
 - Database Design: EF Core with entities, relationships, and migrations.
 - API Design: RESTful controllers with structured request/response DTOs.
 - Middleware & Security: CORS, HTTPS redirection, cookie policies, and JWT validation.
-
+### **Demo**
+- **Video demo:** [Xem tại đây](https://youtu.be/3AIUCPBpld0)
