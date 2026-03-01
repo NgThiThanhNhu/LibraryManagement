@@ -23,6 +23,9 @@ using DoAnCuoiKy;
 using Hangfire;
 using DoAnCuoiKy.Service.IService.Notification;
 using DoAnCuoiKy.Service.Notification;
+using DoAnCuoiKy.Service.IService.IUserBehavior;
+using DoAnCuoiKy.Service.UserBehaviorService;
+using DoAnCuoiKy.Service.MachineLearningService;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = builder.Configuration;
@@ -90,7 +93,7 @@ builder.Services.AddHangfireServer(
         options.Queues = new[] { "email" };
         options.WorkerCount = 2; // giới hạn số worker cho queue email
     });
-
+builder.Services.AddHttpClient();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -116,7 +119,7 @@ builder.Services.AddTransient<IShelfSectionService, ShelfSectionService>();
 builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddTransient<IBookFileService, BookFileService>();
 builder.Services.AddTransient<IBorrowingService, BorrowingService>();
-builder.Services.AddTransient<IBookCartItemService, BookCartItemService>();
+builder.Services.AddScoped<IBookCartService, BookCartService>();
 builder.Services.AddTransient<IBorrowingDetailService, BorrowingDetailService>();
 builder.Services.AddTransient<IFineService, FineService>();
 builder.Services.AddTransient<IBookPickupScheduleService, BookPickupScheduleService>(); 
@@ -124,7 +127,13 @@ builder.Services.AddTransient<INotificationToUserService, NotificationToUserServ
 builder.Services.AddTransient<IBookExportTransactionService, BookExportTransactionService>();
 builder.Services.AddAutoMapper(typeof(BorrowingProfile).Assembly);
 builder.Services.AddScoped<IAutoNotificationService, AutoNotificationService>();
-
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IBookCartItemService, BookCartItemService>();
+builder.Services.AddScoped<IUserBookInteractionService, UserBookInteractionService>();
+builder.Services.AddScoped<IUserReadingSessionService, UserReadingSessionService>();
+builder.Services.AddScoped<IRecommendationService, RecommendationService>();
+builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddHostedService<RecommendationUpdateBackgroundService>();
 
 builder.Services.AddHttpContextAccessor();
 
@@ -154,6 +163,7 @@ app.UseHttpsRedirection();
 //    await next();
 //});
 //xác thực và đăng nhập
+app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 

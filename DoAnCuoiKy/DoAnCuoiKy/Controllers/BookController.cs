@@ -35,9 +35,9 @@ namespace DoAnCuoiKy.Controllers
         }
         [HttpGet("GetBookBySlug/{slug}")]
         //[Authorize(Roles = "Admin")]
-        public async Task<BaseResponse<BookResponse>> getBookBySlug(string slug)
+        public async Task<BaseResponse<BookDetailResponse>> getBookBySlug(string slug)
         {
-            BaseResponse<BookResponse> response = await _bookService.GetBookBySlug(slug);
+            BaseResponse<BookDetailResponse> response = await _bookService.GetBookBySlug(slug);
             return response;
         }
 

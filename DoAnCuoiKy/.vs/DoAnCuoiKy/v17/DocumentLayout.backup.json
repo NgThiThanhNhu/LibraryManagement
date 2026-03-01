@@ -1,0 +1,201 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\notification\\autonotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\notification\\autonotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\authentication\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\authentication\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\machinelearningservice\\matrixfactorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\machinelearningservice\\matrixfactorization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\machinelearningservice\\recommendationupdatebackgroundservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\machinelearningservice\\recommendationupdatebackgroundservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\userbehaviorservice\\recommendationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\userbehaviorservice\\recommendationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|c:\\users\\nguye\\documents\\library\\librarymanagement\\doancuoiky\\doancuoiky\\service\\userbehaviorservice\\userreadingsessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{664FB3F3-ADE8-49FF-92CC-E1625E8B8325}|DoAnCuoiKy\\DoAnCuoiKy.csproj|solutionrelative:doancuoiky\\service\\userbehaviorservice\\userreadingsessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 25,
+          "SelectedChildIndex": 16,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\appsettings.json",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\appsettings.json",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\appsettings.json",
+              "RelativeToolTip": "DoAnCuoiKy\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAACHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-24T04:23:26.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\Authentication\\AuthenticationService.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAowJkAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T04:44:39.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserReadingSessionService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\UserBehaviorService\\UserReadingSessionService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\UserBehaviorService\\UserReadingSessionService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\UserBehaviorService\\UserReadingSessionService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\UserBehaviorService\\UserReadingSessionService.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAcwKgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T04:14:55.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AutoNotificationService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\Notification\\AutoNotificationService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\Notification\\AutoNotificationService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\Notification\\AutoNotificationService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\Notification\\AutoNotificationService.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAgwFwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T03:35:24.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RecommendationService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\UserBehaviorService\\RecommendationService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\UserBehaviorService\\RecommendationService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\UserBehaviorService\\RecommendationService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\UserBehaviorService\\RecommendationService.cs",
+              "ViewState": "AgIAAMMAAAAAAAAAAAAiwBUBAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T22:52:16.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RecommendationUpdateBackgroundService.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\MachineLearningService\\RecommendationUpdateBackgroundService.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\MachineLearningService\\RecommendationUpdateBackgroundService.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\MachineLearningService\\RecommendationUpdateBackgroundService.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\MachineLearningService\\RecommendationUpdateBackgroundService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAmwBEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T20:58:45.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MatrixFactorization.cs",
+              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\MachineLearningService\\MatrixFactorization.cs",
+              "RelativeDocumentMoniker": "DoAnCuoiKy\\Service\\MachineLearningService\\MatrixFactorization.cs",
+              "ToolTip": "C:\\Users\\nguye\\Documents\\Library\\LibraryManagement\\DoAnCuoiKy\\DoAnCuoiKy\\Service\\MachineLearningService\\MatrixFactorization.cs",
+              "RelativeToolTip": "DoAnCuoiKy\\Service\\MachineLearningService\\MatrixFactorization.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAswJkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T20:52:56.641Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 25,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

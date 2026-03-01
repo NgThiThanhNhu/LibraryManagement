@@ -15,7 +15,7 @@ namespace DoAnCuoiKy.Controllers
         {
             _bookFileService = bookFileService;
         }
-        [HttpPost("UploadFileAndImage")]
+        [HttpPost("UploadFileAndImage"), RequestSizeLimit(60_000_000)]
         public async Task<BaseResponse<BookFileResponse>> uploadFileAndImage( [FromForm] BookFileRequest bookFileRequest)
         {
             BaseResponse<BookFileResponse> baseResponse = await _bookFileService.UploadFileAndImage(bookFileRequest);

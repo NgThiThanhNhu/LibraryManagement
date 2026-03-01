@@ -158,18 +158,13 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 bookResponse.Title = newbook.Title;
                 bookResponse.Quantity = newbook.Quantity;
                 bookResponse.YearPublished = newbook.YearPublished;
-                bookResponse.BookAuthorId = newbook.BookAuthorId;
                 bookResponse.AuthorName = newbook.BookAuthor.Name;
-                bookResponse.PublisherId = newbook.PublisherId;
                 bookResponse.PublisherName = newbook.Publisher.PublisherName;
-                bookResponse.CategoryId = newbook.CategoryId;
                 bookResponse.CategoryName = newbook.Category.Name;
-                bookResponse.BookChapterId = newbook.BookChapterId;
                 bookResponse.TitleBookChapter = newbook.BookChapter.TitleChapter;
                 bookResponse.UnitPrice = newbook.UnitPrice;
                 bookResponse.TotalPrice = newbook.TotalPrice;
                 bookResponse.Slug = newbook.Slug;
-                bookResponse.Description = newbook.Description;
 
                 response.IsSuccess = true;
                 response.message = "Thêm sách và ghi nhận nhập kho thành công";
@@ -230,9 +225,8 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 PublisherName = b.Publisher.PublisherName,
                 AuthorName = b.BookAuthor.Name,
                 CategoryName = b.Category.Name,
-                TitleBookChapter = b.BookChapter.TitleChapter,
-                Description = b.Description,
                 Slug = b.Slug,
+                TitleBookChapter = b.BookChapter.TitleChapter,
                 BookFileId = b.bookFiles.Where(x => x.IsDeleted == false).Select(x => x.Id).ToList(),
                 ImageUrls = b.bookFiles.Where(x => x.IsDeleted == false && !string.IsNullOrWhiteSpace(x.ImageUrl)).Select(x => x.ImageUrl).ToList(),
             }).ToListAsync();
@@ -256,9 +250,9 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             return response;
         }
 
-        public async Task<BaseResponse<BookResponse>> GetBookBySlug(string slug)
+        public async Task<BaseResponse<BookDetailResponse>> GetBookBySlug(string slug)
         {
-            BaseResponse<BookResponse> response = new BaseResponse<BookResponse>();
+            BaseResponse<BookDetailResponse> response = new BaseResponse<BookDetailResponse>();
             Book book = await _context.books.Include(x => x.BookAuthor).Include(x => x.Publisher).FirstOrDefaultAsync(x => x.Slug == slug && x.IsDeleted == false);
 
             BookCategory bookCategory = await _context.bookCategories.FirstOrDefaultAsync(x => x.Id == book.CategoryId && x.IsDeleted == false);
@@ -283,7 +277,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 response.IsSuccess = false;
                 return response;
             }
-            BookResponse bookResponse = new BookResponse();
+            BookDetailResponse bookResponse = new BookDetailResponse();
 
             if (book == null)
             {
@@ -296,7 +290,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             bookResponse.Title = book.Title;
             bookResponse.Quantity = book.Quantity;
             bookResponse.UnitPrice = book.UnitPrice;
-            bookResponse.TotalPrice = book.TotalPrice;
             bookResponse.AuthorName = book.BookAuthor.Name;
             bookResponse.CategoryName = bookCategory.Name;
             bookResponse.TitleBookChapter = bookChapter.TitleChapter;
@@ -371,7 +364,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             bookResponse.Quantity = book.Quantity;
             bookResponse.UnitPrice = book.UnitPrice;
             bookResponse.TotalPrice = book.TotalPrice;
-            bookResponse.Description = book.Description;
 
             //bookResponse.Description = BookInforStored[id].Description;
             response.IsSuccess = true;

@@ -17,7 +17,7 @@ namespace DoAnCuoiKy.Mapper
                 opt => opt.MapFrom(src => BorrowingStatusHelper.GetStatusDescription(src.BorrowingStatus.Value)))
                 .ForMember(dest => dest.ReplyDate,
                 opt => opt.MapFrom(src => src.UpdateDate.HasValue ? src.UpdateDate.Value.ToString("dd/MM/yyyy") : "Chưa phản hồi"));
-               
+
             CreateMap<Borrowing, BorrowingResponse>()
                  .ForMember(dest => dest.Status,
                  opt => opt.MapFrom(src => BorrowingStatusHelper.GetStatusDescription(src.BorrowingStatus.Value)))
@@ -52,6 +52,7 @@ namespace DoAnCuoiKy.Mapper
                 opt => opt.MapFrom(src => GetTransactionTypeDescription(src.TransactionType)))
                 .ForMember(dest => dest.ExportDate,
                  opt => opt.MapFrom(src => src.CreateDate.ToString("dd/MM/yyyy")));
+      
 
         }
         public static class BorrowingStatusHelper
@@ -96,7 +97,6 @@ namespace DoAnCuoiKy.Mapper
             {
                 BookStatus.Available => "Có sẵn",
                 BookStatus.Borrowed => "Đã được mượn",
-                BookStatus.Reserved => "Đã được đặt trước",
                 BookStatus.Lost => "Bị mất",
                 BookStatus.Damaged => "Bị hư hỏng",
                 _=>"Không xác định"

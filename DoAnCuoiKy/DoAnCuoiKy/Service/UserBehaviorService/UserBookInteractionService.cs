@@ -46,6 +46,7 @@ namespace DoAnCuoiKy.Service.UserBehaviorService
             UserBookInteraction newInteraction = new UserBookInteraction();
             newInteraction.Id = Guid.NewGuid();
             newInteraction.CreateDate = DateTime.Now;
+            newInteraction.CreateUser = getCurrentName();
             newInteraction.UserId = getCurrentUserId();
             newInteraction.BookId = userBookInteractionRequest.BookId;
             newInteraction.InteractionType = userBookInteractionRequest.InteractionType;

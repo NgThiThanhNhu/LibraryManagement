@@ -62,7 +62,7 @@ namespace DoAnCuoiKy.Service.Authentication
             string jwtToken = Encrypt_decrypt.GenerateJwtToken(tokenRequest, _configuration);
             _contextAccessor.HttpContext.Response.Cookies.Append("jwtToken", jwtToken ?? "", new CookieOptions
             {
-                HttpOnly = true,
+                HttpOnly = false,
                 SameSite = SameSiteMode.None,//vì fe và be chạy trên 2 domain khác nhau là 3000 và 7260, set có SameSite=Strict, điều này có thể khiến nó không được gửi khi truy cập từ một domain khác.
                 Secure = true,
                 Expires = DateTime.Now.AddDays(1)
@@ -88,9 +88,16 @@ namespace DoAnCuoiKy.Service.Authentication
             newLibrarian.Password = hashPassword;
             newLibrarian.Email = registerRequest.Email;
             newLibrarian.Salt = salt;
-            Role role = _context.roles.FirstOrDefault(x => x.Name == "User" && x.IsDeleted == false);
-            newLibrarian.Role = role;
+            Role role = _context.roles.FirstOrDefault(x => x.Name == "user" && x.IsDeleted == false);
+            if (role is null)
+            {
+                role = new Role();
+                role.Id = Guid.NewGuid();
+                role.Name = "user";
+                _context.roles.Add(role);
+            }
 
+            newLibrarian.Role = role;
             registerResponse.Email = newLibrarian.Email;
             string otp = getOTP();
            
@@ -140,11 +147,11 @@ namespace DoAnCuoiKy.Service.Authentication
                     smtp.UseDefaultCredentials = false;
                     smtp.Credentials = new NetworkCredential()
                     {
-                        UserName = "h09052003n@gmail.com",
-                        Password = "debskzkkbtkmqdfe"
+                        UserName = "",
+                        Password = ""
                     };
                 }
-                MailAddress fromAddress = new MailAddress("h09052003n@gmail.com", "UTC2Store");
+                MailAddress fromAddress = new MailAddress("", "UTC2Library");
                 message.From = fromAddress;
                 message.To.Add(email);
                 message.Subject = title;
@@ -224,8 +231,6 @@ namespace DoAnCuoiKy.Service.Authentication
             response.message = "Đăng xuất thành công";
             response.data= logoutResponse;
             return Task.FromResult(response);
-            
-
         }
         private string getCurrentName()
         {

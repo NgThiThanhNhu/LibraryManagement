@@ -1,4 +1,5 @@
-﻿using DoAnCuoiKy.Data;
+﻿using System.Net.Http;
+using DoAnCuoiKy.Data;
 using DoAnCuoiKy.Model.Entities.InformationLibrary;
 using DoAnCuoiKy.Model.Enum.InformationLibrary;
 using DoAnCuoiKy.Model.Request;
@@ -12,11 +13,33 @@ namespace DoAnCuoiKy.Service
     {
         private readonly ApplicationDbContext _context;
         private readonly CloudinaryService _cloudinaryService;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public BookFileService(ApplicationDbContext context, CloudinaryService cloudinaryService)
+        public BookFileService(ApplicationDbContext context, CloudinaryService cloudinaryService, IHttpClientFactory httpClientFactory)
         {
             _context = context;
             _cloudinaryService = cloudinaryService;
+            _httpClientFactory = httpClientFactory;
+        }
+
+        public async Task<BaseResponse<ReadFileResponse>> GetPdfFileStream(Guid bookFileId)
+        {
+            BaseResponse<ReadFileResponse> response = new BaseResponse<ReadFileResponse>();
+            var bookFile = await _context.bookFiles.AsNoTracking().FirstOrDefaultAsync(b => b.Id == bookFileId && b.IsDeleted == false);
+
+            if (bookFile == null || string.IsNullOrEmpty(bookFile.FileUrl))
+            {
+                response.IsSuccess = false;
+                response.message = "Không có file";
+                return response;
+            }
+            ReadFileResponse readFileResponse = new ReadFileResponse();
+            readFileResponse.bookFileId = bookFileId;
+            readFileResponse.pdfUrl = bookFile.FileUrl;
+            response.IsSuccess = true;
+            response.message = "có file";
+            response.data = readFileResponse;
+            return response;
         }
 
         public async Task<BaseResponse<BookFileResponse>> UploadFileAndImage(BookFileRequest bookFileRequest)

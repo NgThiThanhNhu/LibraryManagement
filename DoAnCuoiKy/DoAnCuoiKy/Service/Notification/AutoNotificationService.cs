@@ -76,11 +76,11 @@ namespace DoAnCuoiKy.Service.Notification
                     smtp.UseDefaultCredentials = false;
                     smtp.Credentials = new NetworkCredential()
                     {
-                        UserName = "h09052003n@gmail.com",
-                        Password = "debskzkkbtkmqdfe"
+                        UserName = "",
+                        Password = ""
                     };
                 }
-                MailAddress fromAddress = new MailAddress("h09052003n@gmail.com", "UTC2Library");
+                MailAddress fromAddress = new MailAddress("", "UTC2Library");
                 message.From = fromAddress;
                 message.To.Add(email);
                 message.Subject = title;

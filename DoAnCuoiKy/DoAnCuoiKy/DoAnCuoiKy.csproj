@@ -36,6 +36,11 @@
     <Folder Include="Model\Entities\Chatbot\" />
     <Folder Include="Service\IService\InformationSystem\" />
     <Folder Include="Service\InformationSystem\" />
+    <Folder Include="Service\IService\MachineLearning\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Model\Response\UserBehaviorResponse\UserBookInteractionResponse.cs" />
   </ItemGroup>
 
 </Project>

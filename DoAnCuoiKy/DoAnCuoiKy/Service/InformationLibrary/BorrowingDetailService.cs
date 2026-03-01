@@ -74,7 +74,6 @@ namespace DoAnCuoiKy.Service.InformationLibrary
             return response;
         }
 
-       
         private Guid getCurrentUserId()
         {
             var user = _httpContextAccessor.HttpContext.User;

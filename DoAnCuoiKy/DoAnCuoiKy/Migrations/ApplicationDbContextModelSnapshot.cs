@@ -79,6 +79,9 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<string>("UpdateUser")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("UserSearchHistoryId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int?>("YearPublished")
                         .HasColumnType("int");
 
@@ -94,6 +97,12 @@ namespace DoAnCuoiKy.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("PublisherId");
+
+                    b.HasIndex("Title")
+                        .IsUnique()
+                        .HasFilter("[Title] IS NOT NULL");
+
+                    b.HasIndex("UserSearchHistoryId");
 
                     b.ToTable("books");
                 });
@@ -117,6 +126,7 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -131,17 +141,21 @@ namespace DoAnCuoiKy.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("bookAuthors");
                 });
 
-            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCartItem", b =>
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCart", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BookItemId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<byte>("CartStatus")
+                        .HasMaxLength(20)
+                        .HasColumnType("tinyint");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
@@ -150,6 +164,9 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ExpiredDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool?>("IsDeleted")
@@ -169,10 +186,55 @@ namespace DoAnCuoiKy.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookItemId")
-                        .IsUnique();
+                    b.HasIndex("UserId", "CartStatus")
+                        .HasDatabaseName("IX_BookCarts_UserId_Status");
 
-                    b.HasIndex("UserId");
+                    b.ToTable("bookCarts");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCartItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CartId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Quantity")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("CartId");
 
                     b.ToTable("bookCartItems");
                 });
@@ -197,7 +259,7 @@ namespace DoAnCuoiKy.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
@@ -209,6 +271,9 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("bookCategories");
                 });
@@ -245,6 +310,10 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TitleChapter")
+                        .IsUnique()
+                        .HasFilter("[TitleChapter] IS NOT NULL");
 
                     b.ToTable("bookChapters");
                 });
@@ -617,15 +686,6 @@ namespace DoAnCuoiKy.Migrations
                     b.Property<Guid>("LibrarianId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<byte?>("PaymentStatus")
-                        .HasColumnType("tinyint");
-
-                    b.Property<byte?>("PaymentType")
-                        .HasColumnType("tinyint");
-
-                    b.Property<string>("TransactionId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
@@ -954,6 +1014,67 @@ namespace DoAnCuoiKy.Migrations
                     b.ToTable("shelfSections");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Payment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal?>("BorrowAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid?>("BorrowingId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("OrderId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<byte?>("PaymentType")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("TransactionNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VnpResponseCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VnpText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("vnpBankCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BorrowingId")
+                        .IsUnique()
+                        .HasFilter("[BorrowingId] IS NOT NULL");
+
+                    b.ToTable("payments");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Publisher", b =>
                 {
                     b.Property<Guid>("Id")
@@ -998,6 +1119,10 @@ namespace DoAnCuoiKy.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PublisherName")
+                        .IsUnique()
+                        .HasFilter("[PublisherName] IS NOT NULL");
 
                     b.ToTable("publishers");
                 });
@@ -1056,6 +1181,359 @@ namespace DoAnCuoiKy.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("notificationToUsers");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.BookRecommendation", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("BorrowedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ClickedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ExpiresAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsBorrowed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsClicked")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsViewed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModelVersion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Rank")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<byte>("RecommendationType")
+                        .HasColumnType("tinyint");
+
+                    b.Property<decimal>("Score")
+                        .HasPrecision(5, 2)
+                        .HasColumnType("decimal(5,2)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ViewedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("CreateDate")
+                        .HasDatabaseName("IX_BookRecommendation_Date");
+
+                    b.HasIndex("UserId", "CreateDate")
+                        .HasDatabaseName("IX_BookRecommendation_User_Date");
+
+                    b.HasIndex("UserId", "Score")
+                        .HasDatabaseName("IX_BookRecommendation_User_Score");
+
+                    b.ToTable("bookRecommendations");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.UserBookInteraction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte>("InteractionType")
+                        .HasColumnType("tinyint");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReviewText")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId")
+                        .HasDatabaseName("IX_UserBookInteraction_BookId");
+
+                    b.HasIndex("CreateDate")
+                        .HasDatabaseName("IX_UserBookInteraction_Date");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("IX_UserBookInteraction_UserId");
+
+                    b.HasIndex("UserId", "InteractionType")
+                        .HasDatabaseName("IX_UserBookInteraction_User_Type");
+
+                    b.HasIndex("BookId", "InteractionType", "CreateDate")
+                        .HasDatabaseName("IX_UserBookInteraction_Book_Type_Date");
+
+                    b.ToTable("userBookInteractions");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.UserCategoryPreference", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("BorrowCount")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastInteraction")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("PreferenceScore")
+                        .HasPrecision(5, 2)
+                        .HasColumnType("decimal(5,2)");
+
+                    b.Property<int>("ReadingMinutes")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ViewCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId", "CategoryId")
+                        .IsUnique()
+                        .HasDatabaseName("IX_UserCategoryPreference_User_Category");
+
+                    b.HasIndex("UserId", "PreferenceScore")
+                        .HasDatabaseName("IX_UserCategoryPreference_User_Score");
+
+                    b.ToTable("userCategoryPreferences");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.UserReadingSession", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DurationSeconds")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsCompleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("LastPageNumber")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ReadingProgress")
+                        .HasPrecision(5, 2)
+                        .HasColumnType("decimal(5,2)");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TotalPages")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId")
+                        .HasDatabaseName("IX_UserReadingSession_BookId");
+
+                    b.HasIndex("StartTime")
+                        .HasDatabaseName("IX_UserReadingSession_StartTime");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("IX_UserReadingSession_UserId");
+
+                    b.HasIndex("UserId", "BookId", "StartTime")
+                        .HasDatabaseName("IX_UserReadingSession_Composite");
+
+                    b.ToTable("userReadingSessions");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.UserSearchHistory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IpAddress")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ResultCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SearchKeyword")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("SearchType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdateUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("deleteUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreateDate")
+                        .HasDatabaseName("IX_UserSearchHistory_SearchedAt");
+
+                    b.HasIndex("SearchKeyword")
+                        .HasDatabaseName("IX_UserSearchHistory_Keyword");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("IX_UserSearchHistory_UserId");
+
+                    b.HasIndex("UserId", "CreateDate")
+                        .HasDatabaseName("IX_UserSearchHistory_User_Date");
+
+                    b.ToTable("userSearchHistories");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", b =>
@@ -1211,6 +1689,10 @@ namespace DoAnCuoiKy.Migrations
                         .WithMany("Books")
                         .HasForeignKey("PublisherId");
 
+                    b.HasOne("DoAnCuoiKy.Model.Entities.UserBehavior.UserSearchHistory", null)
+                        .WithMany("Books")
+                        .HasForeignKey("UserSearchHistoryId");
+
                     b.Navigation("BookAuthor");
 
                     b.Navigation("BookChapter");
@@ -1220,23 +1702,34 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("Publisher");
                 });
 
-            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCartItem", b =>
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCart", b =>
                 {
-                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BookItem", "BookItem")
-                        .WithOne("BookCartItem")
-                        .HasForeignKey("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCartItem", "BookItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "User")
-                        .WithMany("bookCartItems")
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "Librarian")
+                        .WithMany("bookCarts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("BookItem");
+                    b.Navigation("Librarian");
+                });
 
-                    b.Navigation("User");
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCartItem", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", "Book")
+                        .WithMany("BookCartItems")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCart", "BookCart")
+                        .WithMany("BookCartItems")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("BookCart");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookFile", b =>
@@ -1392,6 +1885,15 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("Shelf");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Payment", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Borrowing", "Borrowing")
+                        .WithOne("Payment")
+                        .HasForeignKey("DoAnCuoiKy.Model.Entities.InformationLibrary.Payment", "BorrowingId");
+
+                    b.Navigation("Borrowing");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Notification.NotificationToUser", b =>
                 {
                     b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Borrowing", "borrowing")
@@ -1409,6 +1911,91 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("borrowing");
 
                     b.Navigation("librarian");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.BookRecommendation", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", "Book")
+                        .WithMany("bookRecommendations")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "User")
+                        .WithMany("bookRecommendations")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.UserBookInteraction", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", "Book")
+                        .WithMany("userBookInteractions")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "Librarian")
+                        .WithMany("userBookInteractions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Librarian");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.UserCategoryPreference", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCategory", "BookCategory")
+                        .WithMany("userCategoryPreferences")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "Librarian")
+                        .WithMany("categoryPreference")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BookCategory");
+
+                    b.Navigation("Librarian");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.UserReadingSession", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", "Book")
+                        .WithMany("userReadingSessions")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "Librarian")
+                        .WithMany("userReadingSessions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Librarian");
+                });
+
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.UserSearchHistory", b =>
+                {
+                    b.HasOne("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", "Librarian")
+                        .WithMany("userSearchHistories")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Librarian");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", b =>
@@ -1433,11 +2020,19 @@ namespace DoAnCuoiKy.Migrations
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Book", b =>
                 {
+                    b.Navigation("BookCartItems");
+
                     b.Navigation("ImportTransactions");
 
                     b.Navigation("bookFiles");
 
                     b.Navigation("bookItems");
+
+                    b.Navigation("bookRecommendations");
+
+                    b.Navigation("userBookInteractions");
+
+                    b.Navigation("userReadingSessions");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookAuthor", b =>
@@ -1445,9 +2040,16 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("books");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCart", b =>
+                {
+                    b.Navigation("BookCartItems");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookCategory", b =>
                 {
                     b.Navigation("books");
+
+                    b.Navigation("userCategoryPreferences");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookChapter", b =>
@@ -1457,9 +2059,6 @@ namespace DoAnCuoiKy.Migrations
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.BookItem", b =>
                 {
-                    b.Navigation("BookCartItem")
-                        .IsRequired();
-
                     b.Navigation("BookReservations");
 
                     b.Navigation("borrowingDetails");
@@ -1468,6 +2067,8 @@ namespace DoAnCuoiKy.Migrations
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.InformationLibrary.Borrowing", b =>
                 {
                     b.Navigation("BookPickupSchedule");
+
+                    b.Navigation("Payment");
 
                     b.Navigation("borrowingDetails");
 
@@ -1511,15 +2112,30 @@ namespace DoAnCuoiKy.Migrations
                     b.Navigation("Books");
                 });
 
+            modelBuilder.Entity("DoAnCuoiKy.Model.Entities.UserBehavior.UserSearchHistory", b =>
+                {
+                    b.Navigation("Books");
+                });
+
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Librarian", b =>
                 {
-                    b.Navigation("bookCartItems");
+                    b.Navigation("bookCarts");
+
+                    b.Navigation("bookRecommendations");
 
                     b.Navigation("borrowings");
+
+                    b.Navigation("categoryPreference");
 
                     b.Navigation("fines");
 
                     b.Navigation("notifications");
+
+                    b.Navigation("userBookInteractions");
+
+                    b.Navigation("userReadingSessions");
+
+                    b.Navigation("userSearchHistories");
                 });
 
             modelBuilder.Entity("DoAnCuoiKy.Model.Entities.Usermanage.Role", b =>

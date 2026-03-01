@@ -23,7 +23,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
         public async Task<BaseResponse<List<FineResponse>>> CreateFine(Guid borrowingDetailId, List<FineRequest> fineRequests)
         {
             BaseResponse<List<FineResponse>> response = new BaseResponse<List<FineResponse>>();
-            BorrowingDetail findBorrowingDetail = await _context.borrowingDetails.Include(x=>x.borrowing).ThenInclude(x=>x.Librarian).FirstOrDefaultAsync(x => x.Id == borrowingDetailId);
+            BorrowingDetail findBorrowingDetail = await _context.borrowingDetails.Include(x=>x.borrowing).ThenInclude(x=>x.Librarian).Include(x=>x.bookItem).ThenInclude(x=>x.Book).FirstOrDefaultAsync(x => x.Id == borrowingDetailId);
             if(findBorrowingDetail == null)
             {
                 response.IsSuccess = false;
@@ -37,7 +37,7 @@ namespace DoAnCuoiKy.Service.InformationLibrary
                 findBorrowingDetail.IsFined = true;
             }
             _context.borrowingDetails.Update(findBorrowingDetail);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             int daysLate = 0;
             List<FineResponse> fineResponses = new List<FineResponse>();
             FineResponse fineResponse = new FineResponse();

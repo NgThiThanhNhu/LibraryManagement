@@ -9,7 +9,7 @@ namespace DoAnCuoiKy.Configuration.UserBehavior
         public void Configure(EntityTypeBuilder<BookRecommendation> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.HasOne(x => x.Librarian)
+            builder.HasOne(x => x.User)
                 .WithMany(l => l.bookRecommendations)
                 .HasForeignKey(x => x.UserId);
             builder.HasOne(x=>x.Book)

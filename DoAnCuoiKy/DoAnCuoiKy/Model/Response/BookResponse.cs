@@ -6,10 +6,6 @@ namespace DoAnCuoiKy.Model.Response
     {
         public Guid? Id { get; set; }
         public string? Title { get; set; }
-        public Guid? CategoryId { get; set; }
-        public Guid? BookChapterId { get; set; }
-        public Guid? PublisherId { get; set; }
-        public Guid? BookAuthorId { get; set; }
         public string? AuthorName { get; set; }
         public string? PublisherName { get; set; }
         public int? YearPublished { get; set; }
@@ -18,11 +14,10 @@ namespace DoAnCuoiKy.Model.Response
         public decimal? UnitPrice { get; set; }
         public string? CategoryName { get; set; }
         public string? TitleBookChapter { get; set; }
-        public string Description { get; set; }
         public string Slug { get; set; }
         public List<Guid> BookFileId {  get; set; } = new List<Guid>();
         public List<string> ImageUrls { get; set; } = new List<string>();
-        public List<string> FileUrls { get; set; } = new List<string>();
+        //public List<string> FileUrls { get; set; } = new List<string>();
 
     }
 }

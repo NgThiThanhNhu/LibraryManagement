@@ -1,0 +1,2642 @@
+[
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.Authentication.AuthenticationController",
+    "Method": "ConfirmOTP",
+    "RelativePath": "api/Authentication/ConfirmOtp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "otpRequest",
+        "Type": "DoAnCuoiKy.Model.Request.OtpRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.OtpResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.Authentication.AuthenticationController",
+    "Method": "Login",
+    "RelativePath": "api/Authentication/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "DoAnCuoiKy.Model.Request.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.LoginResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.Authentication.AuthenticationController",
+    "Method": "Logout",
+    "RelativePath": "api/Authentication/Logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.LogoutResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.Authentication.AuthenticationController",
+    "Method": "Register",
+    "RelativePath": "api/Authentication/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerRequest",
+        "Type": "DoAnCuoiKy.Model.Request.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.RegisterResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.Authentication.AuthenticationInfoController",
+    "Method": "Me",
+    "RelativePath": "api/AuthenticationInfo/authenticationInfor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.Notification.AutoNotificationController",
+    "Method": "SendNotificationToEmail",
+    "RelativePath": "api/AutoNotification",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.NotificationToUserResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookController",
+    "Method": "addBook",
+    "RelativePath": "api/Book/AddBook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookController",
+    "Method": "deleteBook",
+    "RelativePath": "api/Book/DeleteBook/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookController",
+    "Method": "getAllBook",
+    "RelativePath": "api/Book/GetAllBook",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BookResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookController",
+    "Method": "getBookBySlug",
+    "RelativePath": "api/Book/GetBookBySlug/{slug}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookDetailResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookController",
+    "Method": "updateBook",
+    "RelativePath": "api/Book/UpdateBook/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "bookRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookAuthorController",
+    "Method": "addBookAuthor",
+    "RelativePath": "api/BookAuthor/AddBookAuthor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "authorRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookAuthorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookAuthorResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookAuthorController",
+    "Method": "deleteBookAuthor",
+    "RelativePath": "api/BookAuthor/DeleteBookAuthor/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookAuthorResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookAuthorController",
+    "Method": "getAllBookAuthor",
+    "RelativePath": "api/BookAuthor/GetAllBookAuthor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BookAuthorResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookAuthorController",
+    "Method": "getBookAuthorById",
+    "RelativePath": "api/BookAuthor/GetBookAuthorById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookAuthorResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookAuthorController",
+    "Method": "updateBookAuthor",
+    "RelativePath": "api/BookAuthor/UpdateBookAuthor/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "authorRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookAuthorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookAuthorResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCartController",
+    "Method": "CheckoutBookCart",
+    "RelativePath": "api/BookCart/checkout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "checkoutBookCartResquest",
+        "Type": "DoAnCuoiKy.Model.Request.CheckoutBookCartResquest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.CheckoutBookCartResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCartController",
+    "Method": "createBookCart",
+    "RelativePath": "api/BookCart/createCart",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookCartRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookCartRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookCartResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCartController",
+    "Method": "getBookCartActive",
+    "RelativePath": "api/BookCart/GetBookCartActive",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookCartResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCartItemController",
+    "Method": "UpdateQuantity",
+    "RelativePath": "api/BookCartItem/{bookCartItemId}/quantity",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookCartItemId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateQuantityRequest",
+        "Type": "DoAnCuoiKy.Model.Request.UpdateQuantityRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCartItemController",
+    "Method": "RemoveItem",
+    "RelativePath": "api/BookCartItem/bookCartItem/{bookCartItemId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookCartItemId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCartItemController",
+    "Method": "ClearAllBookCartItem",
+    "RelativePath": "api/BookCartItem/clear/{bookCartId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookCartId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCategoryController",
+    "Method": "addBookCategory",
+    "RelativePath": "api/BookCategory/AddBookCategory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookCategoryRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookCategoryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookCategoryResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCategoryController",
+    "Method": "deleteBookCategory",
+    "RelativePath": "api/BookCategory/DeleteBookCategory/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookCategoryResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCategoryController",
+    "Method": "getAllBookCategory",
+    "RelativePath": "api/BookCategory/GetAllBookCategory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BookCategoryResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCategoryController",
+    "Method": "getBookCategoryById",
+    "RelativePath": "api/BookCategory/GetBookCategoryById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookCategoryResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookCategoryController",
+    "Method": "updateBookCategory",
+    "RelativePath": "api/BookCategory/UpdateBookCategory/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "categoryRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookCategoryRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookCategoryResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookChapterController",
+    "Method": "addBookChapter",
+    "RelativePath": "api/BookChapter/AddBookChapter",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chapterRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookChapterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookChapterResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookChapterController",
+    "Method": "deleteBookChapter",
+    "RelativePath": "api/BookChapter/DeleteBookChapter/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookChapterResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookChapterController",
+    "Method": "getAllBookChapter",
+    "RelativePath": "api/BookChapter/GetAllBookChapter",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BookChapterResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookChapterController",
+    "Method": "getBookChapterById",
+    "RelativePath": "api/BookChapter/GetBookChapterById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookChapterResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookChapterController",
+    "Method": "updateBookChapter",
+    "RelativePath": "api/BookChapter/UpdateBookChapter/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "bookChapterRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookChapterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookChapterResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.BookExportTransactionController",
+    "Method": "CreateBookExportTransaction",
+    "RelativePath": "api/BookExportTransaction/createBookExportTransaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BorrowingDetailId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.BookExportTransactionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookFileController",
+    "Method": "GetPdfFile",
+    "RelativePath": "api/BookFile/pdf/{bookFileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookFileId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.ReadFileResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookFileController",
+    "Method": "uploadFileAndImage",
+    "RelativePath": "api/BookFile/UploadFileAndImage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "UploadFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "BookFileType",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookFileResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookImportTransactionController",
+    "Method": "addBookImportTransaction",
+    "RelativePath": "api/BookImportTransaction/AddBookImportTransaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "importTransactionRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookImportTransactionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookImportTransactionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookImportTransactionController",
+    "Method": "getAllBookImportTransaction",
+    "RelativePath": "api/BookImportTransaction/GetAllBookImportTransaction",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BookImportTransactionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookImportTransactionController",
+    "Method": "getBookImportTransactionById",
+    "RelativePath": "api/BookImportTransaction/GetBookImportTransactionById/{BookId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookImportTransactionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookItemController",
+    "Method": "addBookItem",
+    "RelativePath": "api/BookItem/AddBookItem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookItemRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookItemRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BookItemResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookItemController",
+    "Method": "ChooseBookItemByBookId",
+    "RelativePath": "api/BookItem/ChooseBookItemByBookId/{bookId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookItemResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookItemController",
+    "Method": "deleteBookItem",
+    "RelativePath": "api/BookItem/DeleteBookItem/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookItemResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookItemController",
+    "Method": "getAllBookItem",
+    "RelativePath": "api/BookItem/GetAllBookItem",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BookItemResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookItemController",
+    "Method": "updateBookItemStatus",
+    "RelativePath": "api/BookItem/UpdateBookItem/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "bookItemRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookItemRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookItemResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookPickupScheduleController",
+    "Method": "CreateSchedule",
+    "RelativePath": "api/BookPickupSchedule/createSchedule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookPickupScheduleRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BookPickupScheduleRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookPickupScheduleResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookPickupScheduleController",
+    "Method": "DeleteScheduled",
+    "RelativePath": "api/BookPickupSchedule/deleteScheduled/{borrowingId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "borrowingId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookPickupScheduleResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookPickupScheduleController",
+    "Method": "GetScheduledByBorrowingId",
+    "RelativePath": "api/BookPickupSchedule/getScheduledByBorrowingId/{borrowingId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "borrowingId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookPickupScheduleResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BookPickupScheduleController",
+    "Method": "UpdateScheduled",
+    "RelativePath": "api/BookPickupSchedule/updateScheduled/{borrowingId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "borrowingId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BookPickupScheduleResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.BookShelfController",
+    "Method": "addBookShelf",
+    "RelativePath": "api/BookShelf/AddBookShelf",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookShelfRequest",
+        "Type": "DoAnCuoiKy.Model.Request.KhoRequest.BookShelfRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.BookShelfResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.BookShelfController",
+    "Method": "deleteBookShelf",
+    "RelativePath": "api/BookShelf/DeleteBookShelf/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.BookShelfResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.BookShelfController",
+    "Method": "getAllBookShelf",
+    "RelativePath": "api/BookShelf/GetAllBookShelf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.BookShelfResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.BookShelfController",
+    "Method": "getBookShelfById",
+    "RelativePath": "api/BookShelf/GetBookShelfById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.BookShelfResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.BookShelfController",
+    "Method": "updateBookShelf",
+    "RelativePath": "api/BookShelf/UpdateBookShelf/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "bookShelfRequest",
+        "Type": "DoAnCuoiKy.Model.Request.KhoRequest.BookShelfRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.BookShelfResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BorrowingController",
+    "Method": "createBorrowing",
+    "RelativePath": "api/Borrowing/createBorrowing",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "borrowingRequest",
+        "Type": "DoAnCuoiKy.Model.Request.BorrowingRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.BorrowingResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BorrowingController",
+    "Method": "GetAllAdminBorrowing",
+    "RelativePath": "api/Borrowing/getAllBorrowing",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BorrowingResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BorrowingController",
+    "Method": "GetAllUserBorrowing",
+    "RelativePath": "api/Borrowing/getAllUserBorrowing",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BorrowingUserResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BorrowingController",
+    "Method": "updateBorrowing",
+    "RelativePath": "api/Borrowing/updateBorrowing/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "replyBorrowingRequest",
+        "Type": "DoAnCuoiKy.Model.Request.ReplyBorrowingRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.ReplyBorrowingResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BorrowingDetailController",
+    "Method": "GetBorrowingDetailsForFine",
+    "RelativePath": "api/BorrowingDetail/borrowings/{borrowingId}/details/fine",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "borrowingId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BorrowingDetailForFineResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.BorrowingDetailController",
+    "Method": "GetBorrowingDetailsForUser",
+    "RelativePath": "api/BorrowingDetail/borrowings/{borrowingId}/details/user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "borrowingId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.BorrowingDetailResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.DashboardController",
+    "Method": "GetCategoryDistrubute",
+    "RelativePath": "api/Dashboard/category-distribution",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.CategoryDistributionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.DashboardController",
+    "Method": "GetMostCommentedBook",
+    "RelativePath": "api/Dashboard/most-commented-books",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.MostCommentBookResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.DashboardController",
+    "Method": "GetCurrentInformations",
+    "RelativePath": "api/Dashboard/system-information",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.DashboardResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.FineController",
+    "Method": "CreateFine",
+    "RelativePath": "api/Fine/createFine",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "borrowingDetailId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "fineRequests",
+        "Type": "System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Request.FineRequest, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.FineResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.FloorController",
+    "Method": "addFloor",
+    "RelativePath": "api/Floor/AddFloor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "floorRequest",
+        "Type": "DoAnCuoiKy.Model.Request.KhoRequest.FloorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.FloorResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.FloorController",
+    "Method": "deleteFloor",
+    "RelativePath": "api/Floor/DeleteFloor/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.FloorResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.FloorController",
+    "Method": "getAllFloor",
+    "RelativePath": "api/Floor/GetAllFloor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.FloorResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.FloorController",
+    "Method": "getFloorById",
+    "RelativePath": "api/Floor/GetFloorById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.FloorResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.FloorController",
+    "Method": "updateFloor",
+    "RelativePath": "api/Floor/UpdateFloor/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "floorRequest",
+        "Type": "DoAnCuoiKy.Model.Request.KhoRequest.FloorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.FloorResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.Notification.NotificationToUserController",
+    "Method": "CreateNotification",
+    "RelativePath": "api/NotificationToUser/createNotification",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "notificationToUserRequest",
+        "Type": "DoAnCuoiKy.Model.Request.NotificationToUserRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.NotificationToUserResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.Notification.NotificationToUserController",
+    "Method": "GetAllNotifications",
+    "RelativePath": "api/NotificationToUser/getAllNotifications",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.NotificationToUserResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.Notification.NotificationToUserController",
+    "Method": "ReadNotification",
+    "RelativePath": "api/NotificationToUser/readnotification/{NotificationId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "NotificationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.NotificationToUserResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.PaymentController",
+    "Method": "CashPayment",
+    "RelativePath": "api/Payment/create-cashpayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paymentRequest",
+        "Type": "DoAnCuoiKy.Model.Request.PaymentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.PaymentResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.PaymentController",
+    "Method": "CreatePayment",
+    "RelativePath": "api/Payment/create-vnpayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paymentRequest",
+        "Type": "DoAnCuoiKy.Model.Request.PaymentRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.PaymentResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.PaymentController",
+    "Method": "VnPayReturn",
+    "RelativePath": "api/Payment/ReturnUrl",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.PublisherController",
+    "Method": "addPublisher",
+    "RelativePath": "api/Publisher/AddPublisher",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "publisherRequest",
+        "Type": "DoAnCuoiKy.Model.Request.PublisherRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.PublisherResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.PublisherController",
+    "Method": "deletePublisher",
+    "RelativePath": "api/Publisher/DeletePublisher/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.PublisherResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.PublisherController",
+    "Method": "getAllPublisher",
+    "RelativePath": "api/Publisher/GetAllPublisher",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.PublisherResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.PublisherController",
+    "Method": "getPublisherById",
+    "RelativePath": "api/Publisher/GetPublisherById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.PublisherResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.PublisherController",
+    "Method": "updatePublisher",
+    "RelativePath": "api/Publisher/UpdatePublisher/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "publisherRequest",
+        "Type": "DoAnCuoiKy.Model.Request.PublisherRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.PublisherResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.RecommendationController",
+    "Method": "TrackClick",
+    "RelativePath": "api/Recommendation/{recommendationId}/click",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recommendationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.RecommendationController",
+    "Method": "TrackView",
+    "RelativePath": "api/Recommendation/{recommendationId}/view",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recommendationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.RecommendationController",
+    "Method": "GetSavedRecommendations",
+    "RelativePath": "api/Recommendation/for-me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "topN",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.UserBehaviorResponse.RecommendationResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.RecommendationController",
+    "Method": "ManualGenerate",
+    "RelativePath": "api/Recommendation/generate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.RecommendationController",
+    "Method": "ManualGenerateAll",
+    "RelativePath": "api/Recommendation/generate-all",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.RecommendationController",
+    "Method": "ManualTrain",
+    "RelativePath": "api/Recommendation/train",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.RoleController",
+    "Method": "addRole",
+    "RelativePath": "api/Role/AddRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleRequest",
+        "Type": "DoAnCuoiKy.Model.Request.RoleRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.RoleResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.RoleController",
+    "Method": "getAllRole",
+    "RelativePath": "api/Role/GetAllRole",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.RoleResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.RoomController",
+    "Method": "AddRoom",
+    "RelativePath": "api/Room/AddRoom",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomRequest",
+        "Type": "DoAnCuoiKy.Model.Request.KhoRequest.RoomRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.RoomResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.RoomController",
+    "Method": "DeleteRoom",
+    "RelativePath": "api/Room/DeleteRoom/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.RoomResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.RoomController",
+    "Method": "GetAllRoom",
+    "RelativePath": "api/Room/GetAllRoom",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.RoomResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.RoomController",
+    "Method": "GetRoomById",
+    "RelativePath": "api/Room/GetRoomById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.RoomResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.RoomController",
+    "Method": "UpdateRoom",
+    "RelativePath": "api/Room/UpdateRoom/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "roomRequest",
+        "Type": "DoAnCuoiKy.Model.Request.KhoRequest.RoomRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.RoomResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.ShelfController",
+    "Method": "addShelf",
+    "RelativePath": "api/Shelf/AddShelf",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "shelfRequest",
+        "Type": "DoAnCuoiKy.Model.Request.KhoRequest.ShelfRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.ShelfResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.ShelfController",
+    "Method": "deleteShelf",
+    "RelativePath": "api/Shelf/DeleteShelf/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.ShelfResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.ShelfController",
+    "Method": "getAllShelf",
+    "RelativePath": "api/Shelf/GetAllShelf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.ShelfResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.ShelfController",
+    "Method": "getShelfById",
+    "RelativePath": "api/Shelf/GetShelfById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.ShelfResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.ShelfController",
+    "Method": "updateShelf",
+    "RelativePath": "api/Shelf/UpdateShelf/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "shelfRequest",
+        "Type": "DoAnCuoiKy.Model.Request.KhoRequest.ShelfRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.ShelfResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.ShelfSectionController",
+    "Method": "addShelfSection",
+    "RelativePath": "api/ShelfSection/AddShelfSection",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "shelfSectionRequest",
+        "Type": "DoAnCuoiKy.Model.Request.KhoRequest.ShelfSectionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.ShelfSectionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.ShelfSectionController",
+    "Method": "deleteShelfSection",
+    "RelativePath": "api/ShelfSection/DeleteShelfSection/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.ShelfSectionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.ShelfSectionController",
+    "Method": "getAllShelfSection",
+    "RelativePath": "api/ShelfSection/GetAllShelfSection",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.ShelfSectionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.ShelfSectionController",
+    "Method": "getShelfSectionById",
+    "RelativePath": "api/ShelfSection/GetShelfSectionById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.ShelfSectionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.KhoController.ShelfSectionController",
+    "Method": "updateShelfSection",
+    "RelativePath": "api/ShelfSection/UpdateShelfSection/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "shelfSectionRequest",
+        "Type": "DoAnCuoiKy.Model.Request.KhoRequest.ShelfSectionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.KhoResponse.ShelfSectionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.UserBookInteractionController",
+    "Method": "CreateRating",
+    "RelativePath": "api/UserBookInteraction/createComment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userBookInteractionRequest",
+        "Type": "DoAnCuoiKy.Model.Request.UserBookInteractionRequest.UserBookInteractionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.UserBehaviorRequest.UserBookInteractionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.UserBookInteractionController",
+    "Method": "GetAllRating",
+    "RelativePath": "api/UserBookInteraction/getListComment/{BookId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[DoAnCuoiKy.Model.Response.UserBehaviorRequest.UserBookInteractionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.UserReadingSessionController",
+    "Method": "GetLastPosition",
+    "RelativePath": "api/UserReadingSession/book/{bookId}/last-position",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.UserBehaviorResponse.UserReadingSessionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.UserReadingSessionController",
+    "Method": "CreateReadingSession",
+    "RelativePath": "api/UserReadingSession/createReadingSession",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "readingSessionRequest",
+        "Type": "DoAnCuoiKy.Model.Request.UserBookInteractionRequest.UserReadingSessionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.UserBehaviorResponse.UserReadingSessionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.UserBehavior.UserReadingSessionController",
+    "Method": "UpdateReadingSession",
+    "RelativePath": "api/UserReadingSession/updateReadingSession/{sessionId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sessionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateRequest",
+        "Type": "DoAnCuoiKy.Model.Request.UserBookInteractionRequest.UserReadingSessionUpdateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DoAnCuoiKy.Model.Response.BaseResponse\u00601[[DoAnCuoiKy.Model.Response.UserBehaviorResponse.UserReadingSessionResponse, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DoAnCuoiKy.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DoAnCuoiKy.WeatherForecast, DoAnCuoiKy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
